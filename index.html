@@ -196,6 +196,9 @@
 .vp-scope .cc-ddmenu li{font:var(--vpBody1);color:var(--vpValmoInk);padding:10px 12px;border-radius:6px;cursor:pointer;white-space:nowrap}
 .vp-scope .cc-ddmenu li:hover{background:var(--vpGreyLight02)}
 .vp-scope .cc-ddmenu li[aria-selected="true"]{background:var(--vpValmoBlueT3);color:var(--vpBrand);font-weight:600}
+.vp-scope .cc-fx{display:flex;flex-direction:column;gap:4px;padding:12px 16px;border:1px solid var(--vpGreyLight01);border-radius:8px;background:var(--vpGreyLight02)}.vp-scope .cc-fx .k{font:var(--vpHeading5);color:var(--vpGreyMid02);text-transform:uppercase;letter-spacing:.04em}.vp-scope .cc-fx .t{font:var(--vpBody1);color:var(--vpGreyDark02)}
+.vp-scope .vp-metriccard .pair{gap:16px}.vp-scope .vp-metriccard .pair>div{min-width:0}.vp-scope .vp-metriccard .pair>div:first-child{flex:1}.vp-scope .vp-metriccard .pair>div:last-child{flex-shrink:0}.vp-scope .vp-metriccard .pair .v{flex-wrap:wrap;row-gap:4px}.vp-scope .vp-metriccard .pair>div:last-child .v{justify-content:flex-end;text-align:right}
+.vp-scope .vp-metriccard .pair>div.cc-pl{flex:1 1 0 !important;min-width:0}.vp-scope .vp-metriccard .pair>div.cc-pr{flex:0 0 auto !important}
 </style>
 <style>/* ============ vp- component kit (Valmo Partner clone) ============ */
 
@@ -1666,7 +1669,7 @@ var W={
 var DEF=[
  {k:'d0',tip:'Attempt every order on the day it arrives',nm:'D0 Attempt %',good:function(v){return v>=90},tg:'90%',link:'How to Improve',def:'Orders attempted on the day they reach your DC.'},
  {k:'fad',tip:'Call COD customers before delivery',nm:'COD FAD %',good:function(v){return v>=78},tg:'78%',link:'How to Improve',def:'COD orders delivered on the first attempt.'},
- {k:'load',tip3:'__LOAD__',nm:'Pilot load %',good:function(v){return v<=20},tg:'≤ 20%',link:'How to Improve',isNew:true,def:'Pilots doing more than 280 orders a week.'},
+ {k:'load',tip3:'__LOAD__',nm:'Overload Pilots',good:function(v){return v<=20},tg:'≤ 20%',link:'How to Improve',isNew:true,def:'Pilots doing more than 280 orders a week.'},
  {k:'mis',tip:'Check the address before sending to another hub',nm:'Misroute within Polygon %',good:function(v){return v<=1},tg:'≤ 1%',link:'How to Improve',isNew:true,def:'Orders you sent to another hub, but later delivered in your area.'}
 ];
 // Pilot load % counts toward cuts only from 29th Sep (week 39)
@@ -1679,12 +1682,12 @@ var arrow='<svg viewBox="0 0 8 14" fill="none" aria-hidden="true"><path d="M1 1l
 function render(w){var d=W[w],a=applied(d,w);
  var V4=false,ORD=(window.CC_VAR==2)?[2,0,1,3]:[0,1,2,3];
  var mk=function(i,d,w){var m=DEF[i];var v=d.m[i][0],cut=d.m[i][1],ok=m.good(v),isA=(i===a.i),na=!applicable(m,w);
-  var val=(m.k=='load'?v+'%':v.toFixed(1)+'%');
+  var val=(m.k=='load'?parseInt(d.pl)+' pilots':v.toFixed(1)+'%');
   var chip=ok?'<span class="vp-statchip good">Good'+flag('#43A92C')+'</span>':'<span class="vp-statchip bad">Not Good'+flag('#F44240')+'</span>';
   var lab=na?(d.cur?'Capacity Cuts (not applicable this week)':'Capacity Cuts (not applicable, new metric)'):'Capacity Cuts';
   var num=ok||!cut?'<span class="num ok">No impact</span>':'<span class="num'+(isA?'':' muted')+'">'+cut.toLocaleString('en-IN')+' orders</span>';
   return '<div class="vp-metriccard '+(ok?'grey':'missed')+'"><div class="head"><span class="nm">'+m.nm+'<span class="cc-info" data-def="'+m.def+'">i</span></span><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी</span></button></div>'+
-   '<div class="pair"><div><div class="k">'+(m.k=='mis'?'<span class="cc-lag">Last week ('+d.lbl.replace(/(\d+)(st|nd|rd|th)/g,'$1').replace(' – ','–')+')</span>':'Current')+'</div><div class="v">'+val+(m.k=='load'?'<span style="font:var(--vpBody2);color:var(--vpGreyDark01)">('+d.pl+')</span>':'')+chip+'</div></div><div><div class="k">Target</div><div class="v"><span class="vp-gdd-target cc-tgt" data-def="The target '+m.nm+' is calculated based on best Valmo hub performance in your area">'+m.tg+'</span></div></div></div>'+
+   '<div class="pair"><div'+(m.k=='load'?' class="cc-pl"':'')+'><div class="k">'+(m.k=='mis'?'<span class="cc-lag">Last week ('+d.lbl.replace(/(\d+)(st|nd|rd|th)/g,'$1').replace(' – ','–')+')</span>':(m.k=='load'?'Above Limit (&gt; 280 orders/week)':'Current'))+'</div><div class="v">'+val+chip+'</div></div><div'+(m.k=='load'?' class="cc-pr"':'')+'><div class="k">Target</div><div class="v"><span class="vp-gdd-target cc-tgt" data-def="The target '+m.nm+' is calculated based on best Valmo hub performance in your area">'+(m.k=='load'?(function(){var n=window.CC_NEED?window.CC_NEED(w):0;return n?'+'+n+' pilot'+(n>1?'s':''):'0 pilots'})():m.tg)+'</span>'+'</div></div></div>'+
    ((window.CC_VAR>=2&&(m.tip||(window.CC_VAR==3&&m.tip3)))?'<div class="cc-cardtip"><span class="lbl">How to improve</span><div class="txt">'+(m.tip||((window.CC_NEED?window.CC_NEED(w):3)>0?'Add '+(window.CC_NEED?window.CC_NEED(w):3)+' new pilots and spread orders':'Keep pilots under 280 orders a week'))+'</div></div>':'<div class="more" data-trend="'+m.k+'"><span>'+m.link+'</span>'+arrow+'</div>')+'</div>'};var html=ORD.map(function(i){if(i===3){var pw=String(+w-1),pd=W[pw]||W['34'];return mk(3,pd,pw)}return mk(i,d,w)}).join('');
  document.getElementById('ccCards').innerHTML=html;
  var cc=document.getElementById('ccCards');cc.classList.toggle('v4',V4);
@@ -1700,7 +1703,7 @@ function render(w){var d=W[w],a=applied(d,w);
  window.CC_WEEK=w;
  var now=applied(d,w),nx=applied(d,d.cur?39:w),dl=d.cur?'This week ('+d.lbl+')':d.lbl;
  document.getElementById('ccBDate').textContent=dl;
- var N=now.amt.toLocaleString('en-IN'),wkw=d.cur?'this week':'that week',V=window.CC_VAR||1,MSG={1:'<b>'+N+' orders cut from your capacity '+wkw+'.</b> Improve the metrics below to get them back.',2:'You’re missing <b>'+N+' orders</b> due to capacity cuts. Fix the metrics below to win them back.',3:'<b>Get back '+N+' orders.</b> Improve the metrics below to remove your capacity cut.',4:'You’re missing <b>'+N+' orders</b> due to capacity cuts. Fix the metrics below to win them back.'};
+ var N=now.amt.toLocaleString('en-IN'),wkw=d.cur?'this week':'that week',V=window.CC_VAR||1,MSG={1:'<b>Get '+N+' orders more.</b> Improve all Capacity Cuts metrics below now.',2:'You’re missing <b>'+N+' orders</b> due to capacity cuts. Fix the metrics below to win them back.',3:'<b>Get back '+N+' orders.</b> Improve the metrics below to remove your capacity cut.',4:'You’re missing <b>'+N+' orders</b> due to capacity cuts. Fix the metrics below to win them back.'};
  document.getElementById('ccBMsg').innerHTML=now.amt?MSG[V]:'🎉 You have not lost any orders to capacity cuts. Keep all metrics on target.';
 
  document.getElementById('ccMTitle').textContent='Capacity Cuts Metrics · '+d.lbl;
@@ -1713,11 +1716,11 @@ render('38');
 </script>
 <script>
 (function(){
-var T={35:{d:'1st – 7th Sep',c:0,p:0,r:[['D0 Attempt','On target',0],['COD FAD','On target',0],['Pilot load','n/a',0],['Misroute','n/a',0]]},
- 36:{d:'8th – 14th Sep',c:420,p:6,r:[['D0 Attempt',280,0],['COD FAD',420,1],['Pilot load','n/a',0],['Misroute','n/a',0]]},
- 37:{d:'15th – 21st Sep',c:560,p:8,r:[['D0 Attempt',560,1],['COD FAD',420,0],['Pilot load','n/a',0],['Misroute','n/a',0]]},
- 38:{d:'22nd – 28th Sep',c:560,p:8,now:1,r:[['D0 Attempt',560,1],['COD FAD',420,0],['Pilot load','From 29th Sep',0],['Misroute','From 29th Sep',0]]},
- 39:{d:'29th Sep – 5th Oct',next:1,c:560,p:8,r:[['D0 Attempt',560,1],['COD FAD',420,0],['Pilot load',420,0],['Misroute',280,0]]}};
+var T={35:{d:'1st – 7th Sep',c:0,p:0,r:[['D0 Attempt','On target',0],['COD FAD','On target',0],['Overload Pilots','n/a',0],['Misroute','n/a',0]]},
+ 36:{d:'8th – 14th Sep',c:420,p:6,r:[['D0 Attempt',280,0],['COD FAD',420,1],['Overload Pilots','n/a',0],['Misroute','n/a',0]]},
+ 37:{d:'15th – 21st Sep',c:560,p:8,r:[['D0 Attempt',560,1],['COD FAD',420,0],['Overload Pilots','n/a',0],['Misroute','n/a',0]]},
+ 38:{d:'22nd – 28th Sep',c:560,p:8,now:1,r:[['D0 Attempt',560,1],['COD FAD',420,0],['Overload Pilots','From 29th Sep',0],['Misroute','From 29th Sep',0]]},
+ 39:{d:'29th Sep – 5th Oct',next:1,c:560,p:8,r:[['D0 Attempt',560,1],['COD FAD',420,0],['Overload Pilots',420,0],['Misroute',280,0]]}};
 var f=function(n){return n.toLocaleString('en-IN')};
 var tt=document.createElement('div');tt.className='cc-tt';document.body.appendChild(tt);
 document.querySelectorAll('.cc-trend .cc-wk').forEach(function(w,i){var k=35+i,d=T[k];
@@ -1903,11 +1906,11 @@ var CFG={
  fad:{t:'COD FAD %',unit:'%',target:78,good:function(v){return v>=78},s:series(78,-7,5,3),sub:'COD orders delivered on the first attempt',
    pcols:['Pilot','Active days','Avg OFD / day','Max limit / week','COD orders','Delivered 1st try','COD FAD %']},
  mis:{t:'Misroute within Polygon %',unit:'%',target:1,lower:1,good:function(v){return v<=1},s:series(1.9,0.9,0.8,11),sub:'Orders you sent to another hub, but later delivered in your area',pcols:[]},
- load:{t:'Pilot load %',lower:1,unit:'%',target:20,good:function(v){return v<=20},s:series(16,16,6,5),sub:'Share of active pilots on pace to exceed 280 orders/week',
+ load:{t:'Overload Pilots',lower:1,unit:'%',target:20,good:function(v){return v<=20},s:series(16,16,6,5),sub:'Share of active pilots on pace to exceed 280 orders/week',
    pcols:['Pilot','Active days','Avg OFD / day','Orders / week','Max limit / week','Status']}
 };
 var P=[['Ravi Kumar',4,64],['Suresh Yadav',4,61],['Anil Sharma',4,58],['Deepak Singh',4,56],['Manoj Verma',3,74],['Imran Khan',4,52],['Vikas Gupta',4,50],['Rohit Patel',3,72],['Arjun Das',4,49],['Sunil Mehta',3,38],['Meena Pillai',4,30],['Pooja Rani',2,34],['Karan Joshi',3,28],['Farhan Ali',2,22]];
-var TIP={d0:'<b>Attempt every order on the day it arrives. Start with orders pending since yesterday.</b>',fad:'<b>Call COD customers before delivery and confirm they have cash ready.</b>',mis:'<b>Check the address pin before sending an order to another hub. If it is inside your area, deliver it yourself.</b>',load:'<b>Add 1 active pilot and spread orders so no pilot goes above 280 orders a week.</b>'};var cur='d0',tab='hub',only=false;
+var TIP={d0:'<b>Attempt every order on the day it arrives. Start with orders pending since yesterday.</b>',fad:'<b>Call COD customers before delivery and confirm they have cash ready.</b>',mis:'<b>Check the address pin before sending an order to another hub. If it is inside your area, deliver it yourself.</b>',load:'<b>Add 1 active pilot and spread orders so no pilot goes above 280 orders a week.</b>'};var FX={d0:'(Total delivery attempts ÷ Total shipments in-scanned before 9AM) × 100',fad:'(COD shipments delivered on first OFD day ÷ COD shipments with first OFD last week) × 100',mis:'(Misrouted shipments delivered inside the DC\'s polygon ÷ Shipments manifested) × 100',load:'(FEs with weekly OFD > 280 ÷ FEs with weekly OFD > 0) × 100'};var cur='d0',tab='hub',only=false;
 function chip(ok){return ok?'<span class="cc-pill good">Good</span>':'<span class="cc-pill bad">Not Good</span>'}
 function hub(c){var s=c.s,mx=Math.max.apply(0,s.concat([c.target]))*1.08,mn=Math.min.apply(0,s.concat([c.target]))*.9;
  var h=function(v){return 100*(v-mn)/(mx-mn)};
@@ -1917,11 +1920,10 @@ function hub(c){var s=c.s,mx=Math.max.apply(0,s.concat([c.target]))*1.08,mn=Math
   return '<tr class="'+(c.good(v)?'':'bad')+'"><td>'+fd(D[i])+' <span style="color:var(--vpGreyMid02)">· '+wd(D[i])+'</span></td><td><b>'+v+c.unit+'</b></td><td>'+(c.lower?'≤ ':'')+c.target+c.unit+'</td>'+(cur=='load'?'<td><b style="color:'+(c.good(v)?'var(--vpGreyDark02)':'var(--vpRedAction)')+'">'+Math.round(v*28/100)+'</b> of 28</td>':'')+'<td>'+chip(c.good(v))+'</td></tr>'}).join('');
  var ty=100-h(c.target);
  return '<div class="cc-sum" style="grid-template-columns:repeat(3,1fr)"><div><div class="k">Current '+c.t+'</div><div class="v" style="color:'+(c.good(s[6])?'var(--vpGreenAction)':'var(--vpRedAction)')+'">'+s[6]+c.unit+'</div></div><div><div class="k">Target</div><div class="v">'+(c.lower?'≤ ':'')+c.target+c.unit+'</div></div><div><div class="k">Days below target</div><div class="v"><span style="color:'+(bad?'var(--vpRedAction)':'var(--vpGreenAction)')+'">'+bad+'</span> of 7</div></div></div>'+
- '<div class="cc-spark">'+bars+'<div class="cc-tline" style="top:calc(16px + '+ty+'% * (100% - 38px) / 100%)"><b>Target '+c.target+c.unit+'</b></div></div>'+
- '<table class="vp-table cc-mtable" style="border:1px solid var(--vpGreyLight01)"><thead><tr><th>Date</th><th>Current</th><th>Target</th>'+(cur=='load'?'<th>Pilots over max limit</th>':'')+'<th>Status</th></tr></thead><tbody>'+rows+'</tbody></table>';}
-window.CC_NEED=function(w){var keep=cur;cur='load';FAC=window.CC_W[w].m[2][0]/32;pilot(CFG.load);cur=keep;return Math.ceil(EX/280)};
+ '<table class="vp-table cc-mtable" style="border:1px solid var(--vpGreyLight01)"><thead><tr><th>Date</th><th>Current</th><th>Target</th>'+(cur=='load'?'<th>Pilots above limit</th>':'')+'<th>Status</th></tr></thead><tbody>'+rows+'</tbody></table>';}
+window.CC_NEED=function(w){var keep=cur;cur='load';FAC=window.CC_W[w].m[2][0]/32;pilot(CFG.load);cur=keep;return Math.ceil(EX/280)};setTimeout(function(){var x=document.getElementById('ccWeek');x&&x.dispatchEvent(new Event('change'))});
 window.CC_PILOT=function(el,w,lbl){var keep=cur;cur='load';FAC=window.CC_W[w].m[2][0]/32;var inner=pilot(CFG.load);cur=keep;
- el.innerHTML='<div class="vp-gdsechead"><h4>Pilot load details ('+lbl+')</h4></div><div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">'+inner+'</div>';
+ el.innerHTML='<div class="vp-gdsechead"><h4>Overload Pilots details ('+lbl+')</h4></div><div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">'+inner+'</div>';
  el.querySelectorAll('[data-only]').forEach(function(b){b.onclick=function(){only=b.dataset.only=='1';el.dataset.pg=1;window.CC_PILOT(el,w,lbl)}});
  var rows=Array.from(el.querySelectorAll('.cc-mtable tbody tr')),per=10,pages=Math.max(1,Math.ceil(rows.length/per)),pg=Math.min(+(el.dataset.pg||1),pages);
  rows.forEach(function(r,i){r.style.display=(i>=(pg-1)*per&&i<pg*per)?'':'none'});
@@ -1933,17 +1935,17 @@ window.CC_PILOT=function(el,w,lbl){var keep=cur;cur='load';FAC=window.CC_W[w].m[
 var EX=0,FAC=1;function pilot(c){EX=0;var rows=P.map(function(p,i){var n=p[0],ad=Math.min(7,p[1]+2+(i%2)),ofd=Math.round(p[2]*FAC),wk=ad*ofd,val,ok,cells;
   if(cur=='d0'){var att=Math.round(wk*(0.97-0.012*i));val=(100*att/wk).toFixed(1);ok=val>=90;cells=[wk,att,val+'%']}
   else if(cur=='fad'){var cod=Math.round(wk*.55),del=Math.round(cod*(0.86-0.012*i));val=(100*del/cod).toFixed(1);ok=val>=78;cells=[cod,del,val+'%']}
-  else{var proj=wk;ok=proj<=280;if(!ok)EX+=proj-280;cells=[ok?wk:'<b style="color:var(--vpRedAction)">'+wk+'</b>',ok?'<span style="color:var(--vpGreenAction)">'+(280-proj)+' orders below</span>':'<b style="color:var(--vpRedAction)">'+(proj-280)+' orders over</b>',ok?'<span class="cc-pill good">Within limit</span>':'<span class="cc-pill bad">Over limit</span>']}
+  else{var proj=wk;ok=proj<=280;if(!ok)EX+=proj-280;cells=[ok?wk:'<b style="color:var(--vpRedAction)">'+wk+'</b>',ok?'<span style="color:var(--vpGreenAction)">'+(280-proj)+' orders below</span>':'<b style="color:var(--vpRedAction)">'+(proj-280)+' orders over</b>',ok?'<span class="cc-pill good">Within limit</span>':'<span class="cc-pill bad">Above limit</span>']}
   return {ok:ok,html:'<tr class="'+(ok?'':'bad')+'"><td><b>'+n+'</b></td><td>'+ad+' of 7</td><td>'+ofd+'</td><td>'+cells[0]+'</td><td>280</td>'+(cur=='load'?'<td><div class="cc-st">'+cells[2]+'<span class="cc-vsl">'+cells[1]+'</span></div></td>':'<td>'+cells.slice(1).join('</td><td>')+'</td>')+'</tr>'}});
  var badN=rows.filter(function(r){return !r.ok}).length;
  rows.sort(function(a,b){return a.ok-b.ok});var shown=rows;var over=rows.filter(function(r){return !r.ok}).length;
- return '<div class="cc-sum"><div><div class="k">Pilots over max limit</div><div class="v" style="color:'+(over?'var(--vpRedAction)':'var(--vpGreenAction)')+'">'+over+'</div></div><div><div class="k">Active pilots</div><div class="v">28</div></div><div><div class="k">Orders above max limit</div><div class="v" style="color:'+(EX?'var(--vpRedAction)':'var(--vpGreenAction)')+'">'+EX.toLocaleString('en-IN')+'</div></div><div><div class="k">Max limit</div><div class="v">280 / week</div></div></div>'+'<div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><h4 style="font:var(--vpHeading4);color:var(--vpGreyDark02);margin:0">Pilot data</h4></div>'+
+ return '<div class="cc-sum"><div><div class="k">Pilots above limit</div><div class="v" style="color:'+(over?'var(--vpRedAction)':'var(--vpGreenAction)')+'">'+over+'</div></div><div><div class="k">Active pilots</div><div class="v">28</div></div><div><div class="k">Orders above max limit</div><div class="v" style="color:'+(EX?'var(--vpRedAction)':'var(--vpGreenAction)')+'">'+EX.toLocaleString('en-IN')+'</div></div><div><div class="k">Max limit</div><div class="v">280 / week</div></div></div>'+'<div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><h4 style="font:var(--vpHeading4);color:var(--vpGreyDark02);margin:0">Pilot data</h4></div>'+
  '<table class="vp-table cc-mtable" style="border:1px solid var(--vpGreyLight01)"><thead><tr><th>'+c.pcols.join('</th><th>')+'</th></tr></thead><tbody>'+shown.map(function(r){return r.html}).join('')+'</tbody></table>';}
 var ovl=document.getElementById('ccOvl'),body=document.getElementById('ccBody');
 function render(){var c=CFG[cur];var w=window.CC_WEEK||'38';wkDates(w);var val=window.CC_W[w].m[IX[cur]][0];
  if(cur!='load'){var dr=c.lower?0.6:-3;c.s=series(val-dr/2,dr,c.lower?0.5:3,+w+IX[cur]);c.s[6]=val;if(c.good(val))c.s=c.s.map(function(v){return c.good(v)?v:+(c.lower?c.target-0.2:c.target+0.6).toFixed(1)})}
  FAC=window.CC_W[w].m[2][0]/32;
- document.getElementById('ccTitle').textContent=c.t+' ('+WL[w]+')';tab=cur=='load'?'pilot':'hub';var inner=(tab=='hub'?hub(c):pilot(c));var tip=TIP[cur];if(cur=='load'){var n=Math.ceil(EX/280);tip=n?'<b>Add '+n+' active pilot'+(n>1?'s':'')+' and spread orders so no pilot goes above 280 orders a week.</b>':'<b>Keep every pilot under 280 orders a week.</b>';tip=tip+''}body.innerHTML='<div class="vp-gdd-note" style="display:block;background:var(--vpYellowBg);border:1px solid var(--vpPaleAmber);color:var(--vpGreyDark02);padding:12px 16px"><div style="font:var(--vpHeading5);color:var(--vpGreyMid02);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px">How to improve</div><div style="font:var(--vpBody1)">'+tip+'</div></div>'+inner;body.querySelectorAll('[data-only]').forEach(function(b){b.onclick=function(){only=b.dataset.only=='1';render()}});
+ document.getElementById('ccTitle').textContent=c.t+' ('+WL[w]+')';tab=cur=='load'?'pilot':'hub';var inner=(tab=='hub'?hub(c):pilot(c));var tip=TIP[cur];if(cur=='load'){var n=Math.ceil(EX/280);tip=n?'<b>Add '+n+' active pilot'+(n>1?'s':'')+' and spread orders so no pilot goes above 280 orders a week.</b>':'<b>Keep every pilot under 280 orders a week.</b>';tip=tip+''}body.innerHTML='<div class="vp-gdd-note" style="display:block;background:var(--vpYellowBg);border:1px solid var(--vpPaleAmber);color:var(--vpGreyDark02);padding:12px 16px"><div style="font:var(--vpHeading5);color:var(--vpGreyMid02);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px">How to improve</div><div style="font:var(--vpBody1)">'+tip+'</div><div style="border-top:1px dashed var(--vpPaleAmber);margin:12px 0"></div><div style="font:var(--vpBody1)">'+c.t+' = '+FX[cur]+'</div></div>'+inner;body.querySelectorAll('[data-only]').forEach(function(b){b.onclick=function(){only=b.dataset.only=='1';render()}});
  document.querySelectorAll('.cc-modal .vp-tab').forEach(function(t){t.classList.toggle('active',t.dataset.tab==tab)});document.querySelector('.cc-modal .vp-tabs').style.display='none'}
 document.addEventListener('click',function(e){var b=e.target.closest('[data-trend]');if(!b)return;cur=b.dataset.trend;only=false;render();ovl.classList.add('open')});
 document.querySelectorAll('.cc-modal .vp-tab').forEach(function(t){t.addEventListener('click',function(){tab=t.dataset.tab;render()})});
