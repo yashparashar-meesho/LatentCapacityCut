@@ -1858,16 +1858,16 @@ document.querySelectorAll('.cc-trend .cc-wk').forEach(function(w){var c=w.queryS
 (function(){
 var WK=[['4–10 Aug',0,6200],['11–17 Aug',560,6400],['18–24 Aug',560,6600],['25–31 Aug',0,6600],['1–7 Sep',0,6800],['8–14 Sep',420,7000],['15–21 Sep',560,7000],['22–28 Sep',560,7000]],CUR=7;
 var svg=document.getElementById('ccCum');if(!svg)return;
-var L=10,Rr=1790,T=30,B=230,n=WK.length,st=(Rr-L)/(n-1),pts=WK.map(function(w){return w[2]-w[1]}),mn=5000,max=7500;
+var L=110,Rr=1790,T=30,B=230,n=WK.length,st=(Rr-L)/(n-1),pts=WK.map(function(w){return w[2]-w[1]}),mn=5000,max=7500;
 var y=function(v){return B-((v-mn)/(max-mn))*(B-T)},x=function(i){return L+i*st},f=function(v){return v.toLocaleString('en-IN')};
 var cw=WK[CUR],hd=document.getElementById('ccHd');if(hd)hd.innerHTML='<b>'+f(pts[CUR])+'</b>orders/week this week'+(cw[1]?'<span class="dn">▼ '+f(cw[1])+' less</span>due to Capacity Cuts':'<span class="ok">No Capacity Cut</span>');
 var h='';
-[5000,6000,7000].forEach(function(v){h+='<line x1="0" x2="1800" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#F2F5FA"/><text x="'+(v==7000?1800:0)+'" y="'+(v==6000?y(v)+16:y(v)-6)+'"'+(v==7000?' text-anchor="end"':'')+' font-size="12" fill="#8E96A3">'+f(v)+' orders</text>'});
+[5000,6000,7000].forEach(function(v){h+='<line x1="'+(L-10)+'" x2="1800" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#F2F5FA"/><text x="'+(L-24)+'" y="'+(y(v)+4)+'" text-anchor="end" font-size="12" fill="#8E96A3">'+f(v)+' orders</text>'});
 h+='<polyline points="'+pts.map(function(v,i){return x(i)+','+y(v)}).join(' ')+'" fill="none" stroke="#2A67FF" stroke-width="3" stroke-linejoin="round"/>';
 WK.forEach(function(w,i){var cut=w[1]>0;
  h+='<g class="cc-pt" data-i="'+i+'" style="cursor:default"><rect x="'+(x(i)-st/2)+'" y="'+T+'" width="'+st+'" height="'+(B-T+40)+'" fill="transparent"/>'+
  '<circle cx="'+x(i)+'" cy="'+y(pts[i])+'" r="'+(i==CUR?8:6)+'" fill="'+(cut?'#F44240':'#2A67FF')+'" stroke="'+(i==CUR?'#F7BE00':'#fff')+'" stroke-width="'+(i==CUR?3:2)+'"/>'+
- '<text x="'+(i==0?0:i==n-1?1800:x(i))+'" y="'+(B+28)+'" text-anchor="'+(i==0?'start':i==n-1?'end':'middle')+'" font-size="13" fill="'+(i==CUR?'#272829':'#5A5E66')+'"'+(i==CUR?' font-weight="600"':'')+'>'+w[0]+'</text></g>'});
+ '<text x="'+(i==0?L-10:i==n-1?1800:x(i))+'" y="'+(B+28)+'" text-anchor="'+(i==0?'start':i==n-1?'end':'middle')+'" font-size="13" fill="'+(i==CUR?'#272829':'#5A5E66')+'"'+(i==CUR?' font-weight="600"':'')+'>'+w[0]+'</text></g>'});
 var lost=WK.reduce(function(a,w){return a+w[1]},0);h+='<text x="'+x(n-1)+'" y="'+(y(pts[n-1])-18)+'" text-anchor="end" font-size="14" font-weight="700" fill="#F44240">'+f(lost)+' orders lost in 8 weeks</text>';
 svg.innerHTML=h;
 var tt=document.createElement('div');tt.className='cc-tt';document.body.appendChild(tt);
@@ -1877,7 +1877,7 @@ svg.querySelectorAll('.cc-pt').forEach(function(g){var i=+g.dataset.i;
    '<div class="r"><span>Total capacity</span><b>'+f(w[2])+' orders</b></div>'+
    '<div class="r"><span>Capacity cut</span>'+(w[1]?'<b class="red">−'+f(w[1])+' orders</b>':'<b style="color:#8FE08A">None</b>')+'</div>'+
    '<div class="r"><span>Capacity you got</span><b style="color:#8FE08A">'+f(pts[i])+' orders</b></div>';
-  tt.classList.add('on');var c=g.querySelector('circle').getBoundingClientRect(),tw=tt.offsetWidth,th=tt.offsetHeight,cx=c.left+c.width/2,l=Math.max(8,Math.min(cx-tw/2,document.documentElement.clientWidth-tw-8));
+  tt.classList.add('on');var c=g.querySelector('circle').getBoundingClientRect(),tw=tt.offsetWidth,th=tt.offsetHeight,cx=c.left+c.width/2,l=i==0?cx-16:i==n-1?cx-tw+16:Math.max(8,Math.min(cx-tw/2,document.documentElement.clientWidth-tw-8));
   tt.style.left=(l+window.scrollX)+'px';tt.style.top=(c.top+window.scrollY-th-12)+'px';tt.style.setProperty('--ax',(cx-l)+'px')});
  g.addEventListener('mouseleave',function(){tt.classList.remove('on')});});
 })();
