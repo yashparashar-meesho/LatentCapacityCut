@@ -1636,12 +1636,12 @@
       </div>
       <div class="cc-pane" id="pane-cuts">
 
-      <div class="vp-gdbanner cc-banner"><div class="cap" id="ccBDate" style="opacity:.9;font:var(--vpButtonText1)">This week (22nd – 28th Sep)</div><div class="line cc-bline"><span id="ccBMsg"><b>560 orders cut from your capacity this week.</b> Improve the metrics below to get them back.</span></div></div>
+      <div class="vp-gdbanner cc-banner"><div class="cap" id="ccBDate" style="opacity:.9;font:var(--vpButtonText1)">This week (20th – 26th Oct)</div><div class="line cc-bline"><span id="ccBMsg"><b>560 orders cut from your capacity this week.</b> Improve the metrics below to get them back.</span></div></div>
 
 
       <div class="vp-panel">
-        <div class="vp-gdsechead"><h4 id="ccMTitle">Capacity Cuts Metrics · 22nd – 28th Sep</h4>
-          <div class="cc-dd" id="ccDD"><select id="ccWeek" aria-hidden="true" tabindex="-1" style="display:none"><option value="38">22nd – 28th Sep (This week)</option><option value="37">15th – 21st Sep</option><option value="36">8th – 14th Sep</option><option value="35">1st – 7th Sep</option></select><button type="button" class="vp-select cc-weeksel cc-ddbtn" aria-haspopup="listbox" aria-expanded="false"><span class="cc-ddval">22nd – 28th Sep (This week)</span><span class="chev">▼</span></button><ul class="cc-ddmenu" role="listbox" hidden><li role="option" data-v="38" aria-selected="true">22nd – 28th Sep (This week)</li><li role="option" data-v="37">15th – 21st Sep</li><li role="option" data-v="36">8th – 14th Sep</li><li role="option" data-v="35">1st – 7th Sep</li></ul></div></div>
+        <div class="vp-gdsechead"><h4 id="ccMTitle">Capacity Cuts Metrics · 20th – 26th Oct</h4>
+          <div class="cc-dd" id="ccDD"><select id="ccWeek" aria-hidden="true" tabindex="-1" style="display:none"><option value="38">20th – 26th Oct (This week)</option><option value="37">13th – 19th Oct</option><option value="36">6th – 12th Oct</option><option value="35">29th Sep – 5th Oct</option></select><button type="button" class="vp-select cc-weeksel cc-ddbtn" aria-haspopup="listbox" aria-expanded="false"><span class="cc-ddval">20th – 26th Oct (This week)</span><span class="chev">▼</span></button><ul class="cc-ddmenu" role="listbox" hidden><li role="option" data-v="38" aria-selected="true">20th – 26th Oct (This week)</li><li role="option" data-v="37">13th – 19th Oct</li><li role="option" data-v="36">6th – 12th Oct</li><li role="option" data-v="35">29th Sep – 5th Oct</li></ul></div></div>
         <div class="cc-cards" id="ccCards"></div>
       </div>
 
@@ -1662,11 +1662,11 @@
 <script>
 (function(){
 var W={
- 38:{lbl:'22nd – 28th Sep',cur:true,m:[[86.2,-560],[71.0,-420],[32,-420],[2.4,-280]],pl:'9 pilots > 280 orders'},
- 37:{lbl:'15th – 21st Sep',m:[[86.9,-560],[72.0,-420],[30,-420],[2.1,-210]],pl:'8 pilots > 280 orders'},
- 36:{lbl:'8th – 14th Sep',m:[[88.6,-280],[73.0,-420],[26,-210],[1.6,-140]],pl:'7 pilots > 280 orders'},
- 34:{lbl:'25th – 31st Aug',m:[[91,0],[79,0],[15,0],[0.9,0]],pl:'4 pilots > 280 orders'},
- 35:{lbl:'1st – 7th Sep',m:[[91.2,0],[79.5,0],[16,0],[0.8,0]],pl:'4 pilots > 280 orders'}
+ 38:{lbl:'20th – 26th Oct',cur:true,m:[[86.2,-560],[71.0,-420],[32,-420],[2.4,-280]],pl:'9 pilots > 280 orders'},
+ 37:{lbl:'13th – 19th Oct',m:[[86.9,-560],[72.0,-420],[30,-420],[2.1,-210]],pl:'8 pilots > 280 orders'},
+ 36:{lbl:'6th – 12th Oct',m:[[88.6,-280],[73.0,-420],[26,-210],[1.6,-140]],pl:'7 pilots > 280 orders'},
+ 34:{lbl:'22nd – 28th Sep',m:[[91,0],[79,0],[15,0],[0.9,0]],pl:'4 pilots > 280 orders'},
+ 35:{lbl:'29th Sep – 5th Oct',m:[[91.2,0],[79.5,0],[16,0],[0.8,0]],pl:'4 pilots > 280 orders'}
 };
 var DEF=[
  {k:'d0',tip:'Attempt every order on the day it arrives',nm:'D0 Attempt %',good:function(v){return v>=90},tg:'90%',link:'How to Improve',def:'Orders attempted on the day they reach your DC.'},
@@ -1718,11 +1718,11 @@ render('38');
 </script>
 <script>
 (function(){
-var T={35:{d:'1st – 7th Sep',c:0,p:0,r:[['D0 Attempt','On target',0],['COD FAD','On target',0],['Overload Pilots','n/a',0],['Misroute','n/a',0]]},
- 36:{d:'8th – 14th Sep',c:420,p:6,r:[['D0 Attempt',280,0],['COD FAD',420,1],['Overload Pilots','n/a',0],['Misroute','n/a',0]]},
- 37:{d:'15th – 21st Sep',c:560,p:8,r:[['D0 Attempt',560,1],['COD FAD',420,0],['Overload Pilots','n/a',0],['Misroute','n/a',0]]},
- 38:{d:'22nd – 28th Sep',c:560,p:8,now:1,r:[['D0 Attempt',560,1],['COD FAD',420,0],['Overload Pilots','From 29th Sep',0],['Misroute','From 29th Sep',0]]},
- 39:{d:'29th Sep – 5th Oct',next:1,c:560,p:8,r:[['D0 Attempt',560,1],['COD FAD',420,0],['Overload Pilots',420,0],['Misroute',280,0]]}};
+var T={35:{d:'29th Sep – 5th Oct',c:0,p:0,r:[['D0 Attempt','On target',0],['COD FAD','On target',0],['Overload Pilots','n/a',0],['Misroute','n/a',0]]},
+ 36:{d:'6th – 12th Oct',c:420,p:6,r:[['D0 Attempt',280,0],['COD FAD',420,1],['Overload Pilots','n/a',0],['Misroute','n/a',0]]},
+ 37:{d:'13th – 19th Oct',c:560,p:8,r:[['D0 Attempt',560,1],['COD FAD',420,0],['Overload Pilots','n/a',0],['Misroute','n/a',0]]},
+ 38:{d:'20th – 26th Oct',c:560,p:8,now:1,r:[['D0 Attempt',560,1],['COD FAD',420,0],['Overload Pilots','From 27th Oct',0],['Misroute','From 27th Oct',0]]},
+ 39:{d:'27th Oct – 2nd Nov',next:1,c:560,p:8,r:[['D0 Attempt',560,1],['COD FAD',420,0],['Overload Pilots',420,0],['Misroute',280,0]]}};
 var f=function(n){return n.toLocaleString('en-IN')};
 var tt=document.createElement('div');tt.className='cc-tt';document.body.appendChild(tt);
 document.querySelectorAll('.cc-trend .cc-wk').forEach(function(w,i){var k=35+i,d=T[k];
@@ -1856,7 +1856,7 @@ document.querySelectorAll('.cc-trend .cc-wk').forEach(function(w){var c=w.queryS
 </script>
 <script>
 (function(){
-var WK=[['4–10 Aug',0,6200],['11–17 Aug',560,6400],['18–24 Aug',560,6600],['25–31 Aug',0,6600],['1–7 Sep',0,6800],['8–14 Sep',420,7000],['15–21 Sep',560,7000],['22–28 Sep',560,7000]],CUR=7;
+var WK=[['1–7 Sep',0,6200],['8–14 Sep',560,6400],['15–21 Sep',560,6600],['22–28 Sep',0,6600],['29 Sep–5 Oct',0,6800],['6–12 Oct',420,7000],['13–19 Oct',560,7000],['20–26 Oct',560,7000]],CUR=7;
 var svg=document.getElementById('ccCum');if(!svg)return;
 var L=110,Rr=1790,T=30,B=230,n=WK.length,st=(Rr-L)/(n-1),pts=WK.map(function(w){return w[2]-w[1]}),mn=5000,max=7500;
 var y=function(v){return B-((v-mn)/(max-mn))*(B-T)},x=function(i){return L+i*st},f=function(v){return v.toLocaleString('en-IN')};
@@ -1896,8 +1896,8 @@ document.addEventListener('click',function(e){if(!dd.contains(e.target))close()}
 </div></div></div>
 <script>
 (function(){
-var D=[],WS={35:1,36:8,37:15,38:22},WL={35:'1st – 7th Sep',36:'8th – 14th Sep',37:'15th – 21st Sep',38:'22nd – 28th Sep'},IX={d0:0,fad:1,load:2,mis:3};
-function wkDates(w){D=[];for(var i=0;i<7;i++)D.push(new Date(2026,8,WS[w]+i))}
+var D=[],WS={35:1,36:8,37:15,38:22},WL={35:'29th Sep – 5th Oct',36:'6th – 12th Oct',37:'13th – 19th Oct',38:'20th – 26th Oct'},IX={d0:0,fad:1,load:2,mis:3};
+function wkDates(w){D=[];for(var i=0;i<7;i++)D.push(new Date(2026,8,WS[w]+28+i))}
 function fd(d){return d.getDate()+' '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]}
 function wd(d){return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()]}
 function series(base,drift,amp,seed){var o=[],x=seed;for(var i=0;i<7;i++){x=(x*9301+49297)%233280;o.push(+(base+drift*i/6+amp*((x/233280)-.5)).toFixed(1))}return o}
