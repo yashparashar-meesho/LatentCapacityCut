@@ -1648,7 +1648,7 @@
       <div class="vp-panel" id="ccPilotPanel" hidden></div>
 
       <div class="vp-panel" id="ccTrendPanel">
-        <div class="vp-gdsechead"><h4>Your Capacity · last 8 weeks</h4></div>
+        <div class="vp-gdsechead"><h4>Capacity cut graphs · 8 weeks</h4></div>
         <div class="cc-legend cc-legtop"><span><i class="cc-sw" style="background:#F44240;border-radius:50%"></i>Week with a capacity cut</span><span><i class="cc-sw" style="background:#2A67FF;border-radius:50%"></i>No cut</span></div>
         <div class="cc-cum"><svg id="ccCum" viewBox="0 0 1800 280"></svg></div>
       </div>
@@ -1682,7 +1682,7 @@ window.CC_APPLIED=applied;window.CC_W=W;window.CC_DEF=DEF;
 var flag=function(c){return '<svg viewBox="0 0 12 12" aria-hidden="true" fill="none"><path d="M2.4 11V1" stroke="'+c+'" stroke-width="1.2" stroke-linecap="round"/><path d="M2.4 1.6h6.2l-1.5 2 1.5 2H2.4z" fill="'+c+'"/></svg>'};
 var arrow='<svg viewBox="0 0 8 14" fill="none" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 function render(w){var d=W[w],a=applied(d,w);
- var V4=false,ORD=[2,3,0,1];
+ var V4=false,ORD=[2,0,1,3];
  var mk=function(i,d,w){var m=DEF[i];var v=d.m[i][0],cut=d.m[i][1],ok=m.good(v),isA=(i===a.i),na=!applicable(m,w);
   var val=(m.k=='load'?parseInt(d.pl)+' pilots':v.toFixed(1)+'%');
   var chip=ok?'<span class="vp-statchip good">Good</span>':'<span class="vp-statchip bad">Not Good</span>';
