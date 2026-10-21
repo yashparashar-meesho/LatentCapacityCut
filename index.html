@@ -1862,7 +1862,7 @@ var L=10,Rr=1790,T=30,B=230,n=WK.length,st=(Rr-L)/(n-1),pts=WK.map(function(w){r
 var y=function(v){return B-((v-mn)/(max-mn))*(B-T)},x=function(i){return L+i*st},f=function(v){return v.toLocaleString('en-IN')};
 var cw=WK[CUR],hd=document.getElementById('ccHd');if(hd)hd.innerHTML='<b>'+f(pts[CUR])+'</b>orders/week this week'+(cw[1]?'<span class="dn">▼ '+f(cw[1])+' less</span>due to Capacity Cuts':'<span class="ok">No Capacity Cut</span>');
 var h='';
-[5000,6000,7000].forEach(function(v){h+='<line x1="0" x2="1800" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#F2F5FA"/><text x="0" y="'+(v==5000?y(v)-6:y(v)+16)+'" font-size="12" fill="#8E96A3">'+f(v)+' orders</text>'});
+[5000,6000,7000].forEach(function(v){h+='<line x1="0" x2="1800" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#F2F5FA"/><text x="'+(v==7000?1800:0)+'" y="'+(v==6000?y(v)+16:y(v)-6)+'"'+(v==7000?' text-anchor="end"':'')+' font-size="12" fill="#8E96A3">'+f(v)+' orders</text>'});
 h+='<polyline points="'+pts.map(function(v,i){return x(i)+','+y(v)}).join(' ')+'" fill="none" stroke="#2A67FF" stroke-width="3" stroke-linejoin="round"/>';
 WK.forEach(function(w,i){var cut=w[1]>0;
  h+='<g class="cc-pt" data-i="'+i+'" style="cursor:default"><rect x="'+(x(i)-st/2)+'" y="'+T+'" width="'+st+'" height="'+(B-T+40)+'" fill="transparent"/>'+
