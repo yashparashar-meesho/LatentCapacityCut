@@ -391,7 +391,8 @@
 .vp-scope .gm-filt button{border:0;background:transparent;font:var(--vpBody1);color:var(--vpGreyDark01);padding:0 18px;cursor:pointer;white-space:nowrap}
 .vp-scope .gm-filt button.on{background:#E3EDFF;color:var(--vpBrand);font-weight:600}
 .vp-scope .gm-div{width:1px;height:32px;background:var(--vpGreyMid01);margin:0 16px}
-.vp-scope #gmPanel[data-v="8"]:not([data-brand="valmo"]) .gm-filt,.vp-scope #gmPanel[data-v="8"]:not([data-brand="valmo"]) .gm-div{display:none}
+/* filter + divider are Valmo only: Latent shows all metrics without scrolling */
+.vp-scope #gmPanel:not([data-brand="valmo"]) .gm-filt,.vp-scope #gmPanel:not([data-brand="valmo"]) .gm-div{display:none}
 .vp-scope #gmPanel[data-brand="valmo"] .gm-dd{display:none}
 .vp-scope #gmPanel[data-f="need"] .gm-row .mc.ok{display:none}
 .vp-scope .gm-allok{display:none;font:var(--vpBody2);color:var(--vpGreyDark01);background:var(--vpGreyLight02);border-radius:8px;padding:14px 16px;flex:1}
@@ -2369,7 +2370,7 @@ window.addEventListener('load',refresh);setTimeout(refresh,300);
 (function(){var bw=document.getElementById('gdBrand'),pn=document.getElementById('gmPanel');
 var ft=document.getElementById('gmFilt');function fc(){var c=window.GM_COUNTS;if(!c)return;c=c[pn.getAttribute('data-brand')=='valmo'?'valmo':'latent'];ft.querySelector('[data-c=all]').textContent=c[0];ft.querySelector('[data-c=need]').textContent=c[1]}window.GM_FC=fc;
 ft.addEventListener('click',function(e){var x=e.target.closest('button');if(!x)return;pn.setAttribute('data-f',x.dataset.f);ft.querySelectorAll('button').forEach(function(y){var on=y===x;y.classList.toggle('on',on);y.setAttribute('aria-pressed',String(on))});if(window.GM_SB)requestAnimationFrame(window.GM_SB)});
-function setB(b){pn.setAttribute('data-brand',b);if(b=='valmo'){var li=document.querySelector('#gmDD li[data-v="38"]');if(li)li.click()}fc();var sw=document.getElementById('gvSw');if(sw)sw.classList.toggle('off',b=='valmo');bw.querySelectorAll('button').forEach(function(x){var on=x.dataset.b==b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',String(on))});if(window.GM_SB)requestAnimationFrame(window.GM_SB)}
+function setB(b){pn.setAttribute('data-brand',b);if(b!='valmo'){pn.removeAttribute('data-f');ft.querySelectorAll('button').forEach(function(y,i){y.classList.toggle('on',!i);y.setAttribute('aria-pressed',String(!i))})}if(b=='valmo'){var li=document.querySelector('#gmDD li[data-v="38"]');if(li)li.click()}fc();var sw=document.getElementById('gvSw');if(sw)sw.classList.toggle('off',b=='valmo');bw.querySelectorAll('button').forEach(function(x){var on=x.dataset.b==b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',String(on))});if(window.GM_SB)requestAnimationFrame(window.GM_SB)}
 bw.addEventListener('click',function(e){var x=e.target.closest('button');if(x)setB(x.dataset.b)});setB('latent');
 var ar=document.getElementById('gmArr'),row=document.querySelector('#gmValmo .gm-row');
 function arrUpd(){var mx=row.scrollWidth-row.clientWidth;ar.children[0].disabled=row.scrollLeft<=2;ar.children[1].disabled=row.scrollLeft>=mx-2}
