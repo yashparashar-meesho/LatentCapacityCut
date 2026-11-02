@@ -5,7 +5,7 @@ Live site (Vercel): https://capacity-navy.vercel.app/ — serves `index.html`.
 | File | What it is |
 |---|---|
 | `index.html` | **What is live.** Currently a copy of `growth-dashboard-latent.html`. |
-| `growth-dashboard-latent.html` | Growth Dashboard (Latent) — top cards + metrics (Needs attention / Good) + Growth Graph, week filter, version switcher. |
+| `growth-dashboard-latent.html` | Growth Dashboard — Latent / Valmo toggle, top cards ("Improve capacity" opens Improve DC Capacity), metrics with week filter, Capacity Cuts detail popups, Growth Graph, version switcher (Latent only). |
 | `capacity-cuts-dc-capacity.html` | Capacity Cuts dashboard (DC Capacity → Capacity Cuts tab). Kept up to date, not live. |
 
 ## Switch what is live

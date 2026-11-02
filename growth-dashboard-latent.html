@@ -298,6 +298,88 @@
 .vp-scope .gm-sb i:hover,.vp-scope .gm-sb.drag i{background:#8E96A3}
 .vp-scope .gm-grid,.vp-scope .gm-row{scrollbar-width:none}.vp-scope .gm-grid::-webkit-scrollbar,.vp-scope .gm-row::-webkit-scrollbar{display:none}
 .vp-scope #gmPanel[data-v="8"] .gm-grid,.vp-scope .gm-row{padding-bottom:2px}
+
+/* L2 modal · new design (Figma 2454:14181) */
+.cc-ovl{padding-left:250px;box-sizing:border-box}
+.vp-scope .cc-modal{width:min(720px,calc(100vw - 250px - 48px));height:70vh;max-height:70vh;height:70dvh;max-height:70dvh;border-radius:16px;box-shadow:0 0 4px rgba(0,0,0,.1),0 1px 4px rgba(0,0,0,.12);overflow:hidden}
+.vp-scope .cc-modal .vp-modal-head{padding:20px 24px;border-bottom:1px solid var(--vpGreyLight01);font:var(--vpHeading2);color:var(--vpGreyDark02)}
+.vp-scope .cc-modal .vp-modal-head .x{width:24px;height:24px;font:700 22px/24px var(--vpFont);color:var(--vpGreyDark02)}
+.vp-scope .cc-modal .vp-langbtn{background:#E3EDFF;border:1px solid #C5D7FF;border-radius:4px;padding:6px 12px 6px 8px;gap:4px;font:500 15px/16px var(--vpFont);color:var(--vpBrand)}
+.vp-scope .cc-modal .vp-langbtn svg{width:24px;height:24px}
+.vp-scope .cc-modal .vp-modal-body{padding:24px;gap:20px}
+.vp-scope .cc-modal .cc-call{background:var(--vpGreyLight02);border-radius:8px;padding:12px 16px;display:flex;flex-direction:column;gap:16px}
+.vp-scope .cc-modal .cc-call .lab{font:var(--vpHeading8);letter-spacing:.01em;text-transform:uppercase;color:var(--vpGreyDark01)}
+.vp-scope .cc-modal .cc-call .tip{display:flex;align-items:center;gap:8px;margin-top:10px;font:var(--vpBody2);color:var(--vpGreyDark02)}
+.vp-scope .cc-modal .cc-call .tip svg{width:20px;height:20px;flex-shrink:0}
+.vp-scope .cc-modal .cc-call hr{border:none;border-top:1px dashed var(--vpGreyMid01);margin:0}
+.vp-scope .cc-modal .cc-call .fx{margin-top:4px;font:var(--vpBody2);color:var(--vpGreyDark02)}
+.vp-scope .cc-modal .cc-call .fx u{text-underline-offset:2px;cursor:help}
+.vp-scope .cc-modal .cc-sum{gap:16px}
+.vp-scope .cc-modal .cc-mfoot{flex-shrink:0;border-top:1px solid var(--vpGreyLight01);padding:20px 24px;background:var(--vpWhite)}
+.vp-scope .cc-modal .cc-mfoot[hidden]{display:none}
+.vp-scope .cc-modal .cc-mbtn{width:100%;background:var(--vpBrand);border:1px solid var(--vpBrand);border-radius:4px;padding:12px;font:700 15px/20px var(--vpFont);color:var(--vpWhite);cursor:pointer}
+.vp-scope .cc-modal .cc-mbtn:hover{filter:brightness(1.15)}
+.vp-scope .cc-cyc{display:flex;align-items:center;gap:8px;font:var(--vpBody2);color:var(--vpGreyDark01);margin-bottom:-8px}
+.vp-scope .cc-cyc svg{width:16px;height:16px;flex-shrink:0;color:var(--vpGreyDark01)}
+.vp-scope .cc-cyc b{font-weight:600;color:var(--vpGreyDark02)}
+.vp-scope .cc-modal .cc-sum .k,.vp-scope .cc-modal .cc-sum .v{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vp-scope .cc-modal .cc-mtable{border-radius:8px;border-collapse:separate;border-spacing:0;overflow:hidden}
+.vp-scope .cc-modal .cc-mtable th{background:var(--vpGreyLight02);font:var(--vpHeading5);color:var(--vpGreyDark01);padding:12px 16px;border-bottom:1px solid var(--vpGreyLight01);border-right:none;text-align:left}
+.vp-scope .cc-modal .cc-mtable td{font:var(--vpBody2);color:var(--vpGreyDark02);padding:12px 16px;border-bottom:1px solid var(--vpGreyLight01);border-right:1px solid var(--vpGreyLight01)}
+.vp-scope .cc-modal .cc-mtable td:last-child{border-right:none}
+.vp-scope .cc-modal .cc-mtable tr:last-child td{border-bottom:none}
+.vp-scope .cc-modal .cc-mtable tr.bad td{background:none}
+.vp-scope .cc-modal .cc-mtable td b{font-weight:inherit}
+.vp-scope .cc-modal .cc-mtable td>span[style*="GreyMid02"]{color:inherit!important}
+.vp-scope .cc-modal .cc-ptable th,.vp-scope .cc-modal .cc-ptable td{padding:12px}
+.vp-scope .cc-modal .cc-ptable td:first-child{white-space:nowrap}
+.vp-scope .cc-modal .cc-pill{font:var(--vpHeading5);padding:2px 10px;border-radius:12px}
+
+/* Improve DC Capacity modal (Figma 2456:15310) */
+.vp-scope .gd-levers .lv.ic-open{cursor:pointer}
+.vp-scope .cc-modal.ic-modal{width:min(640px,calc(100vw - 250px - 48px));height:auto;max-height:70vh;max-height:70dvh}
+.vp-scope .ic-modal .vp-modal-body{padding:20px 24px 24px;gap:16px}
+.vp-scope .ic-card{border:1px solid var(--vpGreyLight01);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;background:var(--vpWhite)}
+.vp-scope .ic-card.cut{gap:16px}
+.vp-scope .ic-card .hd{display:flex;align-items:center;justify-content:space-between;gap:12px;font:600 15px/20px var(--vpFont);color:var(--vpGreyDark02)}
+.vp-scope .ic-edit{display:inline-flex;align-items:center;gap:8px;height:32px;box-sizing:border-box;padding:0 12px 0 16px;border:1px solid var(--vpBrand);border-radius:4px;background:var(--vpWhite);font:var(--vpHeading5);color:var(--vpBrand);cursor:pointer}
+.vp-scope .ic-edit svg{width:16px;height:16px}
+.vp-scope .ic-in{display:flex;align-items:center;gap:12px;font:var(--vpBody2);color:var(--vpGreyDark02)}
+.vp-scope .ic-in b{font-weight:600}.vp-scope .ic-in b big{font-size:15px}
+.vp-scope .ic-pill{display:inline-flex;align-items:center;justify-content:center;min-width:69px;box-sizing:border-box;padding:4px 8px;border-radius:16px;font:600 12px/16px var(--vpFont)}
+.vp-scope .ic-pill.good{background:#E7FBE0;color:#43A92C}.vp-scope .ic-pill.bad{background:var(--vpRedBg);color:var(--vpRedAction)}
+.vp-scope .ic-row{display:flex;align-items:center;justify-content:space-between;background:var(--vpGreyLight02);border-radius:8px;padding:12px 16px;cursor:pointer}
+.vp-scope .ic-row:hover{background:#E9EEF6}
+.vp-scope .ic-row .l{display:flex;align-items:center;gap:40px}
+.vp-scope .ic-row .nm{width:170px;font:var(--vpHeading5);color:var(--vpGreyDark02);white-space:nowrap}
+.vp-scope .ic-row .ct{display:flex;align-items:center;gap:12px}
+.vp-scope .ic-row .ct .k{font:400 11px/16px var(--vpFont);letter-spacing:.01em;text-transform:uppercase;color:var(--vpGreyDark01)}
+.vp-scope .ic-row .ct .v{font:var(--vpHeading5);color:var(--vpGreyDark02);white-space:nowrap}
+.vp-scope .ic-row .ct svg{width:20px;height:20px}
+.vp-scope .ic-row .r{display:flex;align-items:center;gap:28px}
+.vp-scope .ic-row .r svg{width:24px;height:24px}
+
+/* Latent / Valmo toggle */
+.vp-scope .gd-titlewrap{display:flex;align-items:center;gap:16px}
+.vp-scope .gd-brand{display:inline-flex;align-items:center;padding:3px;gap:2px;border:1px solid var(--vpGreyMid01);border-radius:8px;background:var(--vpWhite)}
+.vp-scope .gd-brand button{border:0;background:transparent;font:var(--vpHeading5);color:var(--vpGreyDark01);padding:5px 16px;border-radius:6px;cursor:pointer}
+.vp-scope .gd-brand button.on{background:var(--vpBrand);color:var(--vpWhite)}
+.vp-scope #gmValmo{display:none;margin-top:20px}
+.vp-scope #gmPanel[data-brand="valmo"] #gmValmo{display:block}
+.vp-scope #gmPanel[data-brand="valmo"] #gmBad,.vp-scope #gmPanel[data-brand="valmo"] #gmOk,.vp-scope #gmPanel[data-brand="valmo"] #gmGroups{display:none!important}
+.vp-scope #gmValmo .gtag{display:none}
+/* about 3.4 cards in view, so the last one peeks out and shows there is more to scroll */
+.vp-scope #gmValmo .gm-row .mc{flex:0 0 calc((100% - 48px)/4.4);min-width:250px;box-sizing:border-box}
+.vp-scope #gmValmo .mc .mh{gap:8px}.vp-scope #gmValmo .mc .mn{min-width:0;white-space:nowrap}.vp-scope #gmValmo .mc .hb{flex-shrink:0}
+.vp-scope #gmValmo .mc .mb{gap:16px}.vp-scope #gmValmo .mc .mb>div{min-width:0}.vp-scope #gmValmo .mc .mk{white-space:nowrap}
+.vp-scope #gmValmo .gm-row{scroll-snap-type:none}
+.vp-scope .gv-sw.off{display:none!important}
+.vp-scope .gm-arr{display:none;align-items:center;gap:8px}
+.vp-scope #gmPanel[data-brand="valmo"] .gm-arr{display:inline-flex}
+.vp-scope .gm-arr button{width:36px;height:36px;border-radius:50%;border:0;background:var(--vpGreyLight02);color:var(--vpGreyDark02);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.vp-scope .gm-arr button:hover:not(:disabled){background:var(--vpGreyLight01)}
+.vp-scope .gm-arr button:disabled{opacity:.4;cursor:default}
+.vp-scope .gm-arr svg{width:16px;height:16px}
 </style>
 <style>/* ============ vp- component kit (Valmo Partner clone) ============ */
 
@@ -1701,11 +1783,12 @@
 <script>
 (function(){var M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 function fmt(a,b){return a.getMonth()===b.getMonth()?a.getDate()+'–'+b.getDate()+' '+M[b.getMonth()]:a.getDate()+' '+M[a.getMonth()]+' – '+b.getDate()+' '+M[b.getMonth()]}
-function d(n){var t=new Date();t.setHours(0,0,0,0);t.setDate(t.getDate()-n);return t}
+/* Demo 'today' fixed to Wed 4 Nov 2026: data is available till Tue 3 Nov */
+function d(n){var t=new Date(2026,10,4);t.setHours(0,0,0,0);t.setDate(t.getDate()-n);return t}
 var t0=d(0),dow=(t0.getDay()+6)%7,mon=d(dow);/* Monday of this week */
 function add(x,n){var y=new Date(x);y.setDate(y.getDate()+n);return y}
 var partial=dow>0,base=partial?mon:add(mon,-7);window.GD_WEEKS={};
-[38,37,36,35].forEach(function(k,i){var st=add(base,-7*i),en=(i===0&&partial)?d(1):add(st,6),ls=add(st,-7);window.GD_WEEKS[k]={lbl:fmt(st,en),lag:fmt(ls,add(ls,6)),start:st,tag:i===0?(partial?'This week':'Last week'):''}});
+[38,37,36,35].forEach(function(k,i){var st=add(base,-7*i),en=(i===0&&partial)?d(1):add(st,6),ls=add(st,-7);window.GD_WEEKS[k]={lbl:fmt(st,add(st,6)),end:en,endLbl:en.getDate()+' '+M[en.getMonth()],partial:i===0&&partial,days:Math.round((en-st)/864e5)+1,lag:fmt(ls,add(ls,6)),start:st,tag:i===0?(partial?'This week':'Last week'):''}});
 window.GD_WIN=window.GD_WEEKS[38].lbl;window.GD_LAG=window.GD_WEEKS[38].lag;
 document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.gd-win').forEach(function(e){e.textContent=window.GD_WIN})});})();
 </script>
@@ -1732,7 +1815,7 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
       </div>
     </div>
     <div class="vp-content vp-gd vp-gdd">
-      <div class="vp-pagebar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;"><h3>Growth Dashboard</h3><div class="gv-sw" id="gvSw" title="Prototype only: switch metrics-section version"><span>Version</span><button data-v="g" class="on" type="button">V1 · By group</button><button data-v="g3" type="button">V2 · By group + tinted groups</button><button data-v="8" type="button">V3 · Needs attention / Good</button></div><button class="vp-btn vp-btn-outline vp-btn-sm" type="button">Need Help?</button></div>
+      <div class="vp-pagebar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;"><div class="gd-titlewrap"><h3>Growth Dashboard</h3><div class="gd-brand" id="gdBrand" role="group" aria-label="Dashboard type"><button type="button" data-b="latent" class="on" aria-pressed="true">Latent</button><button type="button" data-b="valmo" aria-pressed="false">Valmo</button></div></div><div class="gv-sw" id="gvSw" title="Prototype only: switch metrics-section version"><span>Version</span><button data-v="g" class="on" type="button">V1 · By group</button><button data-v="g3" type="button">V2 · By group + tinted groups</button><button data-v="8" type="button">V3 · Needs attention / Good</button></div><button class="vp-btn vp-btn-outline vp-btn-sm" type="button">Need Help?</button></div>
       <div class="vp-tabs cc-dctabs" role="tablist" style="display:none"><div class="vp-tab" data-pane="set" role="tab">Set DC Capacity</div><div class="vp-tab active" data-pane="cuts" role="tab">Capacity Cuts <span class="cc-tabnew">NEW</span></div></div>
       <div class="cc-pane" id="pane-set" hidden>
       <div class="vp-panel">
@@ -1755,17 +1838,17 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
         <div class="vp-panel gd-more"><div class="k">Orders more you can get</div><div class="big g"><span class="n" id="gdMore">+1,835</span> <span>orders/week</span></div>
           <div class="gd-gap"><i></i></div>
           <div class="gd-bot"><div class="gd-how"><span class="bulb">💡</span>How to get more orders/week?</div>
-          <div class="gd-levers"><div><div class="k">Improve capacity</div><div class="lv" id="gdL1">+300</div></div><div><div class="k">Improve COD RTO</div><div class="lv" id="gdL2">+1,000</div></div><div><div class="k">Improve Prepaid Rate</div><div class="lv" id="gdL3">+535</div></div></div></div></div>
+          <div class="gd-levers"><div><div class="k">Improve capacity</div><div class="lv ic-open" id="gdL1" role="button" tabindex="0" title="See how to improve capacity">+300</div></div><div><div class="k">Improve COD RTO</div><div class="lv" id="gdL2">+1,000</div></div><div><div class="k">Improve Prepaid Rate</div><div class="lv" id="gdL3">+535</div></div></div></div></div>
       </div>
       <div class="vp-gdbanner cc-banner" hidden><div class="cap" id="ccBDate" style="opacity:.9;font:var(--vpButtonText1)">This week (20th – 26th Oct)</div><div class="line cc-bline"><span id="ccBMsg"><b>560 orders cut from your capacity this week.</b> Improve the metrics below to get them back.</span></div></div>
 
 
       <div class="vp-panel" id="gmPanel" data-v="g">
         <div class="vp-gdsechead gd-head"><div class="gd-ht"><h4>Your metrics (<span id="gmDate"></span>)</h4><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी में जानकारी</span></button></div>
-          <div class="cc-dd gm-dd" id="gmDD"><button type="button" class="vp-select cc-weeksel cc-ddbtn" aria-haspopup="listbox" aria-expanded="false"><span class="cc-ddval"></span><span class="chev">▼</span></button><ul class="cc-ddmenu" role="listbox" hidden></ul></div></div>
+          <div class="cc-dd gm-dd" id="gmDD"><button type="button" class="vp-select cc-weeksel cc-ddbtn" aria-haspopup="listbox" aria-expanded="false"><span class="cc-ddval"></span><span class="chev">▼</span></button><ul class="cc-ddmenu" role="listbox" hidden></ul></div><div class="gm-arr" id="gmArr"><button type="button" data-d="-1" aria-label="Scroll metrics left"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-d="1" aria-label="Scroll metrics right"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
         <div class="gm-box open" id="gmBad"><div class="gm-bh"><span class="tt">Needs attention (<span data-n></span>)</span><span class="meta">Fix these to stop capacity cuts and get more orders</span></div><div class="gm-bb"><div class="gm-grid" data-grid></div></div></div>
         <div class="gm-box" id="gmOk"><div class="gm-bh" data-toggle><span class="tt">Good (<span data-n></span>)</span><span class="gm-names" data-names></span><span class="tg"><span class="tgl">Show</span><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><div class="gm-bb"><div class="gm-grid" data-grid></div></div></div>
-        <div id="gmGroups"><div class="gm-box open gm-grp" data-g="cap"><div class="gm-bh"><span class="tt">Capacity cuts</span><span class="meta" data-meta></span></div><div class="gm-bb"><div class="gm-row" data-row></div></div></div><div class="gm-box open gm-grp" data-g="vol"><div class="gm-bh"><span class="tt">Grow your volume</span><span class="meta" data-meta></span></div><div class="gm-bb"><div class="gm-row" data-row></div></div></div></div>
+        <div id="gmValmo"><div class="gm-row" data-row></div></div><div id="gmGroups"><div class="gm-box open gm-grp" data-g="cap"><div class="gm-bh"><span class="tt">Capacity cuts</span><span class="meta" data-meta></span></div><div class="gm-bb"><div class="gm-row" data-row></div></div></div><div class="gm-box open gm-grp" data-g="vol"><div class="gm-bh"><span class="tt">Grow your volume</span><span class="meta" data-meta></span></div><div class="gm-bb"><div class="gm-row" data-row></div></div></div></div>
         <div id="gdGraphWrap"><div class="vp-gdsechead gd-graphhead"><div class="gd-ht"><h4>Growth Graph (<span class="gd-win"></span>)</h4><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी में जानकारी</span></button></div></div><div class="gd-eq"><div><div class="k">YOU GET NOW</div><div class="big"><span class="n" id="gdEqNow">2,049</span> <span>orders/week</span></div></div><div class="op">+</div><div><div class="k">MORE ORDERS YOU CAN GET</div><div class="big g"><span class="n" id="gdEqMore">1,835</span> <span>orders/week</span></div></div><div class="op">=</div><div><div class="k">MAX. POSSIBLE ORDERS</div><div class="big"><span class="n" id="gdEqMax">3,884</span> <span>orders/week</span></div></div></div><div class="gd-wf" id="gdWf"></div></div>
       </div>
 
@@ -2019,15 +2102,42 @@ b.addEventListener('click',function(e){e.stopPropagation();m.hidden=!m.hidden;b.
 m.querySelectorAll('li').forEach(function(li){li.addEventListener('click',function(){m.querySelectorAll('li').forEach(function(x){x.removeAttribute('aria-selected')});li.setAttribute('aria-selected','true');dd.querySelector('.cc-ddval').textContent=li.textContent;sel.value=li.dataset.v;sel.dispatchEvent(new Event('change'));close()})});
 document.addEventListener('click',function(e){if(!dd.contains(e.target))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});})();
 </script>
-<div class="cc-ovl" id="ccOvl"><div class="vp-scope"><div class="vp-modal cc-modal" role="dialog" aria-modal="true">
-  <div class="vp-modal-head"><span class="cc-mhl"><span id="ccTitle">Trend</span><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी में जानकारी</span></button></span><span class="x" id="ccClose" aria-label="Close">✕</span></div>
-  <div class="vp-tabs"></div>
-  <div class="vp-modal-body" id="ccBody"></div>
+<div class="cc-ovl" id="icOvl"><div class="vp-scope"><div class="vp-modal cc-modal ic-modal" role="dialog" aria-modal="true" aria-labelledby="icTitle">
+  <div class="vp-modal-head"><span class="cc-mhl"><span id="icTitle">Improve DC Capacity</span><button class="vp-langbtn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 6V18L18.5 12L8.5 6Z"/></svg><span>हिंदी में जानकारी</span></button></span><span class="x" id="icClose" aria-label="Close">✕</span></div>
+  <div class="vp-modal-body" id="icBody"></div>
 </div></div></div>
 <script>
 (function(){
-var D=[],WS={35:1,36:8,37:15,38:22},WL={35:window.GD_WEEKS[35].lbl,36:window.GD_WEEKS[36].lbl,37:window.GD_WEEKS[37].lbl,38:window.GD_WEEKS[38].lbl},IX={d0:0,fad:1,load:2,mis:3};
-function wkDates(w){D=[];for(var i=0;i<7;i++)D.push(new Date(window.GD_WEEKS[w].start.getTime()+i*864e5))}
+var ovl=document.getElementById('icOvl'),body=document.getElementById('icBody');
+/* capacity input per week: [orders/day, good] */
+var CAPIN={38:[400,0],37:[420,0],36:[450,1],35:[380,0]};
+var CHEV='<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="#092D5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var ARR='<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-5-5m5 5l-5 5" stroke="#8E96A3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+function pill(ok){return '<span class="ic-pill '+(ok?'good':'bad')+'">'+(ok?'Good':'Not Good')+'</span>'}
+function open(){var w=window.CC_WEEK||'38',x=window.GD_DATA[w],ci=CAPIN[w];
+ var rows=[['load','Overload Pilots',x.load[0],x.load[2],x.load[1]],['d0','D0 Attempt %',x.d0[0].toFixed(1)+'%','90%',x.d0[1]],['fad','COD FAD %',x.fad[0].toFixed(1)+'%','78%',x.fad[1]],['mis','Misroute within Polygon %',x.mis[0].toFixed(1)+'%','≤ 1%',x.mis[1]]];
+ var bad=rows.filter(function(r){return !r[4]});if(bad.length)rows=bad;
+ body.innerHTML='<div class="ic-card"><div class="hd"><span>Increase DC Capacity</span><button class="ic-edit" type="button">Edit DC Capacity<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><div class="ic-in"><span>Current Capacity Input: <b><big>'+ci[0]+'</big> orders/day</b></span>'+pill(ci[1])+'</div></div>'+
+  '<div class="ic-card cut"><div class="hd"><span>Avoid Capacity Cut</span></div>'+rows.map(function(r){return '<div class="ic-row" data-ic="'+r[0]+'" role="button" tabindex="0"><div class="l"><span class="nm">'+r[1]+'</span><div class="ct"><div><div class="k">Current</div><div class="v">'+r[2]+'</div></div>'+ARR+'<div><div class="k">Target</div><div class="v">'+r[3]+'</div></div></div></div><div class="r">'+pill(r[4])+CHEV+'</div></div>'}).join('')+'</div>';
+ ovl.classList.add('open')}
+function close(){ovl.classList.remove('open')}
+var lv=document.getElementById('gdL1');lv.addEventListener('click',open);lv.addEventListener('keydown',function(e){if(e.key==='Enter')open()});
+body.addEventListener('click',function(e){if(e.target.closest('.ic-edit')){location.href='capacity-cuts-dc-capacity.html';return}var r=e.target.closest('[data-ic]');if(!r)return;close();var t=document.createElement('span');t.dataset.trend=r.dataset.ic;t.hidden=true;document.body.appendChild(t);t.click();t.remove()});
+document.getElementById('icClose').onclick=close;
+ovl.addEventListener('click',function(e){if(e.target===ovl)close()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+})();
+</script>
+<div class="cc-ovl" id="ccOvl"><div class="vp-scope"><div class="vp-modal cc-modal" role="dialog" aria-modal="true">
+  <div class="vp-modal-head"><span class="cc-mhl"><span id="ccTitle">Trend</span><button class="vp-langbtn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 6V18L18.5 12L8.5 6Z"/></svg><span>हिंदी में जानकारी</span></button></span><span class="x" id="ccClose" aria-label="Close">✕</span></div>
+  <div class="vp-tabs"></div>
+  <div class="vp-modal-body" id="ccBody"></div>
+  <div class="cc-mfoot" id="ccFoot" hidden><button class="cc-mbtn" type="button" id="ccFootBtn">Go to Misroute Tab</button></div>
+</div></div></div>
+<script>
+(function(){
+var N=7,D=[],WS={35:1,36:8,37:15,38:22},WL={35:window.GD_WEEKS[35].lbl,36:window.GD_WEEKS[36].lbl,37:window.GD_WEEKS[37].lbl,38:window.GD_WEEKS[38].lbl},IX={d0:0,fad:1,load:2,mis:3};
+function wkDates(w){D=[];N=window.GD_WEEKS[w].days;for(var i=0;i<N;i++)D.push(new Date(window.GD_WEEKS[w].start.getTime()+i*864e5))}
 function fd(d){return d.getDate()+' '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]}
 function wd(d){return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()]}
 function series(base,drift,amp,seed){var o=[],x=seed;for(var i=0;i<7;i++){x=(x*9301+49297)%233280;o.push(+(base+drift*i/6+amp*((x/233280)-.5)).toFixed(1))}return o}
@@ -2041,19 +2151,20 @@ var CFG={
    pcols:['Pilot','Active days','Avg OFD / day','Orders / week','Max limit / week','Status']}
 };
 var P=[['Ravi Kumar',4,64],['Suresh Yadav',4,61],['Anil Sharma',4,58],['Deepak Singh',4,56],['Manoj Verma',3,74],['Imran Khan',4,52],['Vikas Gupta',4,50],['Rohit Patel',3,72],['Arjun Das',4,49],['Sunil Mehta',3,38],['Meena Pillai',4,30],['Pooja Rani',2,34],['Karan Joshi',3,28],['Farhan Ali',2,22]];
-var TIP={d0:'<b>Attempt every order on the day it arrives.</b>',fad:'<b>Call COD customers before delivery and confirm they have cash ready.</b>',mis:'<b>Check the address before sending an order to another hub. If it is inside your area, deliver it yourself.</b>',load:'<b>Add 1 active pilot and spread orders so no pilot goes above 280 orders a week.</b>'};var FX={d0:'(Total delivery attempts ÷ Total shipments in-scanned before 9AM) × 100',fad:'(COD shipments delivered on first OFD day ÷ COD shipments with first OFD last week) × 100',mis:'(Misrouted shipments delivered inside the DC\'s polygon ÷ Shipments manifested) × 100',load:'(FEs with weekly OFD > 280 ÷ FEs with weekly OFD > 0) × 100'};var cur='d0',tab='hub',only=false;
+var TIP={d0:'<b>Attempt every order on the day it arrives.</b>',fad:'<b>Call COD customers before delivery and confirm they have cash ready.</b>',mis:'<b>Check the address before sending an order to another hub. If it is inside your area, deliver it yourself.</b>',load:'<b>Add 1 active pilot and spread orders so no pilot goes above 280 orders a week.</b>'};var BULB='<svg viewBox="0 0 20 20" fill="#F7BE00" aria-hidden="true"><path d="M14.06 11.08c-.69.68-1.11 1.37-1.27 2.25H7.21a5.4 5.4 0 0 0-1.27-2.25C4.79 9.93 4.58 8.82 4.58 7.92a5.42 5.42 0 0 1 10.83 0 4.2 4.2 0 0 1-1.35 3.16zM7.42 15h5.15l-.26 1.53c-.13.8-.83 1.39-1.64 1.39H9.32c-.81 0-1.5-.59-1.64-1.39zM19.79 8.33a.63.63 0 0 0-.62-.62h-1.25a.63.63 0 0 0 0 1.25h1.25c.34 0 .62-.28.62-.63zM18.93 12.28a.63.63 0 0 0-.4-.79l-1.25-.42a.63.63 0 0 0-.4 1.19l1.25.42c.33.1.69-.07.8-.4zM18.93 4.39a.63.63 0 0 0-.8-.4l-1.25.42a.63.63 0 0 0 .4 1.19l1.25-.42c.33-.11.5-.47.4-.79zM.83 7.71a.63.63 0 0 0 0 1.25h1.25a.63.63 0 0 0 0-1.25zM1.47 11.49a.63.63 0 0 0 .4 1.19l1.25-.42a.63.63 0 0 0-.4-1.19zM1.86 3.99a.63.63 0 0 0-.4 1.19l1.25.42a.63.63 0 0 0 .4-1.19z"/></svg>',U=function(t,d){return '<u title="'+d+'">'+t+'</u>'};var FX={d0:'(Total delivery attempts ÷ Total shipments in-scanned before 9AM) × 100',fad:'(COD shipments delivered on '+U('FOFD','First Out For Delivery')+' day ÷ COD shipments with '+U('FOFD','First Out For Delivery')+' last week) × 100',mis:'(Misrouted shipments delivered inside the DC\'s polygon ÷ Shipments manifested) × 100',load:'(Pilots with weekly '+U('OFD','Out For Delivery')+' > 280 ÷ Pilots with weekly '+U('OFD','Out For Delivery')+' > 0) × 100'};var cur='d0',tab='hub',only=false;
+function NOTE(){var g=window.GD_WEEKS[window.CC_WEEK||'38'];return g&&g.partial?'<div class="cc-cyc"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 7v4.2M8 4.6v.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Week cycle: <b>'+g.lbl+' (Mon – Sun)</b>. Data is available till <b>'+g.endLbl+'</b>.</span></div>':''}
 function chip(ok){return ok?'<span class="cc-pill good">Good</span>':'<span class="cc-pill bad">Not Good</span>'}
-function hub(c){var s=c.s,mx=Math.max.apply(0,s.concat([c.target]))*1.08,mn=Math.min.apply(0,s.concat([c.target]))*.9;
+function hub(c){var s=c.s.slice(7-N),mx=Math.max.apply(0,s.concat([c.target]))*1.08,mn=Math.min.apply(0,s.concat([c.target]))*.9;
  var h=function(v){return 100*(v-mn)/(mx-mn)};
  var bars=s.map(function(v,i){return '<i style="height:'+h(v)+'%;background:'+(c.good(v)?'var(--vpGreyMid01)':'#FF9A98')+'" title="'+fd(D[i])+': '+v+c.unit+'">'+(true?'<span>'+fd(D[i])+'</span>':'')+'</i>'}).join('');
- var avg=(s.reduce(function(a,b){return a+b},0)/7).toFixed(1),last7=(s.slice(14).reduce(function(a,b){return a+b},0)/7).toFixed(1),bad=s.filter(function(v){return !c.good(v)}).length;
+ var bad=s.filter(function(v){return !c.good(v)}).length;
  var rows=s.map(function(v,i){return [i,v]}).reverse().map(function(r){var i=r[0],v=r[1],pv=i?s[i-1]:v,dl=(v-pv).toFixed(1);
   return '<tr class="'+(c.good(v)?'':'bad')+'"><td>'+fd(D[i])+' <span style="color:var(--vpGreyMid02)">· '+wd(D[i])+'</span></td><td><b>'+v+c.unit+'</b></td><td>'+(c.lower?'≤ ':'')+c.target+c.unit+'</td>'+(cur=='load'?'<td><b style="color:'+(c.good(v)?'var(--vpGreyDark02)':'var(--vpRedAction)')+'">'+Math.round(v*28/100)+'</b> of 28</td>':'')+'<td>'+chip(c.good(v))+'</td></tr>'}).join('');
  var ty=100-h(c.target);
- return '<div class="cc-sum" style="grid-template-columns:repeat(3,1fr)"><div><div class="k">Current</div><div class="v" style="color:'+(c.good(s[6])?'var(--vpGreenAction)':'var(--vpRedAction)')+'">'+s[6]+c.unit+'</div></div><div><div class="k">Target</div><div class="v">'+(c.lower?'≤ ':'')+c.target+c.unit+'</div></div><div><div class="k">Days below target</div><div class="v"><span style="color:'+(bad?'var(--vpRedAction)':'var(--vpGreenAction)')+'">'+bad+'</span> of 7</div></div></div>'+
- '<table class="vp-table cc-mtable" style="border:1px solid var(--vpGreyLight01)"><thead><tr><th>Date</th><th>Current</th><th>Target</th>'+(cur=='load'?'<th>Pilots above limit</th>':'')+'<th>Status</th></tr></thead><tbody>'+rows+'</tbody></table>';}
-window.CC_NEED=function(w){var keep=cur;cur='load';FAC=window.CC_W[w].m[2][0]/32;pilot(CFG.load);cur=keep;return Math.ceil(EX/280)};setTimeout(function(){var x=document.getElementById('ccWeek');x&&x.dispatchEvent(new Event('change'))});
-window.CC_PILOT=function(el,w,lbl){var keep=cur;cur='load';FAC=window.CC_W[w].m[2][0]/32;var inner=pilot(CFG.load);cur=keep;
+ return '<div class="cc-sum" style="grid-template-columns:repeat(3,1fr)"><div><div class="k">Current</div><div class="v" style="color:'+(c.good(s[s.length-1])?'var(--vpGreenAction)':'var(--vpRedAction)')+'">'+s[s.length-1]+c.unit+'</div></div><div><div class="k">Target</div><div class="v">'+(c.lower?'≤ ':'')+c.target+c.unit+'</div></div><div><div class="k">Days below target</div><div class="v"><span style="color:'+(bad?'var(--vpRedAction)':'var(--vpGreenAction)')+'">'+bad+'</span> of '+s.length+'</div></div></div>'+
+ NOTE()+'<table class="vp-table cc-mtable" style="border:1px solid var(--vpGreyLight01)"><thead><tr><th>Date</th><th>Current</th><th>Target</th>'+(cur=='load'?'<th>Pilots above limit</th>':'')+'<th>Status</th></tr></thead><tbody>'+rows+'</tbody></table>';}
+window.CC_NEED=function(w){var keep=cur;cur='load';FAC=window.CC_W[w].m[2][0]/32;PW=w;pilot(CFG.load);cur=keep;return Math.ceil(EX/280)};setTimeout(function(){var x=document.getElementById('ccWeek');x&&x.dispatchEvent(new Event('change'))});
+window.CC_PILOT=function(el,w,lbl){var keep=cur;N=window.GD_WEEKS[w].days;cur='load';FAC=window.CC_W[w].m[2][0]/32;PW=w;var inner=pilot(CFG.load);cur=keep;
  el.innerHTML='<div class="vp-gdsechead"><h4>Overload Pilots details ('+lbl+')</h4></div><div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">'+inner+'</div>';
  el.querySelectorAll('[data-only]').forEach(function(b){b.onclick=function(){only=b.dataset.only=='1';el.dataset.pg=1;window.CC_PILOT(el,w,lbl)}});
  var rows=Array.from(el.querySelectorAll('.cc-mtable tbody tr')),per=10,pages=Math.max(1,Math.ceil(rows.length/per)),pg=Math.min(+(el.dataset.pg||1),pages);
@@ -2063,20 +2174,20 @@ window.CC_PILOT=function(el,w,lbl){var keep=cur;cur='load';FAC=window.CC_W[w].m[
  foot.innerHTML='<span class="cc-pcount">Showing '+(rows.length?(pg-1)*per+1:0)+'–'+Math.min(pg*per,rows.length)+' of '+rows.length+' pilots</span><div class="vp-pagination"><span class="pg arrow'+(pg==1?' off':'')+'" data-pg="'+(pg-1)+'">&#8249;</span>'+nums+'<span class="pg arrow'+(pg==pages?' off':'')+'" data-pg="'+(pg+1)+'">&#8250;</span></div>';
  el.querySelector('.cc-mtable').after(foot);
  foot.querySelectorAll('[data-pg]').forEach(function(x){x.onclick=function(){var n=+x.dataset.pg;if(n<1||n>pages||n==pg)return;el.dataset.pg=n;window.CC_PILOT(el,w,lbl)}});};
-var EX=0,FAC=1;function pilot(c){EX=0;var rows=P.map(function(p,i){var n=p[0],ad=Math.min(7,p[1]+2+(i%2)),ofd=Math.round(p[2]*FAC),wk=ad*ofd,val,ok,cells;
+var EX=0,FAC=1,PW='38';function pilot(c){EX=0;var rows=P.map(function(p,i){var n=p[0],ad=Math.min(7,p[1]+2+(i%2)),adN=Math.min(N,ad),ofd=Math.round(p[2]*FAC),wk=ad*ofd,val,ok,cells;if(cur=='load'){/* same counts as the dashboard card: pilots above limit and pilots to add */var LD=window.GD_DATA[PW].load,nA=parseInt(LD[0])||0,kA=parseInt(String(LD[2]).replace('+',''))||0,over=i<nA?Math.max(25,Math.round((kA*280-40)/nA)+(i%3-1)*12):-(20+12*(i-nA));wk=280+over;ofd=Math.round(wk/ad);wk=ad*ofd;if(i<nA&&wk<=280){ofd++;wk=ad*ofd}if(i>=nA&&wk>280){ofd--;wk=ad*ofd}}
   if(cur=='d0'){var att=Math.round(wk*(0.97-0.012*i));val=(100*att/wk).toFixed(1);ok=val>=90;cells=[wk,att,val+'%']}
   else if(cur=='fad'){var cod=Math.round(wk*.55),del=Math.round(cod*(0.86-0.012*i));val=(100*del/cod).toFixed(1);ok=val>=78;cells=[cod,del,val+'%']}
   else{var proj=wk;ok=proj<=280;if(!ok)EX+=proj-280;cells=[ok?wk:'<b style="color:var(--vpRedAction)">'+wk+'</b>',ok?'<span style="color:var(--vpGreenAction)">'+(280-proj)+' orders below</span>':'<b style="color:var(--vpRedAction)">'+(proj-280)+' orders over</b>',ok?'<span class="cc-pill good">Within limit</span>':'<span class="cc-pill bad">Above limit</span>']}
-  return {ok:ok,html:'<tr class="'+(ok?'':'bad')+'"><td><b>'+n+'</b></td><td>'+ad+' of 7</td><td>'+ofd+'</td><td>'+cells[0]+'</td><td>280</td>'+(cur=='load'?'<td><div class="cc-st">'+cells[2]+'<span class="cc-vsl">'+cells[1]+'</span></div></td>':'<td>'+cells.slice(1).join('</td><td>')+'</td>')+'</tr>'}});
+  return {ok:ok,html:'<tr class="'+(ok?'':'bad')+'"><td><b>'+n+'</b></td><td>'+adN+' of '+N+'</td><td>'+ofd+'</td><td>'+cells[0]+'</td><td>280</td>'+(cur=='load'?'<td><div class="cc-st">'+cells[2]+'<span class="cc-vsl">'+cells[1]+'</span></div></td>':'<td>'+cells.slice(1).join('</td><td>')+'</td>')+'</tr>'}});
  var badN=rows.filter(function(r){return !r.ok}).length;
  rows.sort(function(a,b){return a.ok-b.ok});var shown=rows;var over=rows.filter(function(r){return !r.ok}).length;
- return '<div class="cc-sum"><div><div class="k">Pilots above limit</div><div class="v" style="color:'+(over?'var(--vpRedAction)':'var(--vpGreenAction)')+'">'+over+'</div></div><div><div class="k">Active pilots</div><div class="v">28</div></div><div><div class="k">Orders above max limit</div><div class="v" style="color:'+(EX?'var(--vpRedAction)':'var(--vpGreenAction)')+'">'+EX.toLocaleString('en-IN')+'</div></div><div><div class="k">Max limit</div><div class="v">280 / week</div></div></div>'+'<div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><h4 style="font:var(--vpHeading4);color:var(--vpGreyDark02);margin:0">Pilot data</h4></div>'+
- '<table class="vp-table cc-mtable" style="border:1px solid var(--vpGreyLight01)"><thead><tr><th>'+c.pcols.join('</th><th>')+'</th></tr></thead><tbody>'+shown.map(function(r){return r.html}).join('')+'</tbody></table>';}
+ return '<div class="cc-sum"><div><div class="k">Pilots above limit</div><div class="v" style="color:'+(over?'var(--vpRedAction)':'var(--vpGreenAction)')+'">'+over+'</div></div><div><div class="k">Active pilots</div><div class="v">28</div></div><div><div class="k">Orders above limit</div><div class="v" style="color:'+(EX?'var(--vpRedAction)':'var(--vpGreenAction)')+'">'+EX.toLocaleString('en-IN')+'</div></div><div><div class="k">Max limit</div><div class="v">280 / week</div></div></div>'+NOTE()+
+ '<table class="vp-table cc-mtable cc-ptable" style="border:1px solid var(--vpGreyLight01)"><thead><tr><th>'+c.pcols.join('</th><th>')+'</th></tr></thead><tbody>'+shown.map(function(r){return r.html}).join('')+'</tbody></table>';}
 var ovl=document.getElementById('ccOvl'),body=document.getElementById('ccBody');
 function render(){var c=CFG[cur];var w=window.CC_WEEK||'38';wkDates(w);var val=window.CC_W[w].m[IX[cur]][0];
  if(cur!='load'){var dr=c.lower?0.6:-3;c.s=series(val-dr/2,dr,c.lower?0.5:3,+w+IX[cur]);c.s[6]=val;if(c.good(val))c.s=c.s.map(function(v){return c.good(v)?v:+(c.lower?c.target-0.2:c.target+0.6).toFixed(1)})}
- FAC=window.CC_W[w].m[2][0]/32;
- document.getElementById('ccTitle').textContent=c.t+' ('+WL[w]+')';tab=cur=='load'?'pilot':'hub';var inner=(tab=='hub'?hub(c):pilot(c));var tip=TIP[cur];if(cur=='load'){var n=Math.ceil(EX/280);tip=n?'<b>Add '+n+' active pilot'+(n>1?'s':'')+' and spread orders so no pilot goes above 280 orders a week.</b>':'<b>Keep every pilot under 280 orders a week.</b>';tip=tip+''}body.innerHTML='<div class="vp-gdd-note" style="display:block;background:var(--vpYellowBg);border:1px solid var(--vpPaleAmber);color:var(--vpGreyDark02);padding:12px 16px"><div style="font:var(--vpHeading5);color:var(--vpGreyMid02);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px">How to improve</div><div style="font:var(--vpBody1)">'+tip+'</div><div style="border-top:1px dashed var(--vpPaleAmber);margin:12px 0"></div><div class="cc-fxl">'+c.t+' = '+FX[cur]+'</div></div>'+inner;body.querySelectorAll('[data-only]').forEach(function(b){b.onclick=function(){only=b.dataset.only=='1';render()}});
+ FAC=window.CC_W[w].m[2][0]/32;PW=w;
+ document.getElementById('ccTitle').textContent=c.t+' ('+WL[w]+')';document.getElementById('ccFoot').hidden=cur!='mis';tab=cur=='load'?'pilot':'hub';var inner=(tab=='hub'?hub(c):pilot(c));var tip=TIP[cur];if(cur=='load'){var n=Math.ceil(EX/280);tip=n?'<b>Add '+n+' active pilot'+(n>1?'s':'')+' and spread orders so no pilot goes above 280 orders a week.</b>':'<b>Keep every pilot under 280 orders a week.</b>';tip=tip+''}body.innerHTML='<div class="cc-call"><div><div class="lab">How to improve</div><div class="tip">'+BULB+'<span>'+tip.replace(/<\/?b>/g,'')+'</span></div></div><hr><div><div class="lab">'+c.t+'</div><div class="fx">'+FX[cur]+'</div></div></div>'+inner;body.querySelectorAll('[data-only]').forEach(function(b){b.onclick=function(){only=b.dataset.only=='1';render()}});
  document.querySelectorAll('.cc-modal .vp-tab').forEach(function(t){t.classList.toggle('active',t.dataset.tab==tab)});document.querySelector('.cc-modal .vp-tabs').style.display='none'}
 document.addEventListener('click',function(e){var b=e.target.closest('[data-trend]');if(!b)return;cur=b.dataset.trend;only=false;render();ovl.classList.add('open')});
 document.querySelectorAll('.cc-modal .vp-tab').forEach(function(t){t.addEventListener('click',function(){tab=t.dataset.tab;render()})});
@@ -2161,11 +2272,11 @@ wf.innerHTML=h;var old=wf.nextElementSibling;if(old&&old.classList.contains('gd-
 var ARROW='<svg viewBox="0 0 8 14" fill="none" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 var WK=window.GD_WEEKS,KEYS=['38','37','36','35'];
 // per week: [value, ok, extra]
-var DATA={
- 38:{load:['9 pilots',0,'+3 pilots',32],d0:[86.2,0],fad:[79.0,1],mis:[0.8,1],crto:[25,0],prto:[4,1],crate:[15,1],prate:[12,1]},
- 37:{load:['6 pilots',0,'+2 pilots',21],d0:[88.4,0],fad:[79.1,1],mis:[0.9,1],crto:[21,0],prto:[3.5,1],crate:[15,1],prate:[12,1]},
- 36:{load:['0 pilots',1,'0 pilots',8],d0:[91.0,1],fad:[76.5,0],mis:[0.9,1],crto:[19,1],prto:[4,1],crate:[15,1],prate:[12,1]},
- 35:{load:['3 pilots',0,'+1 pilot',14],d0:[88.0,0],fad:[74.0,0],mis:[1.2,0],crto:[20,0],prto:[5,0],crate:[16,0],prate:[12,1]}};
+var DATA=window.GD_DATA={
+ 38:{doh:[3.2,1],load:['9 pilots',0,'+3 pilots',32],d0:[86.2,0],fad:[79.0,1],mis:[0.8,1],crto:[25,0],prto:[4,1],crate:[15,1],prate:[12,1]},
+ 37:{doh:[4.1,1],load:['6 pilots',0,'+2 pilots',21],d0:[88.4,0],fad:[79.1,1],mis:[0.9,1],crto:[21,0],prto:[3.5,1],crate:[15,1],prate:[12,1]},
+ 36:{doh:[6.3,0],load:['0 pilots',1,'0 pilots',8],d0:[91.0,1],fad:[76.5,0],mis:[0.9,1],crto:[19,1],prto:[4,1],crate:[15,1],prate:[12,1]},
+ 35:{doh:[5.6,0],load:['3 pilots',0,'+1 pilot',14],d0:[88.0,0],fad:[74.0,0],mis:[1.2,0],crto:[20,0],prto:[5,0],crate:[16,0],prate:[12,1]}};
 function metrics(w){var x=DATA[w],L=WK[w];return [
  {k:'load',g:'cap',nm:'Overload Pilots',lab:'Above limit ('+L.lbl+')',v:x.load[0],ok:x.load[1],tk:'Target',t:x.load[2],link:'Improve Overload Pilots',trend:'load'},
  {k:'d0',g:'cap',nm:'D0 Attempt %',lab:'Current ('+L.lbl+')',v:x.d0[0].toFixed(1)+'%',ok:x.d0[1],tk:'Target',t:'90%',link:'Improve Day-0 Attempt',trend:'d0'},
@@ -2175,7 +2286,7 @@ function metrics(w){var x=DATA[w],L=WK[w];return [
  {k:'prto',g:'vol',nm:'Prepaid RTO %',lab:'Current ('+L.lbl+')',v:x.prto[0]+'%',ok:x.prto[1],tk:'Target',t:'4%',link:'Improve Performance'},
  {k:'crate',g:'vol',nm:'COD Pilot Rate',lab:'Current rate',v:'₹'+x.crate[0],ok:x.crate[1],tk:'Recommended',t:'₹15',link:'Go To Rate Card Tab'},
  {k:'prate',g:'vol',nm:'Prepaid Pilot Rate',lab:'Current rate',v:'₹'+x.prate[0],ok:x.prate[1],tk:'Recommended',t:'₹12',link:'Go To Rate Card Tab'}]}
-var DEF={load:'Pilots doing more than 280 orders a week.',d0:'Orders attempted on the day they reach your DC.',fad:'COD orders delivered on the first attempt.',mis:'Orders you sent to another hub, but later delivered in your area.',crto:'COD orders that came back to origin without delivery.',prto:'Prepaid orders that came back to origin without delivery.',crate:'What you pay a pilot for each COD delivery.',prate:'What you pay a pilot for each prepaid delivery.'};
+var DEF={doh:'Orders still at your DC after their delivery day (Days On Hand).',load:'Pilots doing more than 280 orders a week.',d0:'Orders attempted on the day they reach your DC.',fad:'COD orders delivered on the first attempt.',mis:'Orders you sent to another hub, but later delivered in your area.',crto:'COD orders that came back to origin without delivery.',prto:'Prepaid orders that came back to origin without delivery.',crate:'What you pay a pilot for each COD delivery.',prate:'What you pay a pilot for each prepaid delivery.'};
 function chip(ok){return ok?'<span class="vp-statchip good">Good</span>':'<span class="vp-statchip bad">Not Good</span>'}
 function mc(m){return '<div class="mc'+(m.ok?' ok':'')+'"><div class="mh"><span class="mn">'+m.nm+'<span class="cc-info" data-def="'+(DEF[m.k]||m.nm)+'">i</span><span class="gtag '+m.g+'">'+(m.g=='cap'?'Capacity':'Volume')+'</span></span><span class="hb">▶ हिंदी</span></div>'+
  '<div class="mb"><div><div class="mk'+(m.lag?' lag':'')+'">'+m.lab+'</div><div class="mv">'+m.v+chip(m.ok)+'</div></div><div class="tgt"><div class="mk">'+m.tk+'</div><div class="mv">'+m.t+'</div></div></div>'+
@@ -2197,7 +2308,10 @@ function render(w){window.CC_WEEK=w;syncTop(w);var x=DATA[w];if(window.CC_W&&win
  bad.querySelector('[data-grid]').innerHTML=B.length?B.map(mc).join(''):'<div class="gm-empty">🎉 All metrics are on target this week.</div>';
  ok.querySelector('[data-grid]').innerHTML=O.length?O.map(mc).join(''):'<div class="gm-empty">No metric is on target this week.</div>';
  ok.querySelector('[data-names]').innerHTML=O.map(function(m){return '<span class="nchip">'+m.nm+'</span>'}).join('');if(window.GM_TGL)window.GM_TGL();
- document.querySelectorAll('#gmGroups .gm-grp').forEach(function(box){var g=box.dataset.g,list=ms.filter(function(m){return m.g==g}),nb=list.filter(function(m){return !m.ok}).length;box.querySelector('[data-meta]').textContent=nb?nb+' of '+list.length+' need work':'All '+list.length+' on target';box.querySelector('[data-row]').innerHTML=list.map(mc).join('')});}
+ document.querySelectorAll('#gmGroups .gm-grp').forEach(function(box){var g=box.dataset.g,list=ms.filter(function(m){return m.g==g}),nb=list.filter(function(m){return !m.ok}).length;box.querySelector('[data-meta]').textContent=nb?nb+' of '+list.length+' need work':'All '+list.length+' on target';box.querySelector('[data-row]').innerHTML=list.map(mc).join('')});
+ /* Valmo view: one list of metrics, no capacity cuts */
+ var byK={};ms.forEach(function(m){byK[m.k]=m});var DH={k:'doh',g:'vol',nm:'DOH %',lab:'Current ('+WK[w].lbl+')',v:x.doh[0].toFixed(1)+'%',ok:x.doh[1],tk:'Target',t:'≤ 5%',link:'Improve DOH'};
+ document.querySelector('#gmValmo [data-row]').innerHTML=[byK.crto,byK.prto,byK.crate,byK.prate,byK.d0,DH].map(mc).join('');}
 function tgl(){var n=ok.querySelector('[data-n]').textContent;ok.querySelector('.tgl').textContent=ok.classList.contains('open')?'Hide':(document.getElementById('gmPanel').getAttribute('data-v')=='8'?'View '+n+' metrics':'Show')}window.GM_TGL=tgl;
 ok.querySelector('[data-toggle]').addEventListener('click',function(){ok.classList.toggle('open');tgl()});
 // week dropdown
@@ -2232,6 +2346,15 @@ window.GM_SB=refresh;
 new MutationObserver(function(){requestAnimationFrame(refresh)}).observe(document.getElementById('gmPanel'),{childList:true,subtree:true,attributes:true,attributeFilter:['data-v','class']});
 window.addEventListener('load',refresh);setTimeout(refresh,300);
 })();
+</script>
+<script>
+(function(){var bw=document.getElementById('gdBrand'),pn=document.getElementById('gmPanel');
+function setB(b){pn.setAttribute('data-brand',b);var sw=document.getElementById('gvSw');if(sw)sw.classList.toggle('off',b=='valmo');bw.querySelectorAll('button').forEach(function(x){var on=x.dataset.b==b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',String(on))});if(window.GM_SB)requestAnimationFrame(window.GM_SB)}
+bw.addEventListener('click',function(e){var x=e.target.closest('button');if(x)setB(x.dataset.b)});setB('latent');
+var ar=document.getElementById('gmArr'),row=document.querySelector('#gmValmo .gm-row');
+function arrUpd(){var mx=row.scrollWidth-row.clientWidth;ar.children[0].disabled=row.scrollLeft<=2;ar.children[1].disabled=row.scrollLeft>=mx-2}
+ar.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var cs=[].slice.call(row.querySelectorAll('.mc')),x0=row.scrollLeft,base=cs.length?cs[0].offsetLeft:0,offs=cs.map(function(c){return c.offsetLeft-base}),t=+b.dataset.d>0?offs.filter(function(o){return o>x0+2})[0]:offs.filter(function(o){return o<x0-2}).pop();if(t==null)t=+b.dataset.d>0?row.scrollWidth:0;t=Math.min(t,row.scrollWidth-row.clientWidth);row.scrollTo({left:t,behavior:'smooth'});/* if smooth scroll does not run, jump there */setTimeout(function(){if(Math.abs(row.scrollLeft-t)>2)row.scrollLeft=t;arrUpd()},500)});
+row.addEventListener('scroll',arrUpd,{passive:true});window.addEventListener('resize',arrUpd);new MutationObserver(arrUpd).observe(pn,{attributes:true,attributeFilter:['data-brand']});setTimeout(arrUpd,300);})();
 </script>
 </body>
 </html>
