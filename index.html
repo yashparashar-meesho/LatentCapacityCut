@@ -376,13 +376,27 @@
 .vp-scope .gv-sw.off{display:none!important}
 .vp-scope .gm-arr{display:none;align-items:center;gap:8px}
 .vp-scope #gmPanel[data-brand="valmo"] .gm-arr{display:inline-flex}
-.vp-scope .gm-arr button{width:36px;height:36px;border-radius:50%;border:0;background:var(--vpGreyLight02);color:var(--vpGreyDark02);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.vp-scope .gm-arr button{width:40px;height:40px;border-radius:50%;border:1.5px solid #8E96A3;box-sizing:border-box;background:var(--vpGreyLight02);color:var(--vpBrand);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
 .vp-scope .gm-arr button:hover:not(:disabled){background:var(--vpGreyLight01)}
 .vp-scope .gm-arr button:disabled{opacity:.4;cursor:default}
 .vp-scope .gm-arr svg{width:16px;height:16px}
 
 /* top card labels: Heading 8 (all caps) */
 .vp-scope .gd-now>.k,.vp-scope .gd-more>.k{font:var(--vpHeading8)!important;letter-spacing:.01em;text-transform:uppercase;color:var(--vpGreyDark01)!important}
+
+/* metrics filter: All / Need Improvement + divider */
+.vp-scope .gm-tools{display:flex;align-items:center;margin-left:auto}
+.vp-scope .gm-tools .gm-dd{margin-left:0}
+.vp-scope .gm-filt{display:inline-flex;height:40px;box-sizing:border-box;border:1px solid var(--vpGreyLight01);border-radius:8px;overflow:hidden;background:var(--vpWhite)}
+.vp-scope .gm-filt button{border:0;background:transparent;font:var(--vpBody1);color:var(--vpGreyDark01);padding:0 18px;cursor:pointer;white-space:nowrap}
+.vp-scope .gm-filt button.on{background:#E3EDFF;color:var(--vpBrand);font-weight:600}
+.vp-scope .gm-div{width:1px;height:32px;background:var(--vpGreyMid01);margin:0 16px}
+.vp-scope #gmPanel[data-v="8"]:not([data-brand="valmo"]) .gm-filt,.vp-scope #gmPanel[data-v="8"]:not([data-brand="valmo"]) .gm-div{display:none}
+.vp-scope #gmPanel[data-brand="valmo"] .gm-dd{display:none}
+.vp-scope #gmPanel[data-f="need"] .gm-row .mc.ok{display:none}
+.vp-scope .gm-allok{display:none;font:var(--vpBody2);color:var(--vpGreyDark01);background:var(--vpGreyLight02);border-radius:8px;padding:14px 16px;flex:1}
+.vp-scope #gmPanel[data-f="need"] .gm-row[data-allok] .gm-allok{display:block}
+.vp-scope .gm-arr{gap:16px}
 </style>
 <style>/* ============ vp- component kit (Valmo Partner clone) ============ */
 
@@ -1848,7 +1862,7 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
 
       <div class="vp-panel" id="gmPanel" data-v="g">
         <div class="vp-gdsechead gd-head"><div class="gd-ht"><h4>Your metrics (<span id="gmDate"></span>)</h4><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी में जानकारी</span></button></div>
-          <div class="cc-dd gm-dd" id="gmDD"><button type="button" class="vp-select cc-weeksel cc-ddbtn" aria-haspopup="listbox" aria-expanded="false"><span class="cc-ddval"></span><span class="chev">▼</span></button><ul class="cc-ddmenu" role="listbox" hidden></ul></div><div class="gm-arr" id="gmArr"><button type="button" data-d="-1" aria-label="Scroll metrics left"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-d="1" aria-label="Scroll metrics right"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
+          <div class="gm-tools"><div class="gm-filt" id="gmFilt" role="group" aria-label="Filter metrics"><button type="button" class="on" data-f="all" aria-pressed="true">All Metrics (<span data-c="all"></span>)</button><button type="button" data-f="need" aria-pressed="false">Need Improvement (<span data-c="need"></span>)</button></div><span class="gm-div" aria-hidden="true"></span><div class="cc-dd gm-dd" id="gmDD"><button type="button" class="vp-select cc-weeksel cc-ddbtn" aria-haspopup="listbox" aria-expanded="false"><span class="cc-ddval"></span><span class="chev">▼</span></button><ul class="cc-ddmenu" role="listbox" hidden></ul></div><div class="gm-arr" id="gmArr"><button type="button" data-d="-1" aria-label="Scroll metrics left"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-d="1" aria-label="Scroll metrics right"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div></div>
         <div class="gm-box open" id="gmBad"><div class="gm-bh"><span class="tt">Needs attention (<span data-n></span>)</span><span class="meta">Fix these to stop capacity cuts and get more orders</span></div><div class="gm-bb"><div class="gm-grid" data-grid></div></div></div>
         <div class="gm-box" id="gmOk"><div class="gm-bh" data-toggle><span class="tt">Good (<span data-n></span>)</span><span class="gm-names" data-names></span><span class="tg"><span class="tgl">Show</span><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><div class="gm-bb"><div class="gm-grid" data-grid></div></div></div>
         <div id="gmValmo"><div class="gm-row" data-row></div></div><div id="gmGroups"><div class="gm-box open gm-grp" data-g="cap"><div class="gm-bh"><span class="tt">Capacity cuts</span><span class="meta" data-meta></span></div><div class="gm-bb"><div class="gm-row" data-row></div></div></div><div class="gm-box open gm-grp" data-g="vol"><div class="gm-bh"><span class="tt">Grow your volume</span><span class="meta" data-meta></span></div><div class="gm-bb"><div class="gm-row" data-row></div></div></div></div>
@@ -2314,7 +2328,8 @@ function render(w){window.CC_WEEK=w;syncTop(w);var x=DATA[w];if(window.CC_W&&win
  document.querySelectorAll('#gmGroups .gm-grp').forEach(function(box){var g=box.dataset.g,list=ms.filter(function(m){return m.g==g}),nb=list.filter(function(m){return !m.ok}).length;box.querySelector('[data-meta]').textContent=nb?nb+' of '+list.length+' need work':'All '+list.length+' on target';box.querySelector('[data-row]').innerHTML=list.map(mc).join('')});
  /* Valmo view: one list of metrics, no capacity cuts */
  var byK={};ms.forEach(function(m){byK[m.k]=m});var DH={k:'doh',g:'vol',nm:'DOH %',lab:'Current ('+WK[w].lbl+')',v:x.doh[0].toFixed(1)+'%',ok:x.doh[1],tk:'Target',t:'≤ 5%',link:'Improve DOH'};
- document.querySelector('#gmValmo [data-row]').innerHTML=[byK.crto,byK.prto,byK.crate,byK.prate,byK.d0,DH].map(mc).join('');}
+ var VL=[byK.crto,byK.prto,byK.crate,byK.prate,byK.d0,DH];document.querySelector('#gmValmo [data-row]').innerHTML=VL.map(mc).join('');window.GM_COUNTS={latent:[ms.length,B.length],valmo:[VL.length,VL.filter(function(m){return !m.ok}).length]};
+ document.querySelectorAll('#gmPanel .gm-row').forEach(function(r){r.toggleAttribute('data-allok',!r.querySelector('.mc:not(.ok)'));r.insertAdjacentHTML('beforeend','<div class="gm-allok">All metrics here are on target this week.</div>')});if(window.GM_FC)window.GM_FC();}
 function tgl(){var n=ok.querySelector('[data-n]').textContent;ok.querySelector('.tgl').textContent=ok.classList.contains('open')?'Hide':(document.getElementById('gmPanel').getAttribute('data-v')=='8'?'View '+n+' metrics':'Show')}window.GM_TGL=tgl;
 ok.querySelector('[data-toggle]').addEventListener('click',function(){ok.classList.toggle('open');tgl()});
 // week dropdown
@@ -2352,12 +2367,14 @@ window.addEventListener('load',refresh);setTimeout(refresh,300);
 </script>
 <script>
 (function(){var bw=document.getElementById('gdBrand'),pn=document.getElementById('gmPanel');
-function setB(b){pn.setAttribute('data-brand',b);var sw=document.getElementById('gvSw');if(sw)sw.classList.toggle('off',b=='valmo');bw.querySelectorAll('button').forEach(function(x){var on=x.dataset.b==b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',String(on))});if(window.GM_SB)requestAnimationFrame(window.GM_SB)}
+var ft=document.getElementById('gmFilt');function fc(){var c=window.GM_COUNTS;if(!c)return;c=c[pn.getAttribute('data-brand')=='valmo'?'valmo':'latent'];ft.querySelector('[data-c=all]').textContent=c[0];ft.querySelector('[data-c=need]').textContent=c[1]}window.GM_FC=fc;
+ft.addEventListener('click',function(e){var x=e.target.closest('button');if(!x)return;pn.setAttribute('data-f',x.dataset.f);ft.querySelectorAll('button').forEach(function(y){var on=y===x;y.classList.toggle('on',on);y.setAttribute('aria-pressed',String(on))});if(window.GM_SB)requestAnimationFrame(window.GM_SB)});
+function setB(b){pn.setAttribute('data-brand',b);if(b=='valmo'){var li=document.querySelector('#gmDD li[data-v="38"]');if(li)li.click()}fc();var sw=document.getElementById('gvSw');if(sw)sw.classList.toggle('off',b=='valmo');bw.querySelectorAll('button').forEach(function(x){var on=x.dataset.b==b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',String(on))});if(window.GM_SB)requestAnimationFrame(window.GM_SB)}
 bw.addEventListener('click',function(e){var x=e.target.closest('button');if(x)setB(x.dataset.b)});setB('latent');
 var ar=document.getElementById('gmArr'),row=document.querySelector('#gmValmo .gm-row');
 function arrUpd(){var mx=row.scrollWidth-row.clientWidth;ar.children[0].disabled=row.scrollLeft<=2;ar.children[1].disabled=row.scrollLeft>=mx-2}
 ar.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var cs=[].slice.call(row.querySelectorAll('.mc')),x0=row.scrollLeft,base=cs.length?cs[0].offsetLeft:0,offs=cs.map(function(c){return c.offsetLeft-base}),t=+b.dataset.d>0?offs.filter(function(o){return o>x0+2})[0]:offs.filter(function(o){return o<x0-2}).pop();if(t==null)t=+b.dataset.d>0?row.scrollWidth:0;t=Math.min(t,row.scrollWidth-row.clientWidth);row.scrollTo({left:t,behavior:'smooth'});/* if smooth scroll does not run, jump there */setTimeout(function(){if(Math.abs(row.scrollLeft-t)>2)row.scrollLeft=t;arrUpd()},500)});
-row.addEventListener('scroll',arrUpd,{passive:true});window.addEventListener('resize',arrUpd);new MutationObserver(arrUpd).observe(pn,{attributes:true,attributeFilter:['data-brand']});setTimeout(arrUpd,300);})();
+row.addEventListener('scroll',arrUpd,{passive:true});window.addEventListener('resize',arrUpd);new MutationObserver(function(){row.scrollLeft=0;arrUpd()}).observe(pn,{attributes:true,attributeFilter:['data-brand','data-f']});setTimeout(arrUpd,300);})();
 </script>
 </body>
 </html>
