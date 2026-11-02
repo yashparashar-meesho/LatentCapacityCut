@@ -249,40 +249,6 @@
 .vp-scope .gv-sw{margin-left:auto;display:inline-flex;align-items:center;gap:0;border:1px dashed var(--vpGreyMid01);border-radius:8px;padding:3px;background:#FFFBEA}
 .vp-scope .gv-sw span{font:var(--vpBody2);color:var(--vpGreyDark01);padding:0 8px}
 .vp-scope .gv-sw button{border:0;background:transparent;font:var(--vpBody2);color:var(--vpGreyDark01);padding:5px 10px;border-radius:6px;cursor:pointer}.vp-scope .gv-sw button.on{background:#092D5E;color:#fff}
-/* V2 flat: no group containers */
-.vp-scope #gmPanel[data-v="2"] .gm-box{border:0;border-radius:0;background:transparent;overflow:visible;margin-top:20px}
-.vp-scope #gmPanel[data-v="2"] .gm-bh{padding:0 0 12px}
-.vp-scope #gmPanel[data-v="2"] .gm-bb{border-top:0;padding:0;background:transparent}
-.vp-scope #gmPanel[data-v="2"] #gmOk{border-top:1px solid var(--vpGreyLight01);padding-top:16px;margin-top:20px}
-.vp-scope #gmPanel[data-v="2"] #gmOk:not(.open) .gm-bh{padding-bottom:0}
-/* V3 soft fill: tinted groups, borderless cards */
-.vp-scope #gmPanel[data-v="3"] .gm-box{border:0;background:#F5F7FA}
-.vp-scope #gmPanel[data-v="3"] .gm-bb{border-top:0;background:transparent;padding:0 16px 16px}
-.vp-scope #gmPanel[data-v="3"] .mc{border:0;box-shadow:0 1px 2px rgba(16,24,40,.06)}
-.vp-scope #gmPanel[data-v="3"] .mc .ml{border-top-color:#EEF1F5}
-.vp-scope #gmPanel[data-v="3"] .nchip{background:#fff}
-/* V4/V5 share the soft-fill base */
-.vp-scope #gmPanel[data-v="4"] .gm-box,.vp-scope #gmPanel[data-v="5"] .gm-box{border:0;background:#F5F7FA}
-.vp-scope #gmPanel[data-v="4"] .gm-bb,.vp-scope #gmPanel[data-v="5"] .gm-bb{border-top:0;background:transparent;padding:0 16px 16px}
-.vp-scope #gmPanel[data-v="4"] .mc,.vp-scope #gmPanel[data-v="5"] .mc{border:0;box-shadow:0 1px 3px rgba(16,24,40,.08)}
-.vp-scope #gmPanel[data-v="4"] .nchip,.vp-scope #gmPanel[data-v="5"] .nchip{background:#fff}
-/* V4: good cards get a white header with a divider */
-.vp-scope #gmPanel[data-v="4"] .mc.ok .mh{background:#fff;border-bottom:1px solid #EEF1F5}
-/* V5: good cards get a light green header (counterpart of pink) */
-.vp-scope #gmPanel[data-v="5"] .mc.ok .mh{background:#E7FBE0}
-/* V6: lighter fill, deeper neutral header, thin card outline */
-.vp-scope #gmPanel[data-v="6"] .gm-box{border:0;background:#F8F9FB}
-.vp-scope #gmPanel[data-v="6"] .gm-bb{border-top:0;background:transparent;padding:0 16px 16px}
-.vp-scope #gmPanel[data-v="6"] .mc{border:1px solid #E3E8EF;box-shadow:none}
-.vp-scope #gmPanel[data-v="6"] .mc.ok .mh{background:#EDF0F5}
-.vp-scope #gmPanel[data-v="6"] .nchip{background:#fff}
-/* V7: fill only on Needs attention; Good sits on white with a divider */
-.vp-scope #gmPanel[data-v="7"] #gmBad{border:0;background:#F5F7FA}
-.vp-scope #gmPanel[data-v="7"] #gmBad .gm-bb{border-top:0;background:transparent;padding:0 16px 16px}
-.vp-scope #gmPanel[data-v="7"] #gmBad .mc{border:0;box-shadow:0 1px 3px rgba(16,24,40,.08)}
-.vp-scope #gmPanel[data-v="7"] #gmOk{border:0;border-radius:0;background:transparent;overflow:visible;border-top:1px solid var(--vpGreyLight01);margin-top:20px}
-.vp-scope #gmPanel[data-v="7"] #gmOk .gm-bh{padding:16px 0 12px}.vp-scope #gmPanel[data-v="7"] #gmOk:not(.open) .gm-bh{padding-bottom:0}
-.vp-scope #gmPanel[data-v="7"] #gmOk .gm-bb{border-top:0;padding:0;background:transparent}
 /* V8: V7 + an obvious clickable collapsed row */
 .vp-scope #gmPanel[data-v="8"] #gmBad{border:0;background:#F5F7FA}
 .vp-scope #gmPanel[data-v="8"] #gmBad .gm-bb{border-top:0;background:transparent;padding:0 16px 16px}
@@ -293,6 +259,45 @@
 .vp-scope #gmPanel[data-v="8"] #gmOk .tg{border:1px solid var(--vpValmoInk);border-radius:8px;padding:6px 12px;background:#fff}
 .vp-scope #gmPanel[data-v="8"] #gmOk .tg:hover{background:#E3EDFF}
 .vp-scope .gd-sum>.vp-panel>.k{font:var(--vpHeading5);color:var(--vpGreyDark02)}
+/* V2 · by group: always open, single scrollable row */
+.vp-scope #gmGroups{display:none}
+.vp-scope #gmPanel[data-v="g"] #gmBad,.vp-scope #gmPanel[data-v="g"] #gmOk{display:none}
+.vp-scope #gmPanel[data-v="g"] #gmGroups{display:block}
+.vp-scope .gm-grp .gm-bh .tt{font:var(--vpHeading4)}
+.vp-scope .gm-row{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x proximity}
+.vp-scope .gm-row .mc{flex:0 0 calc((100% - 36px)/4);min-width:280px;scroll-snap-align:start}
+.vp-scope .gm-grp .gtag,.vp-scope .gm-grp [data-meta]{display:none}
+.vp-scope #gmPanel[data-v="g"] .gm-grp{border:0;border-radius:0;background:transparent;overflow:visible;margin-top:20px}
+.vp-scope #gmPanel[data-v="g"] .gm-grp+.gm-grp{margin-top:28px}
+.vp-scope #gmPanel[data-v="g"] .gm-grp .gm-bh{padding:0 0 12px}
+.vp-scope #gmPanel[data-v="g"] .gm-grp .gm-bb{border-top:0;padding:0;background:transparent}
+.vp-scope #gdGraphPanel .gd-graphhead{margin-top:0}
+.vp-scope #gmPanel[data-v="g3"] #gmBad,.vp-scope #gmPanel[data-v="g3"] #gmOk{display:none}
+.vp-scope #gmPanel[data-v="g3"] #gmGroups{display:block}
+.vp-scope #gmPanel[data-v="g3"] .gm-grp{border:0;border-radius:0;background:transparent;overflow:visible;margin-top:20px}
+.vp-scope #gmPanel[data-v="g3"] .gm-grp+.gm-grp{margin-top:28px}
+.vp-scope #gmPanel[data-v="g3"] .gm-grp .gm-bh{padding:0 0 12px}
+.vp-scope #gmPanel[data-v="g3"] .gm-grp .gm-bb{border-top:0;padding:0;background:transparent}
+.vp-scope #gmPanel[data-v="g3"] .gm-grp{background:#F3F7FF;border-radius:12px;padding:16px}
+.vp-scope #gmPanel[data-v="g3"] .gm-grp+.gm-grp{margin-top:16px}
+.vp-scope #gmPanel[data-v="g3"] .mc{border-color:#E3EAF5}
+/* V1: one row per group, horizontal scroll with a visible scrollbar */
+.vp-scope #gmPanel[data-v="8"] .gm-grid{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x proximity}
+.vp-scope #gmPanel[data-v="8"] .gm-grid .mc{flex:0 0 calc((100% - 36px)/4);min-width:280px;scroll-snap-align:start}
+.vp-scope #gmPanel[data-v="8"] .gm-grid .gm-empty{flex:1}
+/* visible scrollbar (all versions) */
+@supports not selector(::-webkit-scrollbar){.vp-scope .gm-grid,.vp-scope .gm-row{scrollbar-width:thin;scrollbar-color:#C3C9D4 #EEF1F5}}
+.vp-scope .gm-grid::-webkit-scrollbar,.vp-scope .gm-row::-webkit-scrollbar{height:8px}
+.vp-scope .gm-grid::-webkit-scrollbar-track,.vp-scope .gm-row::-webkit-scrollbar-track{background:#EEF1F5;border-radius:8px}
+.vp-scope .gm-grid::-webkit-scrollbar-thumb,.vp-scope .gm-row::-webkit-scrollbar-thumb{background:#C3C9D4;border-radius:8px}
+.vp-scope .gm-grid::-webkit-scrollbar-thumb:hover,.vp-scope .gm-row::-webkit-scrollbar-thumb:hover{background:#8E96A3}
+.vp-scope .gm-row{padding-bottom:10px}
+.vp-scope .gm-sb{position:relative;height:8px;border-radius:8px;background:#EEF1F5;margin-top:10px;cursor:pointer}
+.vp-scope .gm-sb[hidden]{display:none}
+.vp-scope .gm-sb i{position:absolute;top:0;bottom:0;left:0;border-radius:8px;background:#C3C9D4;cursor:grab}
+.vp-scope .gm-sb i:hover,.vp-scope .gm-sb.drag i{background:#8E96A3}
+.vp-scope .gm-grid,.vp-scope .gm-row{scrollbar-width:none}.vp-scope .gm-grid::-webkit-scrollbar,.vp-scope .gm-row::-webkit-scrollbar{display:none}
+.vp-scope #gmPanel[data-v="8"] .gm-grid,.vp-scope .gm-row{padding-bottom:2px}
 </style>
 <style>/* ============ vp- component kit (Valmo Partner clone) ============ */
 
@@ -1727,7 +1732,7 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
       </div>
     </div>
     <div class="vp-content vp-gd vp-gdd">
-      <div class="vp-pagebar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;"><h3>Growth Dashboard</h3><div class="gv-sw" id="gvSw" title="Prototype only: switch metrics-section version"><span>Version</span><button data-v="8" class="on" type="button">V1 · Fill + Show button</button><button data-v="7" type="button">V2 · Fill only on attention</button><button data-v="6" type="button">V3 · Light fill + defined cards</button><button data-v="4" type="button">V4 · Soft fill + white header</button><button data-v="1" type="button">V5 · Boxes</button></div><button class="vp-btn vp-btn-outline vp-btn-sm" type="button">Need Help?</button></div>
+      <div class="vp-pagebar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;"><h3>Growth Dashboard</h3><div class="gv-sw" id="gvSw" title="Prototype only: switch metrics-section version"><span>Version</span><button data-v="g" class="on" type="button">V1 · By group</button><button data-v="g3" type="button">V2 · By group + tinted groups</button><button data-v="8" type="button">V3 · Needs attention / Good</button></div><button class="vp-btn vp-btn-outline vp-btn-sm" type="button">Need Help?</button></div>
       <div class="vp-tabs cc-dctabs" role="tablist" style="display:none"><div class="vp-tab" data-pane="set" role="tab">Set DC Capacity</div><div class="vp-tab active" data-pane="cuts" role="tab">Capacity Cuts <span class="cc-tabnew">NEW</span></div></div>
       <div class="cc-pane" id="pane-set" hidden>
       <div class="vp-panel">
@@ -1755,14 +1760,16 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
       <div class="vp-gdbanner cc-banner" hidden><div class="cap" id="ccBDate" style="opacity:.9;font:var(--vpButtonText1)">This week (20th – 26th Oct)</div><div class="line cc-bline"><span id="ccBMsg"><b>560 orders cut from your capacity this week.</b> Improve the metrics below to get them back.</span></div></div>
 
 
-      <div class="vp-panel" id="gmPanel" data-v="8">
-        <div class="vp-gdsechead gd-head"><div class="gd-ht"><h4>Your metrics · <span id="gmDate"></span></h4><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी में जानकारी</span></button></div>
+      <div class="vp-panel" id="gmPanel" data-v="g">
+        <div class="vp-gdsechead gd-head"><div class="gd-ht"><h4>Your metrics (<span id="gmDate"></span>)</h4><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी में जानकारी</span></button></div>
           <div class="cc-dd gm-dd" id="gmDD"><button type="button" class="vp-select cc-weeksel cc-ddbtn" aria-haspopup="listbox" aria-expanded="false"><span class="cc-ddval"></span><span class="chev">▼</span></button><ul class="cc-ddmenu" role="listbox" hidden></ul></div></div>
         <div class="gm-box open" id="gmBad"><div class="gm-bh"><span class="tt">Needs attention (<span data-n></span>)</span><span class="meta">Fix these to stop capacity cuts and get more orders</span></div><div class="gm-bb"><div class="gm-grid" data-grid></div></div></div>
         <div class="gm-box" id="gmOk"><div class="gm-bh" data-toggle><span class="tt">Good (<span data-n></span>)</span><span class="gm-names" data-names></span><span class="tg"><span class="tgl">Show</span><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><div class="gm-bb"><div class="gm-grid" data-grid></div></div></div>
-        <div class="vp-gdsechead gd-graphhead"><div class="gd-ht"><h4>Growth Graph (<span class="gd-win"></span>)</h4><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी में जानकारी</span></button></div></div><div class="gd-eq"><div><div class="k">YOU GET NOW</div><div class="big"><span class="n" id="gdEqNow">2,049</span> <span>orders/week</span></div></div><div class="op">+</div><div><div class="k">MORE ORDERS YOU CAN GET</div><div class="big g"><span class="n" id="gdEqMore">1,835</span> <span>orders/week</span></div></div><div class="op">=</div><div><div class="k">MAX. POSSIBLE ORDERS</div><div class="big"><span class="n" id="gdEqMax">3,884</span> <span>orders/week</span></div></div></div><div class="gd-wf" id="gdWf"></div>
+        <div id="gmGroups"><div class="gm-box open gm-grp" data-g="cap"><div class="gm-bh"><span class="tt">Capacity cuts</span><span class="meta" data-meta></span></div><div class="gm-bb"><div class="gm-row" data-row></div></div></div><div class="gm-box open gm-grp" data-g="vol"><div class="gm-bh"><span class="tt">Grow your volume</span><span class="meta" data-meta></span></div><div class="gm-bb"><div class="gm-row" data-row></div></div></div></div>
+        <div id="gdGraphWrap"><div class="vp-gdsechead gd-graphhead"><div class="gd-ht"><h4>Growth Graph (<span class="gd-win"></span>)</h4><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी में जानकारी</span></button></div></div><div class="gd-eq"><div><div class="k">YOU GET NOW</div><div class="big"><span class="n" id="gdEqNow">2,049</span> <span>orders/week</span></div></div><div class="op">+</div><div><div class="k">MORE ORDERS YOU CAN GET</div><div class="big g"><span class="n" id="gdEqMore">1,835</span> <span>orders/week</span></div></div><div class="op">=</div><div><div class="k">MAX. POSSIBLE ORDERS</div><div class="big"><span class="n" id="gdEqMax">3,884</span> <span>orders/week</span></div></div></div><div class="gd-wf" id="gdWf"></div></div>
       </div>
 
+      <div class="vp-panel" id="gdGraphPanel" hidden></div>
       <div class="vp-panel" style="display:none">
         <div class="vp-gdsechead gd-head"><div class="gd-ht"><h4>Capacity cuts</h4><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी में जानकारी</span></button></div><div class="gd-seg" id="gdSeg"><button class="on" data-f="all" type="button">All Metrics (4)</button><button data-f="bad" type="button">Need Improvement (4)</button></div><h4 id="ccMTitle" hidden>Capacity Cuts Metrics · 20th – 26th Oct</h4>
           <div class="cc-dd" id="ccDD" hidden><select id="ccWeek" aria-hidden="true" tabindex="-1" style="display:none"><option value="38">20th – 26th Oct (This week)</option><option value="37">13th – 19th Oct</option><option value="36">6th – 12th Oct</option><option value="35">29th Sep – 5th Oct</option></select><button type="button" class="vp-select cc-weeksel cc-ddbtn" aria-haspopup="listbox" aria-expanded="false"><span class="cc-ddval">20th – 26th Oct (This week)</span><span class="chev">▼</span></button><ul class="cc-ddmenu" role="listbox" hidden><li role="option" data-v="38" aria-selected="true">20th – 26th Oct (This week)</li><li role="option" data-v="37">13th – 19th Oct</li><li role="option" data-v="36">6th – 12th Oct</li><li role="option" data-v="35">29th Sep – 5th Oct</li></ul></div></div>
@@ -2189,7 +2196,8 @@ function render(w){window.CC_WEEK=w;syncTop(w);var x=DATA[w];if(window.CC_W&&win
  bad.querySelector('[data-n]').textContent=B.length;ok.querySelector('[data-n]').textContent=O.length;
  bad.querySelector('[data-grid]').innerHTML=B.length?B.map(mc).join(''):'<div class="gm-empty">🎉 All metrics are on target this week.</div>';
  ok.querySelector('[data-grid]').innerHTML=O.length?O.map(mc).join(''):'<div class="gm-empty">No metric is on target this week.</div>';
- ok.querySelector('[data-names]').innerHTML=O.map(function(m){return '<span class="nchip">'+m.nm+'</span>'}).join('');if(window.GM_TGL)window.GM_TGL();}
+ ok.querySelector('[data-names]').innerHTML=O.map(function(m){return '<span class="nchip">'+m.nm+'</span>'}).join('');if(window.GM_TGL)window.GM_TGL();
+ document.querySelectorAll('#gmGroups .gm-grp').forEach(function(box){var g=box.dataset.g,list=ms.filter(function(m){return m.g==g}),nb=list.filter(function(m){return !m.ok}).length;box.querySelector('[data-meta]').textContent=nb?nb+' of '+list.length+' need work':'All '+list.length+' on target';box.querySelector('[data-row]').innerHTML=list.map(mc).join('')});}
 function tgl(){var n=ok.querySelector('[data-n]').textContent;ok.querySelector('.tgl').textContent=ok.classList.contains('open')?'Hide':(document.getElementById('gmPanel').getAttribute('data-v')=='8'?'View '+n+' metrics':'Show')}window.GM_TGL=tgl;
 ok.querySelector('[data-toggle]').addEventListener('click',function(){ok.classList.toggle('open');tgl()});
 // week dropdown
@@ -2204,9 +2212,26 @@ pick('38');
 </script>
 <script>
 (function(){var sw=document.getElementById('gvSw'),pn=document.getElementById('gmPanel');if(!sw||!pn)return;
-function set(v){pn.setAttribute('data-v',v);if(window.GM_TGL)window.GM_TGL();sw.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.v==v)});try{localStorage.setItem('gmVersion2',v)}catch(e){}}
+function set(v){pn.setAttribute('data-v',v);var gw=document.getElementById('gdGraphWrap'),gp=document.getElementById('gdGraphPanel');if(gw&&gp){if(v==='g'||v==='g3'){gp.appendChild(gw);gp.hidden=false}else{pn.appendChild(gw);gp.hidden=true}}if(window.GM_TGL)window.GM_TGL();sw.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.v==v)});try{localStorage.setItem('gmVersion4',v)}catch(e){}}
 sw.addEventListener('click',function(e){var b=e.target.closest('button');if(b)set(b.dataset.v)});
-if(/[?&]shot=1/.test(location.search))sw.style.display='none';var OKV=['8','7','6','4','1'],v='8';try{v=localStorage.getItem('gmVersion2')||'8'}catch(e){}if(OKV.indexOf(v)<0)v='8';set(v);})();
+if(/[?&]shot=1/.test(location.search))sw.style.display='none';var OKV=['g','g3','8'],v='g';try{v=localStorage.getItem('gmVersion4')||'g'}catch(e){}if(OKV.indexOf(v)<0)v='g';set(v);})();
+</script>
+<script>
+(function(){
+function attach(el){if(el._sb)return el._sb;var sb=document.createElement('div');sb.className='gm-sb';sb.innerHTML='<i></i>';el.after(sb);el._sb=sb;var th=sb.firstChild;
+ function upd(){var ov=el.scrollWidth-el.clientWidth;var show=ov>2&&el.offsetParent!==null;sb.hidden=!show;if(!show)return;var w=Math.max(40,sb.clientWidth*el.clientWidth/el.scrollWidth);th.style.width=w+'px';th.style.left=((sb.clientWidth-w)*el.scrollLeft/ov)+'px'}
+ el.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);
+ sb.addEventListener('mousedown',function(e){var ov=el.scrollWidth-el.clientWidth,w=th.offsetWidth,r=sb.getBoundingClientRect();
+  if(e.target!==th){el.scrollLeft=((e.clientX-r.left-w/2)/(r.width-w))*ov;return}
+  var x0=e.clientX,s0=el.scrollLeft;sb.classList.add('drag');e.preventDefault();
+  function mv(ev){el.scrollLeft=s0+(ev.clientX-x0)*ov/(r.width-w)}function up(){sb.classList.remove('drag');document.removeEventListener('mousemove',mv);document.removeEventListener('mouseup',up)}
+  document.addEventListener('mousemove',mv);document.addEventListener('mouseup',up)});
+ sb._upd=upd;return sb}
+function refresh(){document.querySelectorAll('#gmPanel .gm-grid, #gmPanel .gm-row').forEach(function(el){attach(el)._upd()})}
+window.GM_SB=refresh;
+new MutationObserver(function(){requestAnimationFrame(refresh)}).observe(document.getElementById('gmPanel'),{childList:true,subtree:true,attributes:true,attributeFilter:['data-v','class']});
+window.addEventListener('load',refresh);setTimeout(refresh,300);
+})();
 </script>
 </body>
 </html>
