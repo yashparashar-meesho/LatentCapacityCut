@@ -398,6 +398,151 @@
 .vp-scope .gm-allok{display:none;font:var(--vpBody2);color:var(--vpGreyDark01);background:var(--vpGreyLight02);border-radius:8px;padding:14px 16px;flex:1}
 .vp-scope #gmPanel[data-f="need"] .gm-row[data-allok] .gm-allok{display:block}
 .vp-scope .gm-arr{gap:16px}
+
+/* ===== Ideas: capacity first, then volume (prototype) ===== */
+.vp-scope #ideaSw{margin-left:8px}
+.vp-scope #gvSw+#ideaSw{margin-left:8px}
+.vp-scope .idea-tag{display:inline-block;vertical-align:2px;margin-left:6px;font:600 11px/16px var(--vpFont);letter-spacing:.01em;text-transform:uppercase;color:var(--vpWhite);background:var(--vpRedAction);border-radius:10px;padding:0 7px}
+.vp-scope .idea-full{display:block;font:var(--vpBody2);color:var(--vpGreyDark01);margin-top:2px}
+.vp-scope .gd-levers .lv.idea-dim{color:var(--vpGreyMid02);text-decoration-color:var(--vpGreyMid01);display:inline-flex;align-items:center;gap:6px}
+.vp-scope .gd-levers .lv .idea-to{font:var(--vpBody2);color:var(--vpGreyMid02)}
+.vp-scope .idea-lock{width:14px;height:14px;flex-shrink:0}
+/* ceiling on the top bar */
+.vp-scope .gd-bar .idea-seg{position:absolute;top:0;bottom:0}
+.vp-scope .gd-bar .idea-seg.cap{background:repeating-linear-gradient(45deg,#E9C86F 0 4px,#F6E3A8 4px 8px)}
+.vp-scope .gd-bar .idea-seg.blk{background:repeating-linear-gradient(45deg,#DCE1E8 0 4px,#F2F5FA 4px 8px);border-radius:0 6px 6px 0}
+.vp-scope .gd-bar .idea-wall{position:absolute;top:-8px;bottom:-8px;width:4px;margin-left:-2px;background:var(--vpRedAction);border-radius:2px;z-index:2}
+.vp-scope .gd-bar .idea-wall span{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:2px;font:600 11px/14px var(--vpFont);color:var(--vpRedAction);white-space:nowrap;text-transform:uppercase;letter-spacing:.01em}
+/* ceiling in the growth graph */
+.vp-scope .gd-wf{position:relative}
+.vp-scope .gd-wf .idea-ceil{position:absolute;left:0;right:0;border-top:3px dashed var(--vpRedAction);z-index:2;pointer-events:none}
+.vp-scope .gd-wf .idea-ceil span{position:absolute;left:8px;top:4px;font:600 11px/16px var(--vpFont);text-transform:uppercase;letter-spacing:.01em;color:var(--vpRedAction);background:var(--vpWhite);padding:0 6px;border-radius:4px}
+.vp-scope .gd-wf .col.idea-blocked>i:last-of-type{background:repeating-linear-gradient(45deg,#DCE1E8 0 6px,#F2F5FA 6px 12px)!important;outline:1px dashed var(--vpGreyMid01)}
+.vp-scope .gd-wf .col.idea-next>i:last-of-type{background:#C3C9D4!important}
+.vp-scope .gd-wf .col.idea-next .lab{color:var(--vpGreyDark01)}
+.vp-scope .gd-wf .col.idea-blocked .lab{color:var(--vpGreyMid02)}
+.vp-scope .gd-wf .col.idea-blocked .lab b{display:block;font:var(--vpHeading4);color:var(--vpGreyDark02)}
+/* focus mode on the groups */
+.vp-scope .idea-step{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--vpBrand);color:var(--vpWhite);font:700 13px/1 var(--vpFont);margin-right:10px;vertical-align:1px}
+.vp-scope .idea-step.done{background:var(--vpGreenAction)}
+.vp-scope .idea-step.wait{background:var(--vpGreyMid01)}
+.vp-scope .idea-dots{display:inline-flex;align-items:center;gap:6px;margin-left:12px;font:var(--vpBody2);color:var(--vpGreyDark01)}
+.vp-scope .idea-dots i{width:10px;height:10px;border-radius:50%;background:var(--vpRedAction)}.vp-scope .idea-dots i.ok{background:var(--vpGreenAction)}
+.vp-scope .gm-grp.idea-strip .gm-bh{background:var(--vpGreyLight02);border-radius:12px;padding:14px 16px!important;cursor:pointer}
+.vp-scope .gm-grp.idea-strip:not(.idea-peek) .gm-bb{display:none}
+.vp-scope .gm-grp.idea-strip.idea-peek .gm-bb{padding-top:12px!important}
+.vp-scope .gm-grp.idea-strip.idea-locked.idea-peek .gm-row{opacity:.5;filter:grayscale(.6)}
+.vp-scope [data-idea="E"] .gm-grp.idea-strip.idea-locked.idea-peek .gm-row,.vp-scope [data-idea="F"] .gm-grp.idea-strip.idea-locked.idea-peek .gm-row{opacity:1;filter:none}
+.vp-scope .idea-gate{display:flex;align-items:center;gap:8px;background:#E3EDFF;border:1px solid #C5D7FF;color:var(--vpBrand);border-radius:8px;padding:10px 14px;margin-bottom:12px;font:var(--vpBody2)}
+.vp-scope .idea-gate b{font-weight:600}
+.vp-scope .gm-grp:not(.idea-peek) .idea-gate{display:none}
+.vp-scope .mc .ml.idea-mlock{color:var(--vpBrand);cursor:pointer}.vp-scope .mc .ml.idea-mlock span{display:inline-flex;align-items:center;gap:6px;font-weight:600}
+.vp-scope .idea-flash{animation:ideaflash 1.4s ease}
+@keyframes ideaflash{0%,100%{box-shadow:none}30%{box-shadow:0 0 0 4px #FFD54F}}
+.vp-scope .gd-levers .lv.idea-lockon{color:var(--vpGreyDark02);display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.vp-scope .gd-levers .lv .idea-after{font:600 11px/16px var(--vpFont);color:var(--vpBrand);background:#E3EDFF;border-radius:10px;padding:1px 8px;white-space:nowrap}
+.vp-scope .gd-wf .col.idea-lockcol>i:last-of-type{outline:2px dashed var(--vpBrand);outline-offset:2px}
+.vp-scope .idea-chip{display:inline-flex;align-items:center;gap:6px;font:var(--vpHeading5);border-radius:16px;padding:2px 10px}
+.vp-scope .idea-chip.lock{background:var(--vpWhite);color:var(--vpGreyDark02);border:1px solid var(--vpGreyLight01)}
+.vp-scope .idea-chip.ok{background:#E7FBE0;color:#43A92C}
+.vp-scope .idea-peekbtn{margin-left:auto;font:var(--vpHeading5);color:var(--vpBrand);display:inline-flex;align-items:center;gap:6px}
+.vp-scope .idea-peekbtn svg{width:12px;height:12px;transition:transform .2s}.vp-scope .idea-peek .idea-peekbtn svg{transform:rotate(180deg)}
+/* idea B: signal + do this first */
+.vp-scope #gdSig{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:stretch}
+.vp-scope #gdSig[hidden]{display:none}
+.vp-scope .sig-road{display:flex;align-items:center;gap:20px}
+.vp-scope .sig-light{width:46px;flex-shrink:0}
+.vp-scope .sig-scene{flex:1;min-width:0}
+.vp-scope .sig-head{font:var(--vpHeading4);color:var(--vpGreyDark02);display:flex;align-items:center;gap:8px}
+.vp-scope .sig-head .idea-dots{margin-left:4px}
+.vp-scope .sig-lane{position:relative;height:64px;margin-top:12px;border-radius:8px;background:#EEF1F5;overflow:hidden}
+.vp-scope .sig-lane:before{content:"";position:absolute;left:0;right:0;top:50%;border-top:2px dashed #fff}
+.vp-scope .sig-stop{position:absolute;top:0;bottom:0;left:48%;width:6px;background:var(--vpRedAction)}
+.vp-scope .sig-lane.go .sig-stop{background:var(--vpGreenAction);opacity:.35}
+.vp-scope .sig-box{position:absolute;top:50%;width:26px;height:22px;margin-top:-11px;border-radius:4px;background:#C98BE6;box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
+.vp-scope .sig-box.p{background:#7DA5FF}
+.vp-scope .sig-lane.go .sig-box{animation:sigmove 2.4s linear infinite}
+@keyframes sigmove{from{transform:translateX(0)}to{transform:translateX(120px)}}
+@media (prefers-reduced-motion:reduce){.vp-scope .sig-lane.go .sig-box{animation:none}}
+.vp-scope .sig-lab{display:flex;justify-content:space-between;margin-top:8px;font:var(--vpBody2);color:var(--vpGreyDark01)}
+.vp-scope .sig-lab b{font:var(--vpHeading5);color:var(--vpGreyDark02)}
+.vp-scope .sig-do{border-left:1px solid var(--vpGreyLight01);padding-left:24px;display:flex;flex-direction:column;gap:8px}
+.vp-scope .sig-do .lab{font:var(--vpHeading8);letter-spacing:.01em;text-transform:uppercase;color:var(--vpRedAction)}
+.vp-scope .sig-do.go .lab{color:var(--vpGreenAction)}
+.vp-scope .sig-do .act{font:var(--vpHeading2);color:var(--vpGreyDark02)}
+.vp-scope .sig-do .sub{font:var(--vpBody2);color:var(--vpGreyDark01)}
+.vp-scope .sig-do .row{display:flex;align-items:center;gap:12px;margin-top:4px;flex-wrap:wrap}
+.vp-scope .sig-do .btn{border:0;border-radius:4px;background:var(--vpBrand);color:var(--vpWhite);font:var(--vpButtonText1);padding:10px 20px;cursor:pointer}
+.vp-scope .sig-do .next{font:var(--vpBody2);color:var(--vpGreyDark01)}
+.vp-scope .sig-do .next b{font-weight:600;color:var(--vpGreyDark02)}
+
+/* F · Slider: simulator next to the growth graph (Figma 2532:58478) */
+.vp-scope .gd-simgrid.on{display:grid;grid-template-columns:minmax(0,1fr) 410px;gap:10px;align-items:stretch}
+.vp-scope #gdSim{display:none}
+.vp-scope .gd-simgrid.on #gdSim{display:block;position:relative;border-left:1px solid var(--vpGreyLight01);min-height:420px}
+.vp-scope .gd-sim-in{position:absolute;inset:0;overflow:auto;padding:16px 0 4px 16px;display:flex;flex-direction:column;gap:16px}
+.vp-scope .sim-card{border:1px solid var(--vpGreyLight01);background:rgba(242,245,250,.3);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.vp-scope .sim-hd{display:flex;align-items:center;gap:8px}
+.vp-scope .sim-sw{width:24px;height:24px;border-radius:4px;flex-shrink:0}
+.vp-scope .sim-tt{flex:1;display:flex;align-items:center;gap:8px;font:var(--vpBody1);color:var(--vpGreyDark02);min-width:0}
+.vp-scope .sim-tt.cap{font-weight:600}
+.vp-scope .sim-hi{display:inline-flex;align-items:center;gap:4px;background:#E3EDFF;border-radius:4px;padding:2px 6px;font:500 11px/16px var(--vpFont);color:var(--vpBrand)}
+.vp-scope .sim-hi svg{width:10px;height:10px}
+.vp-scope .sim-gain{text-align:right;white-space:nowrap}
+.vp-scope .sim-gain b{display:block;font:var(--vpHeading4);color:var(--vpGreyDark02)}
+.vp-scope .sim-gain small{display:block;font:var(--vpBody4);color:var(--vpGreyMid02)}
+.vp-scope .sim-gain .idea-after{display:inline-block;margin-top:2px}
+.vp-scope .sim-txt{font:var(--vpBody3);color:var(--vpGreyDark01)}
+.vp-scope .sim-lab{font:var(--vpHeading5);color:var(--vpGreyDark02)}
+.vp-scope .sim-row{display:flex;align-items:center;gap:8px;padding-bottom:16px}
+.vp-scope .sim-end{display:flex;flex-direction:column;align-items:center;white-space:nowrap}
+.vp-scope .sim-end b{font:var(--vpButtonText3);color:var(--vpGreyDark02)}
+.vp-scope .sim-end span{font:500 10px/14px var(--vpFont);color:var(--vpGreyDark01)}
+.vp-scope .sim-track{position:relative;flex:1;height:24px}
+.vp-scope .sim-track .tk{position:absolute;top:8px;width:2px;height:8px;margin-left:-1px;background:var(--vpGreyDark01)}
+.vp-scope .sim-track .tl{position:absolute;top:26px;transform:translateX(-50%);font:var(--vpBody4);color:var(--vpGreyDark01);white-space:nowrap}
+.vp-scope .sim-track input{position:absolute;left:0;right:0;top:0;width:100%;height:24px;margin:0;-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer}
+.vp-scope .sim-track input::-webkit-slider-runnable-track{height:4px;border-radius:99px;background:linear-gradient(to right,var(--c) 0,var(--c) var(--p),#EAEAF2 var(--p))}
+.vp-scope .sim-track input::-moz-range-track{height:4px;border-radius:99px;background:linear-gradient(to right,var(--c) 0,var(--c) var(--p),#EAEAF2 var(--p))}
+.vp-scope .sim-track input::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;margin-top:-10px;box-sizing:border-box;border-radius:50%;border:2px solid #092D5E;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M5 4L2 7l3 3M9 4l3 3-3 3' fill='none' stroke='%23092D5E' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat;box-shadow:0 1px 4px rgba(9,45,94,.3);position:relative;z-index:2}
+.vp-scope .sim-track input::-moz-range-thumb{width:20px;height:20px;border-radius:50%;border:2px solid #092D5E;background:#fff;box-shadow:0 1px 4px rgba(9,45,94,.3)}
+.vp-scope .sim-track input:focus-visible{outline:2px solid #2A67FF;outline-offset:4px;border-radius:12px}
+.vp-scope .sim-ok{font:var(--vpBody2);color:var(--vpGreenAction)}
+.vp-scope .sim-hr{border:0;border-top:1px dashed var(--vpGreyLight01);margin:0}
+.vp-scope .sim-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:1px solid var(--vpBrand);border-radius:4px;background:var(--vpWhite);font:var(--vpButtonText1);color:var(--vpBrand);padding:8px 12px 8px 16px;cursor:pointer}
+.vp-scope .sim-btn svg{width:8px;height:12px}
+.vp-scope .idea-learn{margin-left:auto;display:inline-flex;align-items:center;gap:10px;font:var(--vpBody1);color:#2A67FF}
+.vp-scope .idea-learn i{width:1px;height:16px;background:var(--vpGreyMid01)}
+.vp-scope .idea-learn svg{width:20px;height:14px}
+.vp-scope .idea-learn a{color:inherit;text-decoration:none;cursor:pointer}
+
+/* version switcher removed: page is always V1 · By group */
+.vp-scope #gvSw{display:none!important}
+
+/* Latent: no "Your metrics" title or week picker */
+.vp-scope #gmPanel:not([data-brand="valmo"])>.gd-head{display:none}
+.vp-scope #gmPanel:not([data-brand="valmo"]) #gmGroups>.gm-grp:first-child{margin-top:0}
+
+/* ===== Scenarios: input capacity -> capacity cuts -> grow volume ===== */
+.vp-scope #scnSw{margin-left:auto}.vp-scope #scnSw+#ideaSw{margin-left:8px}
+.vp-scope #scnSw.off{display:none}
+.vp-scope .gd-levers.four{grid-template-columns:repeat(4,1fr)}
+.vp-scope #gdInput{margin-bottom:20px}
+.vp-scope #gdInput:empty{display:none}
+.vp-scope #gmPanel[data-brand="valmo"] #gdInput{display:none}
+.vp-scope .inp-card{display:flex;align-items:center;gap:16px;border:1px solid var(--vpGreyLight01);border-radius:12px;padding:16px;background:var(--vpWhite)}
+.vp-scope .inp-card.bad{border-color:#FFC9C7;background:#FFF7F7}
+.vp-scope .inp-card .t{font:var(--vpHeading4);color:var(--vpGreyDark02)}
+.vp-scope .inp-card .v{font:var(--vpBody2);color:var(--vpGreyDark01);display:flex;align-items:center;gap:8px;margin-top:4px}
+.vp-scope .inp-card .v b{font:var(--vpHeading4);color:var(--vpGreyDark02)}
+.vp-scope .inp-card .gain{margin-left:auto;text-align:right;font:var(--vpBody2);color:var(--vpGreyDark01)}
+.vp-scope .inp-card .gain b{display:block;font:var(--vpHeading3);color:var(--vpGreenAction)}
+.vp-scope .inp-card .sim-btn{width:auto;flex-shrink:0}
+.vp-scope .inp-card.ok{padding:12px 16px;background:var(--vpGreyLight02);border-color:transparent}
+.vp-scope .inp-card.ok .t{font:var(--vpHeading5)}
+.vp-scope .inp-card.ok .v{margin-top:0}
+
+.vp-scope #ideaSw{display:none!important}
 </style>
 <style>/* ============ vp- component kit (Valmo Partner clone) ============ */
 
@@ -1833,7 +1978,7 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
       </div>
     </div>
     <div class="vp-content vp-gd vp-gdd">
-      <div class="vp-pagebar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;"><div class="gd-titlewrap"><h3>Growth Dashboard</h3><div class="gd-brand" id="gdBrand" role="group" aria-label="Dashboard type"><button type="button" data-b="latent" class="on" aria-pressed="true">Latent</button><button type="button" data-b="valmo" aria-pressed="false">Valmo</button></div></div><div class="gv-sw" id="gvSw" title="Prototype only: switch metrics-section version"><span>Version</span><button data-v="g" class="on" type="button">V1 · By group</button><button data-v="g3" type="button">V2 · By group + tinted groups</button><button data-v="8" type="button">V3 · Needs attention / Good</button></div><button class="vp-btn vp-btn-outline vp-btn-sm" type="button">Need Help?</button></div>
+      <div class="vp-pagebar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;"><div class="gd-titlewrap"><h3>Growth Dashboard</h3><div class="gd-brand" id="gdBrand" role="group" aria-label="Dashboard type"><button type="button" data-b="latent" class="on" aria-pressed="true">Latent</button><button type="button" data-b="valmo" aria-pressed="false">Valmo</button></div></div><div class="gv-sw" id="gvSw" title="Prototype only: switch metrics-section version"><span>Version</span><button data-v="g" class="on" type="button">V1 · By group</button><button data-v="g3" type="button">V2 · By group + tinted groups</button><button data-v="8" type="button">V3 · Needs attention / Good</button></div><div class="gv-sw" id="scnSw" title="Prototype only: which situation the DC is in"><span>Scenario</span><button data-s="1" type="button">1(a) · Low input capacity</button><button data-s="1b" type="button">1(b) · Low input, only fix</button><button data-s="2" type="button">2 · Cuts on</button><button data-s="3" type="button">3 · No cuts</button></div><div class="gv-sw" id="ideaSw" title="Prototype only: capacity-first ideas"><span>Idea</span><button data-i="A" type="button">A · Lock</button><button data-i="E" type="button">E · Lock, no grey</button><button data-i="off" type="button">Off</button></div><button class="vp-btn vp-btn-outline vp-btn-sm" type="button">Need Help?</button></div>
       <div class="vp-tabs cc-dctabs" role="tablist" style="display:none"><div class="vp-tab" data-pane="set" role="tab">Set DC Capacity</div><div class="vp-tab active" data-pane="cuts" role="tab">Capacity Cuts <span class="cc-tabnew">NEW</span></div></div>
       <div class="cc-pane" id="pane-set" hidden>
       <div class="vp-panel">
@@ -1856,17 +2001,17 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
         <div class="vp-panel gd-more"><div class="k">Orders more you can get</div><div class="big g"><span class="n" id="gdMore">+1,835</span> <span>orders/week</span></div>
           <div class="gd-gap"><i></i></div>
           <div class="gd-bot"><div class="gd-how"><span class="bulb">💡</span>How to get more orders/week?</div>
-          <div class="gd-levers"><div><div class="k">Improve capacity</div><div class="lv ic-open" id="gdL1" role="button" tabindex="0" title="See how to improve capacity">+300</div></div><div><div class="k">Improve COD RTO</div><div class="lv" id="gdL2">+1,000</div></div><div><div class="k">Improve Prepaid Rate</div><div class="lv" id="gdL3">+535</div></div></div></div></div>
+          <div class="gd-levers" id="gdLevers"><div><div class="k">Improve capacity</div><div class="lv ic-open" id="gdL1" role="button" tabindex="0" title="See how to improve capacity">+300</div></div><div><div class="k">Improve COD RTO</div><div class="lv" id="gdL2">+1,000</div></div><div><div class="k">Improve Prepaid Rate</div><div class="lv" id="gdL3">+535</div></div></div></div></div>
       </div>
       <div class="vp-gdbanner cc-banner" hidden><div class="cap" id="ccBDate" style="opacity:.9;font:var(--vpButtonText1)">This week (20th – 26th Oct)</div><div class="line cc-bline"><span id="ccBMsg"><b>560 orders cut from your capacity this week.</b> Improve the metrics below to get them back.</span></div></div>
 
 
-      <div class="vp-panel" id="gmPanel" data-v="g">
+            <div class="vp-panel" id="gmPanel" data-v="g">
         <div class="vp-gdsechead gd-head"><div class="gd-ht"><h4>Your metrics (<span id="gmDate"></span>)</h4><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी में जानकारी</span></button></div>
           <div class="gm-tools"><div class="gm-filt" id="gmFilt" role="group" aria-label="Filter metrics"><button type="button" class="on" data-f="all" aria-pressed="true">All Metrics (<span data-c="all"></span>)</button><button type="button" data-f="need" aria-pressed="false">Need Improvement (<span data-c="need"></span>)</button></div><span class="gm-div" aria-hidden="true"></span><div class="cc-dd gm-dd" id="gmDD"><button type="button" class="vp-select cc-weeksel cc-ddbtn" aria-haspopup="listbox" aria-expanded="false"><span class="cc-ddval"></span><span class="chev">▼</span></button><ul class="cc-ddmenu" role="listbox" hidden></ul></div><div class="gm-arr" id="gmArr"><button type="button" data-d="-1" aria-label="Scroll metrics left"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-d="1" aria-label="Scroll metrics right"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div></div>
         <div class="gm-box open" id="gmBad"><div class="gm-bh"><span class="tt">Needs attention (<span data-n></span>)</span><span class="meta">Fix these to stop capacity cuts and get more orders</span></div><div class="gm-bb"><div class="gm-grid" data-grid></div></div></div>
         <div class="gm-box" id="gmOk"><div class="gm-bh" data-toggle><span class="tt">Good (<span data-n></span>)</span><span class="gm-names" data-names></span><span class="tg"><span class="tgl">Show</span><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><div class="gm-bb"><div class="gm-grid" data-grid></div></div></div>
-        <div id="gmValmo"><div class="gm-row" data-row></div></div><div id="gmGroups"><div class="gm-box open gm-grp" data-g="cap"><div class="gm-bh"><span class="tt">Capacity cuts</span><span class="meta" data-meta></span></div><div class="gm-bb"><div class="gm-row" data-row></div></div></div><div class="gm-box open gm-grp" data-g="vol"><div class="gm-bh"><span class="tt">Grow your volume</span><span class="meta" data-meta></span></div><div class="gm-bb"><div class="gm-row" data-row></div></div></div></div>
+        <div id="gmValmo"><div class="gm-row" data-row></div></div><div id="gdInput"></div><div id="gmGroups"><div class="gm-box open gm-grp" data-g="cap"><div class="gm-bh"><span class="tt">Capacity cuts</span><span class="meta" data-meta></span></div><div class="gm-bb"><div class="gm-row" data-row></div></div></div><div class="gm-box open gm-grp" data-g="vol"><div class="gm-bh"><span class="tt">Grow your volume</span><span class="meta" data-meta></span></div><div class="gm-bb"><div class="gm-row" data-row></div></div></div></div>
         <div id="gdGraphWrap"><div class="vp-gdsechead gd-graphhead"><div class="gd-ht"><h4>Growth Graph (<span class="gd-win"></span>)</h4><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी में जानकारी</span></button></div></div><div class="gd-eq"><div><div class="k">YOU GET NOW</div><div class="big"><span class="n" id="gdEqNow">2,049</span> <span>orders/week</span></div></div><div class="op">+</div><div><div class="k">MORE ORDERS YOU CAN GET</div><div class="big g"><span class="n" id="gdEqMore">1,835</span> <span>orders/week</span></div></div><div class="op">=</div><div><div class="k">MAX. POSSIBLE ORDERS</div><div class="big"><span class="n" id="gdEqMax">3,884</span> <span>orders/week</span></div></div></div><div class="gd-wf" id="gdWf"></div></div>
       </div>
 
@@ -1986,9 +2131,9 @@ document.querySelectorAll('.cc-hi').forEach(function(b){b.addEventListener('clic
  var u=new SpeechSynthesisUtterance(txt);u.lang='hi-IN';var v=syn.getVoices().filter(function(x){return /hi/i.test(x.lang)})[0];if(v)u.voice=v;u.rate=0.95;
  u.onend=u.onerror=function(){b.classList.remove('on')};b.classList.add('on');syn.speak(u)})});
 (function(){var tt=document.createElement('div');tt.className='cc-tt';tt.style.width='240px';document.body.appendChild(tt);
- document.addEventListener('mouseover',function(e){var i=e.target.closest('.cc-info,.cc-tgt');if(!i)return;tt.innerHTML=i.dataset.def;tt.classList.add('on');
+ document.addEventListener('mouseover',function(e){var i=e.target.closest('.cc-info,.cc-tgt,.idea-tip');if(!i||!i.dataset.def)return;tt.style.width=i.classList.contains('idea-tip')?'280px':'240px';tt.innerHTML=i.dataset.def;tt.classList.add('on');
   var r=i.getBoundingClientRect(),w=tt.offsetWidth,cx=r.left+r.width/2,l=Math.max(8,Math.min(cx-w/2,document.documentElement.clientWidth-w-8));tt.style.left=(l+window.scrollX)+'px';tt.style.setProperty('--ax',(cx-l)+'px');tt.style.top=(r.top+window.scrollY-tt.offsetHeight-10)+'px'});
- document.addEventListener('mouseout',function(e){if(e.target.closest('.cc-info,.cc-tgt'))tt.classList.remove('on')});})();
+ document.addEventListener('mouseout',function(e){if(e.target.closest('.cc-info,.cc-tgt,.idea-tip'))tt.classList.remove('on')});})();
 </script>
 <script>/* DC Capacity — the behaviour behind the two capacity fields.
  *
@@ -2132,11 +2277,11 @@ var CAPIN={38:[400,0],37:[420,0],36:[450,1],35:[380,0]};
 var CHEV='<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="#092D5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 var ARR='<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-5-5m5 5l-5 5" stroke="#8E96A3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 function pill(ok){return '<span class="ic-pill '+(ok?'good':'bad')+'">'+(ok?'Good':'Not Good')+'</span>'}
-function open(){var w=window.CC_WEEK||'38',x=window.GD_DATA[w],ci=CAPIN[w];
+function open(){var w=window.CC_WEEK||'38',x=window.GD_DATA[w],ci=window.GD_CAPIN?window.GD_CAPIN(w):CAPIN[w];
  var rows=[['load','Overload Pilots',x.load[0],x.load[2],x.load[1]],['d0','D0 Attempt %',x.d0[0].toFixed(1)+'%','90%',x.d0[1]],['fad','COD FAD %',x.fad[0].toFixed(1)+'%','78%',x.fad[1]],['mis','Misroute within Polygon %',x.mis[0].toFixed(1)+'%','≤ 1%',x.mis[1]]];
  var bad=rows.filter(function(r){return !r[4]});if(bad.length)rows=bad;
- body.innerHTML='<div class="ic-card"><div class="hd"><span>Increase DC Capacity</span><button class="ic-edit" type="button">Edit DC Capacity<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><div class="ic-in"><span>Current Capacity Input: <b><big>'+ci[0]+'</big> orders/day</b></span>'+pill(ci[1])+'</div></div>'+
-  '<div class="ic-card cut"><div class="hd"><span>Avoid Capacity Cut</span></div>'+rows.map(function(r){return '<div class="ic-row" data-ic="'+r[0]+'" role="button" tabindex="0"><div class="l"><span class="nm">'+r[1]+'</span><div class="ct"><div><div class="k">Current</div><div class="v">'+r[2]+'</div></div>'+ARR+'<div><div class="k">Target</div><div class="v">'+r[3]+'</div></div></div></div><div class="r">'+pill(r[4])+CHEV+'</div></div>'}).join('')+'</div>';
+ body.innerHTML='<div class="ic-card"><div class="hd"><span>Increase DC Capacity</span><button class="ic-edit" type="button">Edit DC Capacity<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><div class="ic-in"><span>Current Capacity Input: <b><big>'+ci[0]+'</big> orders/day</b></span>'+pill(ci[1])+'</div>'+(ci[2]?'<div class="ic-in"><span>Recommended: <b><big>'+ci[2]+'</big> orders/day</b></span></div>':'')+'</div>'+(ci[2]?'':
+  '<div class="ic-card cut"><div class="hd"><span>Avoid Capacity Cut</span></div>'+rows.map(function(r){return '<div class="ic-row" data-ic="'+r[0]+'" role="button" tabindex="0"><div class="l"><span class="nm">'+r[1]+'</span><div class="ct"><div><div class="k">Current</div><div class="v">'+r[2]+'</div></div>'+ARR+'<div><div class="k">Target</div><div class="v">'+r[3]+'</div></div></div></div><div class="r">'+pill(r[4])+CHEV+'</div></div>'}).join('')+'</div>');
  ovl.classList.add('open')}
 function close(){ovl.classList.remove('open')}
 var lv=document.getElementById('gdL1');lv.addEventListener('click',open);lv.addEventListener('keydown',function(e){if(e.key==='Enter')open()});
@@ -2192,7 +2337,7 @@ window.CC_PILOT=function(el,w,lbl){var keep=cur;N=window.GD_WEEKS[w].days;cur='l
  foot.innerHTML='<span class="cc-pcount">Showing '+(rows.length?(pg-1)*per+1:0)+'–'+Math.min(pg*per,rows.length)+' of '+rows.length+' pilots</span><div class="vp-pagination"><span class="pg arrow'+(pg==1?' off':'')+'" data-pg="'+(pg-1)+'">&#8249;</span>'+nums+'<span class="pg arrow'+(pg==pages?' off':'')+'" data-pg="'+(pg+1)+'">&#8250;</span></div>';
  el.querySelector('.cc-mtable').after(foot);
  foot.querySelectorAll('[data-pg]').forEach(function(x){x.onclick=function(){var n=+x.dataset.pg;if(n<1||n>pages||n==pg)return;el.dataset.pg=n;window.CC_PILOT(el,w,lbl)}});};
-var EX=0,FAC=1,PW='38';function pilot(c){EX=0;var rows=P.map(function(p,i){var n=p[0],ad=Math.min(7,p[1]+2+(i%2)),adN=Math.min(N,ad),ofd=Math.round(p[2]*FAC),wk=ad*ofd,val,ok,cells;if(cur=='load'){/* same counts as the dashboard card: pilots above limit and pilots to add */var LD=window.GD_DATA[PW].load,nA=parseInt(LD[0])||0,kA=parseInt(String(LD[2]).replace('+',''))||0,over=i<nA?Math.max(25,Math.round((kA*280-40)/nA)+(i%3-1)*12):-(20+12*(i-nA));wk=280+over;ofd=Math.round(wk/ad);wk=ad*ofd;if(i<nA&&wk<=280){ofd++;wk=ad*ofd}if(i>=nA&&wk>280){ofd--;wk=ad*ofd}}
+var EX=0,FAC=1,PW='38';function pilot(c){EX=0;var rows=P.map(function(p,i){var n=p[0],ad=Math.min(7,p[1]+2+(i%2)),adN=Math.min(N,ad),ofd=Math.round(p[2]*FAC),wk=ad*ofd,val,ok,cells;if(cur=='load'&&window.GD_DATA&&window.GD_DATA[PW]){/* same counts as the dashboard card: pilots above limit and pilots to add */var LD=window.GD_DATA[PW].load,nA=parseInt(LD[0])||0,kA=parseInt(String(LD[2]).replace('+',''))||0,over=i<nA?Math.max(25,Math.round((kA*280-40)/nA)+(i%3-1)*12):-(20+12*(i-nA));wk=280+over;ofd=Math.round(wk/ad);wk=ad*ofd;if(i<nA&&wk<=280){ofd++;wk=ad*ofd}if(i>=nA&&wk>280){ofd--;wk=ad*ofd}}
   if(cur=='d0'){var att=Math.round(wk*(0.97-0.012*i));val=(100*att/wk).toFixed(1);ok=val>=90;cells=[wk,att,val+'%']}
   else if(cur=='fad'){var cod=Math.round(wk*.55),del=Math.round(cod*(0.86-0.012*i));val=(100*del/cod).toFixed(1);ok=val>=78;cells=[cod,del,val+'%']}
   else{var proj=wk;ok=proj<=280;if(!ok)EX+=proj-280;cells=[ok?wk:'<b style="color:var(--vpRedAction)">'+wk+'</b>',ok?'<span style="color:var(--vpGreenAction)">'+(280-proj)+' orders below</span>':'<b style="color:var(--vpRedAction)">'+(proj-280)+' orders over</b>',ok?'<span class="cc-pill good">Within limit</span>':'<span class="cc-pill bad">Above limit</span>']}
@@ -2291,9 +2436,9 @@ var ARROW='<svg viewBox="0 0 8 14" fill="none" aria-hidden="true"><path d="M1 1l
 var WK=window.GD_WEEKS,KEYS=['38','37','36','35'];
 // per week: [value, ok, extra]
 var DATA=window.GD_DATA={
- 38:{doh:[3.2,1],load:['9 pilots',0,'+3 pilots',32],d0:[86.2,0],fad:[79.0,1],mis:[0.8,1],crto:[25,0],prto:[4,1],crate:[15,1],prate:[12,1]},
+ 38:{doh:[3.2,1],load:['9 pilots',0,'+3 pilots',32],d0:[86.2,0],fad:[79.0,1],mis:[0.8,1],crto:[25,0],prto:[4,1],crate:[15,1],prate:[13,0]},
  37:{doh:[4.1,1],load:['6 pilots',0,'+2 pilots',21],d0:[88.4,0],fad:[79.1,1],mis:[0.9,1],crto:[21,0],prto:[3.5,1],crate:[15,1],prate:[12,1]},
- 36:{doh:[6.3,0],load:['0 pilots',1,'0 pilots',8],d0:[91.0,1],fad:[76.5,0],mis:[0.9,1],crto:[19,1],prto:[4,1],crate:[15,1],prate:[12,1]},
+ 36:{doh:[6.3,0],load:['0 pilots',1,'0 pilots',8],d0:[91.0,1],fad:[79.2,1],mis:[0.9,1],crto:[22,0],prto:[5,0],crate:[15,1],prate:[12,1]},
  35:{doh:[5.6,0],load:['3 pilots',0,'+1 pilot',14],d0:[88.0,0],fad:[74.0,0],mis:[1.2,0],crto:[20,0],prto:[5,0],crate:[16,0],prate:[12,1]}};
 function metrics(w){var x=DATA[w],L=WK[w];return [
  {k:'load',g:'cap',nm:'Overload Pilots',lab:'Above limit ('+L.lbl+')',v:x.load[0],ok:x.load[1],tk:'Target',t:x.load[2],link:'Improve Overload Pilots',trend:'load'},
@@ -2311,7 +2456,7 @@ function mc(m){return '<div class="mc'+(m.ok?' ok':'')+'"><div class="mh"><span 
  '<div class="ml"'+(m.trend?' data-trend="'+m.trend+'"':'')+'><span>'+m.link+'</span>'+ARROW+'</div></div>'}
 var bad=document.getElementById('gmBad'),ok=document.getElementById('gmOk');
 var INC={38:0,37:1,36:1,35:0};
-var TOP={38:{now:2049,cap:200,cod:1000,pre:335,up:0},37:{now:2180,cap:180,cod:700,pre:0,up:4},36:{now:2610,cap:60,cod:0,pre:0,up:6},35:{now:2320,cap:260,cod:350,pre:120,up:0}};
+var TOP=window.GD_TOP={38:{now:2049,cap:200,cod:1000,pre:335,up:0},37:{now:2180,cap:180,cod:700,pre:0,up:4},36:{now:2610,cap:0,cod:700,pre:250,up:6},35:{now:2320,cap:260,cod:350,pre:120,up:0}};
 function syncTop(w){var T=TOP[w],f=function(n){return n.toLocaleString('en-IN')},more=T.cap+T.cod+T.pre,max=T.now+more,pct=T.now/max*100,set=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v};
  set('gdNow',f(T.now));set('gdMax',f(max));var mid=document.getElementById('gdMid'),mx=document.getElementById('gdMax'),near=pct>80;mid.style.left=pct+'%';mid.style.transform=near?'translateX(-100%)':'translateX(-50%)';mid.textContent=near?f(T.now)+' of '+f(max)+' ('+Math.round(pct)+'%)':f(T.now)+' ('+Math.round(pct)+'%)';mx.style.visibility=near?'hidden':'visible';mid.style.whiteSpace='nowrap';
  var b=document.getElementById('gdBar');b.querySelector('em').style.left=pct+'%';var grow=T.up?Math.min(pct*T.up/100,pct):0;b.querySelector('i').style.width=(pct-grow)+'%';var g=b.querySelector('b');g.style.left=(pct-grow)+'%';g.style.width=grow+'%';g.style.display=T.up?'':'none';
@@ -2330,7 +2475,7 @@ function render(w){window.CC_WEEK=w;syncTop(w);var x=DATA[w];if(window.CC_W&&win
  /* Valmo view: one list of metrics, no capacity cuts */
  var byK={};ms.forEach(function(m){byK[m.k]=m});var DH={k:'doh',g:'vol',nm:'DOH %',lab:'Current ('+WK[w].lbl+')',v:x.doh[0].toFixed(1)+'%',ok:x.doh[1],tk:'Target',t:'≤ 5%',link:'Improve DOH'};
  var VL=[byK.crto,byK.prto,byK.crate,byK.prate,byK.d0,DH];document.querySelector('#gmValmo [data-row]').innerHTML=VL.map(mc).join('');window.GM_COUNTS={latent:[ms.length,B.length],valmo:[VL.length,VL.filter(function(m){return !m.ok}).length]};
- document.querySelectorAll('#gmPanel .gm-row').forEach(function(r){r.toggleAttribute('data-allok',!r.querySelector('.mc:not(.ok)'));r.insertAdjacentHTML('beforeend','<div class="gm-allok">All metrics here are on target this week.</div>')});if(window.GM_FC)window.GM_FC();}
+ document.querySelectorAll('#gmPanel .gm-row').forEach(function(r){r.toggleAttribute('data-allok',!r.querySelector('.mc:not(.ok)'));r.insertAdjacentHTML('beforeend','<div class="gm-allok">All metrics here are on target this week.</div>')});if(window.GM_FC)window.GM_FC();if(window.GD_IDEA)window.GD_IDEA(w);}
 function tgl(){var n=ok.querySelector('[data-n]').textContent;ok.querySelector('.tgl').textContent=ok.classList.contains('open')?'Hide':(document.getElementById('gmPanel').getAttribute('data-v')=='8'?'View '+n+' metrics':'Show')}window.GM_TGL=tgl;
 ok.querySelector('[data-toggle]').addEventListener('click',function(){ok.classList.toggle('open');tgl()});
 // week dropdown
@@ -2347,7 +2492,7 @@ pick('38');
 (function(){var sw=document.getElementById('gvSw'),pn=document.getElementById('gmPanel');if(!sw||!pn)return;
 function set(v){pn.setAttribute('data-v',v);var gw=document.getElementById('gdGraphWrap'),gp=document.getElementById('gdGraphPanel');if(gw&&gp){if(v==='g'||v==='g3'){gp.appendChild(gw);gp.hidden=false}else{pn.appendChild(gw);gp.hidden=true}}if(window.GM_TGL)window.GM_TGL();sw.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.v==v)});try{localStorage.setItem('gmVersion4',v)}catch(e){}}
 sw.addEventListener('click',function(e){var b=e.target.closest('button');if(b)set(b.dataset.v)});
-if(/[?&]shot=1/.test(location.search))sw.style.display='none';var OKV=['g','g3','8'],v='g';try{v=localStorage.getItem('gmVersion4')||'g'}catch(e){}if(OKV.indexOf(v)<0)v='g';set(v);})();
+if(/[?&]shot=1/.test(location.search))sw.style.display='none';var OKV=['g'],v='g';try{v=localStorage.getItem('gmVersion4')||'g'}catch(e){}if(OKV.indexOf(v)<0)v='g';set(v);})();
 </script>
 <script>
 (function(){
@@ -2376,6 +2521,164 @@ var ar=document.getElementById('gmArr'),row=document.querySelector('#gmValmo .gm
 function arrUpd(){var mx=row.scrollWidth-row.clientWidth;ar.children[0].disabled=row.scrollLeft<=2;ar.children[1].disabled=row.scrollLeft>=mx-2}
 ar.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var cs=[].slice.call(row.querySelectorAll('.mc')),x0=row.scrollLeft,base=cs.length?cs[0].offsetLeft:0,offs=cs.map(function(c){return c.offsetLeft-base}),t=+b.dataset.d>0?offs.filter(function(o){return o>x0+2})[0]:offs.filter(function(o){return o<x0-2}).pop();if(t==null)t=+b.dataset.d>0?row.scrollWidth:0;t=Math.min(t,row.scrollWidth-row.clientWidth);row.scrollTo({left:t,behavior:'smooth'});/* if smooth scroll does not run, jump there */setTimeout(function(){if(Math.abs(row.scrollLeft-t)>2)row.scrollLeft=t;arrUpd()},500)});
 row.addEventListener('scroll',arrUpd,{passive:true});window.addEventListener('resize',arrUpd);new MutationObserver(function(){row.scrollLeft=0;arrUpd()}).observe(pn,{attributes:true,attributeFilter:['data-brand','data-f']});setTimeout(arrUpd,300);})();
+</script>
+<script>
+/* Prototype: the order a DC must follow to get more orders.
+   Scenario 1 - input capacity too low: only "Increase input capacity" adds orders; capacity cuts and volume are locked.
+   Scenario 2 - input capacity OK: "Avoid capacity cuts" adds orders; volume stays locked until all capacity-cut metrics are Good.
+   Idea A shows locked things in grey, E keeps colours, Off shows today's page. Numbers marked PLACEHOLDER are made up. */
+(function(){
+var f=function(n){return n.toLocaleString('en-IN')};
+var LOCK='<svg class="idea-lock" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" stroke-width="1.5"/></svg>';
+var LOCKS=LOCK.replace('class="idea-lock"','class="idea-lock" style="width:11px;height:11px;vertical-align:-1px;margin-right:3px"');
+var LOCKM=LOCK.replace('class="idea-lock"','class="idea-lock" style="vertical-align:-2px;margin-right:4px"');
+var CHEV='<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var BCHEV='<svg viewBox="0 0 8 14" fill="none" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var PLAY='<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 .6L9 5 1 9.4z" fill="#092D5E"/></svg>';
+var CAPK=['load','d0','fad','mis'],CAPN={load:'Overload Pilots',d0:'D0 Attempt %',fad:'COD FAD %',mis:'Misroute within Polygon %'};
+var DC_URL='capacity-cuts-dc-capacity.html';
+var COL={inp:'#F2A65A',cap:'#E9C86F',cod:'#C98BE6',pre:'#7DA5FF'};
+
+/* ---- scenario data (PLACEHOLDER numbers) ---- */
+var W='38',D0=JSON.parse(JSON.stringify(window.GD_DATA[W])),T0=JSON.parse(JSON.stringify(window.GD_TOP[W]));
+var INPUT={1:{now:400,need:520,ok:0,gain:400},'1b':{now:400,need:520,ok:0,gain:400},2:{now:520,ok:1,gain:0},3:{now:520,ok:1,gain:0}};
+/* page always opens on 1(b) */
+var scn='1b';
+/* final design: idea E (locked items keep their colours); the Idea switch is hidden */
+var idea='E';
+function applyData(latent){var d=window.GD_DATA[W],t=window.GD_TOP[W];Object.keys(D0).forEach(function(k){d[k]=JSON.parse(JSON.stringify(D0[k]))});Object.keys(T0).forEach(function(k){t[k]=T0[k]});
+ if(latent&&scn=='3'){/* capacity cuts fixed: all 4 metrics Good, the +200 is now in "orders right now" */
+  d.load=['0 pilots',1,'0 pilots',8];d.d0=[91.0,1];d.fad=[79.0,1];d.mis=[0.8,1];t.now=T0.now+T0.cap;t.cap=0}}
+window.GD_CAPIN=function(w){var I=INPUT[scn];return I.ok?[I.now,1]:[I.now,0,I.need,I.gain]};
+
+/* ---- switches ---- */
+var sw=document.getElementById('ideaSw'),ss=document.getElementById('scnSw');
+function mark(){sw.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.i==idea)});ss.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.s==scn)})}
+function rerender(){var latent=document.getElementById('gmPanel').getAttribute('data-brand')!='valmo';applyData(latent);var li=document.querySelector('#gmDD li[data-v="'+W+'"]');if(li)li.click();else window.GD_IDEA(W)}
+sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;idea=b.dataset.i;try{localStorage.setItem('gdIdea',idea)}catch(e){}mark();rerender()});
+ss.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;scn=b.dataset.s;SIMW=null;mark();rerender()});
+if(/[?&]shot=1/.test(location.search)){sw.style.display='none';ss.style.display='none'}
+mark();
+
+/* ---- what is active and what is locked ---- */
+function state(x,T){var I=INPUT[scn],cut=CAPK.some(function(k){return !x[k][1]});
+ var st={I:I,cut:cut,why:null,unlock:'',levers:[]};
+ if(!I.ok){st.why='input';st.unlock='input capacity fix'}else if(cut){st.why='cut';st.unlock='capacity fix'}
+ if(idea=='off')st.why=null;
+ /* levers in order: [key, label, gain, locked] */
+ if(!I.ok)st.levers.push(['inp','Increase input capacity',I.gain,false]);
+ else if(T.cap)st.levers.push(['cap','Avoid capacity cuts',T.cap,false]);
+ st.focus=scn=='1b';
+ if(!st.focus){st.levers.push(['cod','Improve COD RTO',T.cod,!!st.why]);st.levers.push(['pre','Improve Prepaid Rate',T.pre,!!st.why])}
+ return st}
+function lockTip(st,what){return st.why=='input'?'<div class="h">Locked by low input capacity</div>Your input capacity is too low, so '+what+' can’t add orders yet.':'<div class="h">Locked by capacity cuts</div>Your capacity is being cut, so '+what+' can’t add orders yet.'}
+function tip(el,html){if(!el)return;el.classList.add('idea-tip');el.dataset.def=html;el.style.cursor='help'}
+function after(st){return '<span class="idea-after">'+LOCKS+'After '+st.unlock+'</span>'}
+var WHAT={cap:'avoiding capacity cuts',cod:'improving COD RTO',pre:'improving Prepaid Rate'};
+
+/* ---- top card: orders more you can get ---- */
+function top(x,T,st,g){var big=document.getElementById('gdMore'),box=document.getElementById('gdLevers');
+ var act=0,lock=0;st.levers.forEach(function(l){var v=g[l[0]];if(l[3])lock+=v;else act+=v});
+ big.textContent='+'+f(st.why?act:act+lock);
+ if(st.why&&lock)big.parentNode.insertAdjacentHTML('afterend','<div class="idea-full" id="ideaSub">'+LOCKM+'+'+f(lock)+' more after '+st.unlock+'</div>');
+ tip(document.getElementById('ideaSub'),lockTip(st,'the other metrics'));
+ /* input capacity lever (Scenario 1 only) */
+ var l0=document.getElementById('gdL0');if(l0)l0.parentNode.remove();
+ if(!st.I.ok){box.insertAdjacentHTML('afterbegin','<div><div class="k">Increase input capacity</div><div class="lv ic-open" id="gdL0" role="button" tabindex="0">+'+f(st.I.gain)+'</div></div>');document.getElementById('gdL0').onclick=function(){document.getElementById('gdL1').click()}}
+
+ var L1=document.getElementById('gdL1');L1.parentNode.querySelector('.k').textContent='Avoid capacity cuts';if(!st.I.ok)L1.parentNode.style.display='none';
+ if(st.focus)['gdL2','gdL3'].forEach(function(id){document.getElementById(id).parentNode.style.display='none'});
+ var ids={cap:'gdL1',cod:'gdL2',pre:'gdL3'};
+ st.levers.forEach(function(l){if(!ids[l[0]]||!l[3]||idea=='off')return;var el=document.getElementById(ids[l[0]]);
+  /* A and E: grey number with a lock */
+  el.classList.add('idea-dim');el.innerHTML=LOCK+'+'+f(l[2]);
+  tip(el,lockTip(st,WHAT[l[0]]))})}
+
+/* ---- growth graph (waterfall), redrawn with slider values ---- */
+function graph(x,T,st,g){var wf=document.getElementById('gdWf');if(!wf)return;
+ var items=st.levers.filter(function(l){return g[l[0]]>0||l[0]=='inp'}).map(function(l){return {k:l[0],v:g[l[0]],lk:l[3]&&!!st.why}});
+ var NM={inp:'Increase Input Capacity',cap:'Avoid Capacity Cuts',cod:'Grow COD Orders',pre:'Grow Prepaid Orders'};
+ var more=items.reduce(function(a,b){return a+b.v},0),act=items.filter(function(i){return !i.lk}).reduce(function(a,b){return a+b.v},0),lock=more-act,MAX=T.now+more||1;
+ var p=function(v){return v/MAX*88+'%'},h='',xl='',run=T.now;
+ function lab(bot,html){return '<div class="lab" style="bottom:calc('+p(bot)+' + 6px)">'+html+'</div>'}
+ h+='<div class="col"><i style="bottom:0;height:'+p(T.now)+';background:#C3C9D4"></i>'+lab(T.now,f(T.now)+'<small>orders/week</small>')+'</div>';xl+='<div style="font-weight:600">Orders You Are Getting Now</div>';
+ items.forEach(function(it){var cls=it.lk?(idea=='E'?' idea-lockcol':' idea-blocked'):'';
+  h+='<div class="col'+cls+'" data-k="'+it.k+'"><i style="bottom:0;height:'+p(run)+';background:var(--vpGreyLight02)"></i><i style="bottom:'+p(run)+';height:'+(it.v?p(it.v):'3px')+';background:'+COL[it.k]+'"></i>'+lab(run+it.v,(it.lk?LOCKM:'')+'+'+f(it.v))+'</div>';xl+='<div>'+NM[it.k]+'</div>';run+=it.v});
+ var mx='<i style="bottom:0;height:'+p(T.now)+';background:var(--vpGreyLight02)"></i>';
+ if(more){var gp=act/more*100,bg=lock&&st.why?(idea=='E'?'linear-gradient(to top,#9FD18A 0,#9FD18A '+gp+'%,#D8EDCF '+gp+'%)':'linear-gradient(to top,#9FD18A 0,#9FD18A '+gp+'%,transparent '+gp+'%),repeating-linear-gradient(45deg,#DCE1E8 0 6px,#F2F5FA 6px 12px)'):'#9FD18A';
+  mx+='<i class="mxbar" style="bottom:'+p(T.now)+';height:'+p(more)+';background:'+bg+(lock&&st.why?';outline:1px dashed var(--vpGreyMid01)':'')+'">'+(lock&&st.why?'<span style="position:absolute;left:0;right:0;top:'+((100-gp)/2)+'%;transform:translateY(-50%);text-align:center;font:var(--vpHeading5);color:var(--vpGreyDark01)">'+LOCKM+'+'+f(lock)+'</span>'+(act?'<span style="position:absolute;left:0;right:0;bottom:'+(gp/2)+'%;transform:translateY(50%);text-align:center;font:var(--vpBody2);color:#272829">+'+f(act)+'</span>':''):'<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:var(--vpBody2);color:#272829">+'+f(more)+'</span>')+'</i>'}
+ h+='<div class="col">'+mx+lab(MAX,f(MAX)+'<small>'+(lock&&st.why?'after '+st.unlock:'orders/week')+'</small>')+'</div>';xl+='<div>Maximum Possible Orders</div>';
+ wf.innerHTML=h;var old=wf.nextElementSibling;if(old&&old.classList.contains('gd-wfx'))old.remove();wf.insertAdjacentHTML('afterend','<div class="gd-wfx">'+xl+'</div>');
+ wf.querySelectorAll('.col[data-k]').forEach(function(c){var it=items.filter(function(i){return i.k==c.dataset.k})[0];if(it&&it.lk){tip(c.querySelector('i:last-of-type'),lockTip(st,WHAT[it.k]));tip(c.querySelector('.lab'),lockTip(st,WHAT[it.k]))}});
+ if(lock&&st.why){tip(wf.querySelector('.mxbar'),lockTip(st,'the other metrics'))}
+ var em=document.getElementById('gdEqMore'),ex=document.getElementById('gdEqMax');var shown=st.why?act:more;if(em)em.textContent=f(shown);if(ex)ex.textContent=f(T.now+shown)}
+
+/* ---- input capacity row + metric groups ---- */
+function inputRow(st){var el=document.getElementById('gdInput'),I=st.I;
+ el.innerHTML=I.ok?'<div class="inp-card ok"><span class="t">Input capacity</span><span class="v"><b>'+I.now+'</b> orders/day <span class="ic-pill good">Good</span></span></div>'
+  :'<div class="inp-card bad"><div><div class="t">Increase input capacity first</div><div class="v">Now <b>'+I.now+'</b> orders/day <span class="ic-pill bad">Not Good</span> · Needed '+I.need+' orders/day</div></div><div class="gain"><b>+'+f(I.gain)+'</b>orders/week</div><button class="sim-btn" type="button" data-dc>Edit DC Capacity '+BCHEV+'</button></div>';
+ var b=el.querySelector('[data-dc]');if(b)b.onclick=function(){location.href=DC_URL}}
+function flash(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.remove('idea-flash');void el.offsetWidth;el.classList.add('idea-flash')}
+function groups(x,T,st){document.getElementById('gmGroups').style.display=st.focus?'none':'';document.getElementById('gmPanel').style.display=st.focus?'none':'';var GT={cap:'Capacity Cuts',vol:'Grow your volume'};
+ document.querySelectorAll('#gmGroups .gm-grp').forEach(function(box){var g=box.dataset.g,bh=box.querySelector('.gm-bh');
+  box.classList.remove('idea-strip','idea-locked','idea-peek');bh.querySelectorAll('.idea-x').forEach(function(n){n.remove()});box.querySelectorAll('.idea-gate').forEach(function(n){n.remove()});bh.onclick=null;box.querySelector('.tt').textContent=GT[g];
+  if(idea=='off')return;
+  var locked=st.why&&(g=='vol'||st.why=='input'),gain=g=='vol'?T.cod+T.pre:T.cap;
+  if(g=='cap'&&!st.cut&&!locked){box.classList.add('idea-strip');bh.insertAdjacentHTML('beforeend','<span class="idea-x idea-chip ok">All 4 Good · no cut</span><span class="idea-x idea-peekbtn">Show'+CHEV+'</span>')}
+  if(locked){box.classList.add('idea-strip','idea-locked');var msg=g=='cap'?'Increase input capacity first. Then work on these metrics.':'Fix capacity cuts first · +'+f(gain)+' orders/week';
+   bh.insertAdjacentHTML('beforeend','<span class="idea-x idea-chip lock">'+LOCK+msg+'</span><span class="idea-x idea-peekbtn">Peek'+CHEV+'</span>');
+   if(idea=='E'){var first=st.why=='input'?'Increase input capacity first':'Fix capacity cuts first',to=st.why=='input'?null:document.querySelector('#gmGroups .gm-grp[data-g=cap]');
+    box.querySelectorAll('.gm-row .mc .ml').forEach(function(ml){ml.removeAttribute('data-trend');ml.classList.add('idea-mlock');ml.innerHTML='<span>'+LOCK+first+'</span>'+BCHEV;ml.onclick=function(ev){ev.stopPropagation();if(to)flash(to);else document.getElementById('gdL1').click()}});
+    }}
+  if(box.classList.contains('idea-strip'))bh.onclick=function(){box.classList.toggle('idea-peek');var pb=bh.querySelector('.idea-peekbtn');if(pb)pb.firstChild.textContent=box.classList.contains('idea-peek')?'Hide':(locked?'Peek':'Show');if(window.GM_SB)requestAnimationFrame(window.GM_SB)}})}
+
+/* ---- simulator panel next to the graph ---- */
+var SIM={},SIMW=null;
+var SIMM={crto:['COD RTO %',19,'%'],crate:['COD Pilot Rate',15,'₹'],prto:['Prepaid RTO %',4,'%'],prate:['Prepaid Pilot Rate',12,'₹']};
+function lever(x,ks){for(var i=0;i<ks.length;i++){var k=ks[i];if(!x[k][1]){var m=SIMM[k],cur=+x[k][0],d=Math.abs(cur-m[1]),stp=m[2]=='₹'?0.5:(d>=3?1:0.5);return {k:k,nm:m[0],cur:cur,tgt:m[1],u:m[2],st:stp,n:Math.max(1,Math.round(d/stp)),sg:m[1]>cur?1:-1}}}return null}
+function lv(L,i){var v=+(L.cur+L.sg*i*L.st).toFixed(1);return L.u=='%'?v+'%':'₹'+v}
+function simGrid(){var wf=document.getElementById('gdWf');if(!wf)return null;var g=document.querySelector('.gd-simgrid');if(g)return g;
+ var wrap=wf.parentNode,eq=wrap.querySelector('.gd-eq');g=document.createElement('div');g.className='gd-simgrid';var left=document.createElement('div');left.className='gd-simL';
+ wrap.insertBefore(g,eq);g.appendChild(left);[eq,wf,wf.nextElementSibling].forEach(function(n){if(n)left.appendChild(n)});g.insertAdjacentHTML('beforeend','<div id="gdSim"><div class="gd-sim-in"></div></div>');return g}
+function gainOf(L,pos,full){return L&&full?Math.round(full*pos/L.n):0}
+function simAndGraph(x,T,st){var g=simGrid();if(!g)return;g.classList.add('on');
+ var head=document.querySelector('.gd-graphhead'),lr0=head&&head.querySelector('.idea-learn');if(lr0&&st.focus)lr0.remove();/* no sliders in 1(b), so no simulator help link */
+ if(head&&!st.focus&&!head.querySelector('.idea-learn'))head.insertAdjacentHTML('beforeend','<span class="idea-learn"><svg viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" rx="3.5" fill="#FF0000"/><path d="M8 4l5 3-5 3z" fill="#fff"/></svg><a>Learn To Use Simulator</a><i></i><a>सिम्युलेटर इस्तेमाल करना सीखें</a></span>');
+ var key=scn+'|'+idea;if(SIMW!==key){SIMW=key;SIM={}}
+ var LC=lever(x,['crto','crate']),LP=lever(x,['prate','prto']);if(LC&&SIM.cod==null)SIM.cod=LC.n;if(LP&&SIM.pre==null)SIM.pre=LP.n;
+ var lk=function(k){var l=st.levers.filter(function(z){return z[0]==k})[0];return !!(l&&l[3]&&st.why)};
+ function hd(col,title,gainHtml,locked){return '<div class="sim-hd"><span class="sim-sw" style="background:'+col+'"></span><span class="sim-tt">'+title+'<span class="sim-hi">'+PLAY+'हिंदी</span></span><span class="sim-gain">'+gainHtml+'<small>orders/week</small>'+(locked?after(st):'')+'</span></div>'}
+ function card(key,col,title,L,full){var pos=SIM[key],gn=gainOf(L,pos,full),h='<div class="sim-card" data-sim="'+key+'">'+hd(col,title,'<b data-gain>+'+f(gn)+'</b>',full&&lk(key));
+  if(L&&full){var ticks='';[Math.round(L.n/3),Math.round(L.n*2/3)].filter(function(t,i,a){return t>0&&t<L.n&&a.indexOf(t)==i}).forEach(function(t){var lp='calc(12px + (100% - 24px) * '+(t/L.n)+')';ticks+='<i class="tk" style="left:'+lp+'"></i><span class="tl" style="left:'+lp+'">'+lv(L,t)+'</span>'});
+   h+='<div class="sim-lv"><div class="sim-lab">'+L.nm+'</div><div class="sim-row"><div class="sim-end"><b>'+lv(L,0)+'</b><span>Current</span></div><div class="sim-track">'+ticks+'<input type="range" min="0" max="'+L.n+'" step="1" value="'+pos+'" aria-label="'+L.nm+': drag towards the target" style="--c:'+col+';--p:calc(12px + (100% - 24px) * '+(pos/L.n)+')"></div><div class="sim-end"><b>'+lv(L,L.n)+'</b><span>Target</span></div></div></div>'}
+  else h+='<div class="sim-ok">✓ On target this week</div>';
+  return h+'<hr class="sim-hr"><button class="sim-btn" type="button">How to Improve Performance '+BCHEV+'</button></div>'}
+ var bad=CAPK.filter(function(k){return !x[k][1]}).map(function(k){return CAPN[k]}),html='';
+ if(!st.I.ok)html+='<div class="sim-card">'+hd(COL.inp,'<b style="font-weight:600">Increase Input Capacity</b>','<b>+'+f(st.I.gain)+'</b>',false)+'<div class="sim-txt">Your input capacity is '+st.I.now+' orders/day. Increase it to '+st.I.need+' orders/day to get more orders.</div><hr class="sim-hr"><button class="sim-btn" type="button" data-dc>Edit DC Capacity '+BCHEV+'</button></div>';
+ if(st.I.ok&&T.cap)html+='<div class="sim-card">'+hd(COL.cap,'<b style="font-weight:600">Avoid Capacity Cuts</b>','<b>+'+f(T.cap)+'</b>',T.cap&&lk('cap'))+'<div class="sim-txt">'+(st.cut?'Improve '+bad.join(', ')+' to get more orders':'No capacity cut this week.')+'</div>'+(st.cut?'<hr class="sim-hr"><button class="sim-btn" type="button" data-simcap>Improve Capacity Cuts '+BCHEV+'</button>':'')+'</div>';
+ if(!st.focus)html+=card('cod',COL.cod,'Grow COD orders',LC,T.cod)+card('pre',COL.pre,'Grow Prepaid orders',LP,T.pre);
+ var box=g.querySelector('.gd-sim-in');box.innerHTML=html;
+ var cb=box.querySelector('[data-simcap]');if(cb)cb.onclick=function(){document.getElementById('gdL1').click()};
+ var db=box.querySelector('[data-dc]');if(db)db.onclick=function(){location.href=DC_URL};
+ function gains(){return st.focus?{inp:st.I.gain,cap:0,cod:0,pre:0}:{inp:st.I.ok?0:st.I.gain,cap:T.cap,cod:gainOf(LC,SIM.cod,T.cod),pre:gainOf(LP,SIM.pre,T.pre)}}
+ box.querySelectorAll('input[type=range]').forEach(function(r){var k=r.closest('[data-sim]').dataset.sim,L=k=='cod'?LC:LP,full=k=='cod'?T.cod:T.pre;
+  r.addEventListener('input',function(){SIM[k]=+r.value;r.style.setProperty('--p','calc(12px + (100% - 24px) * '+(r.value/L.n)+')');r.closest('[data-sim]').querySelector('[data-gain]').textContent='+'+f(gainOf(L,+r.value,full));graph(x,T,st,gains())})});
+ graph(x,T,st,gains())}
+
+window.GD_IDEA=function(w){var pn=document.getElementById('gmPanel'),valmo=pn.getAttribute('data-brand')=='valmo';pn.setAttribute('data-idea',idea);
+ sw.classList.toggle('off',valmo);ss.classList.toggle('off',valmo);if(valmo)pn.style.display='';
+ var sub0=document.getElementById('ideaSub');if(sub0)sub0.remove();
+ ['gdL1','gdL2','gdL3'].forEach(function(id){var e=document.getElementById(id);e.classList.remove('idea-dim','idea-lockon','idea-tip');delete e.dataset.def;e.style.cursor=''});
+ var l0=document.getElementById('gdL0');if(l0)l0.parentNode.remove();document.getElementById('gdLevers').classList.remove('four');
+ if(valmo){document.getElementById('gdInput').innerHTML='';document.getElementById('gdL1').parentNode.querySelector('.k').textContent='Improve capacity';var gg=document.querySelector('.gd-simgrid');if(gg)gg.classList.remove('on');var lr=document.querySelector('.idea-learn');if(lr)lr.remove();return}
+ var x=window.GD_DATA[w],T=window.GD_TOP[w],st=state(x,T);
+ groups(x,T,st);top(x,T,st,{inp:st.I.gain,cap:T.cap,cod:T.cod,pre:T.pre});simAndGraph(x,T,st);
+ /* orders bar: maximum also includes the input capacity gain */
+ if(!st.I.ok){var MAX=T.now+st.I.gain+(st.focus?0:T.cod+T.pre),pc=T.now/MAX*100,bar=document.getElementById('gdBar');bar.querySelector('i').style.width=pc+'%';bar.querySelector('em').style.left=pc+'%';var mid=document.getElementById('gdMid');mid.style.left=pc+'%';mid.textContent=f(T.now)+' ('+Math.round(pc)+'%)';document.getElementById('gdMax').textContent=f(MAX)}
+ if(window.GM_SB)requestAnimationFrame(window.GM_SB)};
+document.getElementById('gdBrand').addEventListener('click',function(){setTimeout(rerender)});
+rerender();
+})();
 </script>
 </body>
 </html>
