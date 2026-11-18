@@ -342,6 +342,7 @@
 .vp-scope .ic-card{border:1px solid var(--vpGreyLight01);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;background:var(--vpWhite)}
 .vp-scope .ic-card.cut{gap:16px}
 .ic-list{display:flex;flex-direction:column;gap:16px}
+.ic-note{margin:0 0 16px;font:var(--vpBody1);color:var(--vpGreyDark02)}
 .ic-gain{display:flex;align-items:baseline;gap:8px;background:#E8F0FD;border-radius:8px;padding:14px 16px;margin-bottom:16px;font:var(--vpBody2);color:var(--vpGreyDark02)}
 .ic-gain b{font:var(--vpHeading3);color:var(--vpGreyDark02)}.ic-gain small{font:var(--vpBody2);color:var(--vpGreyDark01)}
 .ic-gain .ic-lock{margin-left:auto;display:inline-flex;align-items:center;gap:4px;font:var(--vpBody2);color:var(--vpGreyDark01)}.ic-gain .ic-lock svg{width:14px;height:14px}
@@ -2388,7 +2389,7 @@ function open(){var w=window.CC_WEEK||'38',x=window.GD_DATA[w],ci=window.GD_CAPI
   '<div class="ic-card cut"><div class="hd"><span>Avoid Capacity Cut</span></div>'+rows.map(function(r){return '<div class="ic-row" data-ic="'+r[0]+'" role="button" tabindex="0"><div class="l"><span class="nm">'+r[1]+'</span><div class="ct"><div><div class="k">Current</div><div class="v">'+r[2]+'</div></div>'+ARR+'<div><div class="k">Target</div><div class="v">'+r[3]+'</div></div></div></div><div class="r">'+pill(r[4])+CHEV+'</div></div>'}).join('')+'</div>');
  /* capacity input is fine: only the cut list is left, so no section card and the title says what it is */
  document.getElementById('icTitle').textContent=ci[2]?'Improve DC Capacity':'Avoid Capacity Cuts';
- if(!ci[2]){var cut=body.querySelector('.ic-card.cut');cut.querySelector('.hd').remove();body.innerHTML='<div class="ic-list">'+cut.innerHTML+'</div>'}
+ if(!ci[2]){var cut=body.querySelector('.ic-card.cut');cut.querySelector('.hd').remove();body.innerHTML='<p class="ic-note">Bring all these metrics to target to avoid capacity cuts.</p><div class="ic-list">'+cut.innerHTML+'</div>'}
  ovl.classList.add('open')}
 function close(){ovl.classList.remove('open')}
 /* Grow your volume: breakup of the +1,335 (COD RTO + Prepaid Pilot Rate) */
