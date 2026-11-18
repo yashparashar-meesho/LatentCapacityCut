@@ -543,6 +543,98 @@
 .vp-scope .inp-card.ok .v{margin-top:0}
 
 .vp-scope #ideaSw{display:none!important}
+
+/* metric groups: one card style for open and closed (header + divider + cards) */
+.vp-scope #gmPanel:not([data-brand="valmo"]){background:#F5F7FB}
+.vp-scope #gmPanel #gmGroups .gm-grp{border:1px solid var(--vpGreyLight01)!important;border-radius:16px!important;background:var(--vpWhite)!important;overflow:hidden!important;margin-top:16px!important}
+.vp-scope #gmPanel #gmGroups .gm-grp:first-child{margin-top:0!important}
+.vp-scope #gmPanel #gmGroups .gm-grp .gm-bh{padding:18px 24px!important;background:var(--vpWhite)!important;border-radius:0!important;cursor:pointer;gap:12px}
+.vp-scope #gmPanel #gmGroups .gm-grp .gm-bb{border-top:1px solid var(--vpGreyLight01)!important;padding:20px 24px!important;background:var(--vpWhite)!important}
+.vp-scope #gmPanel #gmGroups .gm-grp.idea-strip:not(.idea-peek) .gm-bb{display:none}
+.vp-scope #gmPanel #gmGroups .idea-peekbtn{color:var(--vpGreyDark02)}
+.vp-scope #gmPanel #gmGroups .idea-chip.lock{background:var(--vpGreyLight02);border-color:transparent}
+
+/* V2: Step 1 / Step 2 above the levers */
+.vp-scope #verSw{margin-left:auto}.vp-scope #verSw+#scnSw{margin-left:8px}
+.vp-scope #verSw.off{display:none}
+.vp-scope .idea-stepl{display:block;min-height:20px;margin-bottom:4px;font:var(--vpHeading5);color:var(--vpGreyDark02)}
+
+.vp-scope .idea-subchip{display:inline-flex;align-items:center;gap:6px;margin-left:12px;padding:3px 12px;border-radius:16px;background:#FFF4E5;border:1px solid #FFD8A8;color:#8A4B00;font:var(--vpHeading5);vertical-align:3px;white-space:nowrap}
+.vp-scope .idea-subchip .idea-lock{width:13px;height:13px}
+
+/* V2 locked amount: quiet text next to the big number, only the number in bold */
+.vp-scope .gd-more .big .idea-subchip{background:none;border:0;padding:0 0 0 12px;margin-left:12px;border-left:1px solid var(--vpGreyLight01);border-radius:0;color:var(--vpGreyDark01)!important;font:var(--vpBody2)!important;vertical-align:2px}
+.vp-scope .gd-more .big .idea-subchip b{color:var(--vpGreyDark02)!important;font:var(--vpHeading4)!important}
+.vp-scope .gd-more .big .idea-subchip .idea-lock{color:var(--vpGreyDark01)}
+
+/* locked graph bars: grey diagonal lines over their colour */
+.vp-scope .gd-wf .col.idea-lockcol>i:last-of-type{background-image:repeating-linear-gradient(45deg,rgba(90,94,102,.28) 0 2px,transparent 2px 8px)!important}
+
+/* V3 path */
+.vp-scope #gdPath[hidden]{display:none}
+.vp-scope #gmPanel[data-brand="valmo"]~*,.vp-scope .pth-x{}
+.vp-scope .pth-head{font:var(--vpHeading4);color:var(--vpGreyDark02);margin-bottom:12px}
+.vp-scope .pth-row{display:flex;align-items:stretch;gap:8px}
+.vp-scope .pth-arw{display:flex;align-items:center;color:var(--vpGreyMid02)}.vp-scope .pth-arw svg{width:20px;height:20px}
+.vp-scope .pth-card{flex:1;min-width:0;border:1px solid var(--vpGreyLight01);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;background:var(--vpWhite)}
+.vp-scope .pth-card.now{border:2px solid var(--vpBrand);box-shadow:0 2px 8px rgba(9,45,94,.12)}
+.vp-scope .pth-card.done{background:#F6FCF3;border-color:#D4EFC9}
+.vp-scope .pth-top{display:flex;align-items:center;justify-content:space-between}
+.vp-scope .pth-n{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font:700 14px/1 var(--vpFont);background:var(--vpGreyLight02);color:var(--vpGreyDark01)}
+.vp-scope .pth-card.now .pth-n{background:var(--vpBrand);color:#fff}
+.vp-scope .pth-card.done .pth-n{background:var(--vpGreenAction);color:#fff}
+.vp-scope .pth-n.sm{width:22px;height:22px;font-size:12px;margin-right:8px;vertical-align:1px;background:var(--vpBrand);color:#fff}
+.vp-scope .pth-tag{display:inline-flex;align-items:center;gap:4px;font:600 12px/16px var(--vpFont);border-radius:12px;padding:3px 10px}
+.vp-scope .pth-tag.now{background:var(--vpBrand);color:#fff}
+.vp-scope .pth-tag.done{background:#E7FBE0;color:#43A92C}
+.vp-scope .pth-tag.next{background:var(--vpGreyLight02);color:var(--vpGreyDark01)}
+.vp-scope .pth-t{font:var(--vpHeading4);color:var(--vpGreyDark02);margin-top:4px}
+.vp-scope .pth-l{font:var(--vpBody2);color:var(--vpGreyDark01)}
+.vp-scope .pth-g{font:var(--vpHeading3);color:var(--vpGreenAction);margin-top:2px}.vp-scope .pth-g small{font:var(--vpBody2);color:var(--vpGreyDark01)}
+.vp-scope .pth-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;border:0;border-radius:4px;background:var(--vpBrand);color:#fff;font:var(--vpButtonText2);padding:8px 14px;cursor:pointer}
+.vp-scope .pth-btn svg{width:7px;height:12px}
+.vp-scope .pth-x{margin-top:auto;font:var(--vpBody2);color:var(--vpGreyDark01);display:flex;align-items:center;gap:4px}
+
+/* V3 path: compact single row */
+.vp-scope #gdPath .pth-row{display:flex;align-items:stretch;gap:12px}
+.vp-scope #gdPath .pth-head{margin:0;display:flex;align-items:center;font:var(--vpHeading5);color:var(--vpGreyDark02);flex:0 0 auto;padding-right:4px}
+.vp-scope #gdPath .pth-card{flex-direction:row;align-items:center;gap:12px;padding:10px 14px}
+.vp-scope #gdPath .pth-mid{flex:1;min-width:0}
+.vp-scope #gdPath .pth-t{margin:0;font:var(--vpHeading5);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vp-scope #gdPath .pth-l{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vp-scope #gdPath .pth-g{margin:0;font:var(--vpHeading4);white-space:nowrap;text-align:right}.vp-scope #gdPath .pth-g small{display:block;font:var(--vpBody4)}
+.vp-scope #gdPath .pth-btn{margin:0;align-self:center;white-space:nowrap}
+.vp-scope #gdPath .pth-tag{padding:1px 8px;font-size:11px}
+.vp-scope #gdPath .pth-n{flex-shrink:0}
+
+/* V3 step track inside the top card */
+.vp-scope .stp{display:flex;align-items:stretch;gap:8px}
+.vp-scope .stp-b{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;cursor:pointer;padding:0 2px}
+.vp-scope .stp-bar{display:block;height:6px;border-radius:4px;margin-bottom:6px;background:var(--vpGreenAction)}
+.vp-scope .stp-b.done .stp-bar{background:#9FD18A}
+.vp-scope .stp-b.next .stp-bar{background:repeating-linear-gradient(45deg,#C3C9D4 0 4px,#EEF1F5 4px 8px)}
+.vp-scope .stp-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vp-scope .stp-n{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;font:700 11px/1 var(--vpFont);background:var(--vpBrand);color:#fff;flex-shrink:0}
+.vp-scope .stp-b.done .stp-n{background:var(--vpGreenAction)}
+.vp-scope .stp-b.next .stp-n{background:var(--vpGreyMid01)}
+.vp-scope .stp-t{font:var(--vpHeading5);color:var(--vpGreyDark02)}
+.vp-scope .stp-tag{display:inline-flex;align-items:center;gap:3px;font:600 11px/16px var(--vpFont);border-radius:10px;padding:1px 8px}
+.vp-scope .stp-tag.now{background:var(--vpBrand);color:#fff}
+.vp-scope .stp-tag.done{background:#E7FBE0;color:#43A92C}
+.vp-scope .stp-tag.next{background:var(--vpGreyLight02);color:var(--vpGreyDark01)}
+.vp-scope .stp-v{font:var(--vpHeading4);color:var(--vpGreenAction);display:flex;align-items:center;gap:4px}
+.vp-scope .stp-v small{font:var(--vpBody2);color:var(--vpGreyDark01)}
+.vp-scope .stp-b.next .stp-v{color:var(--vpGreyDark02)}
+.vp-scope .stp-b.done .stp-v{font:var(--vpBody2);color:var(--vpGreyDark01)}
+.vp-scope .stp-s{font:var(--vpBody2);color:var(--vpGreyDark01);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vp-scope .stp-arw{display:flex;align-items:flex-start;padding-top:1px;color:var(--vpGreyMid02)}.vp-scope .stp-arw svg{width:18px;height:18px}
+
+/* V3 track: dashed underline on the numbers (clickable), a bit more space */
+.vp-scope .stp{gap:16px;margin-top:4px}
+.vp-scope .stp-b{gap:10px}
+.vp-scope .stp-num{text-decoration:underline dashed;text-decoration-color:currentColor;text-underline-offset:6px;text-decoration-thickness:1.5px}
+.vp-scope .stp-b.next .stp-num{text-decoration-color:var(--vpGreyMid01)}
+.vp-scope .stp-v{gap:6px;padding-bottom:4px}
 </style>
 <style>/* ============ vp- component kit (Valmo Partner clone) ============ */
 
@@ -1978,7 +2070,7 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
       </div>
     </div>
     <div class="vp-content vp-gd vp-gdd">
-      <div class="vp-pagebar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;"><div class="gd-titlewrap"><h3>Growth Dashboard</h3><div class="gd-brand" id="gdBrand" role="group" aria-label="Dashboard type"><button type="button" data-b="latent" class="on" aria-pressed="true">Latent</button><button type="button" data-b="valmo" aria-pressed="false">Valmo</button></div></div><div class="gv-sw" id="gvSw" title="Prototype only: switch metrics-section version"><span>Version</span><button data-v="g" class="on" type="button">V1 · By group</button><button data-v="g3" type="button">V2 · By group + tinted groups</button><button data-v="8" type="button">V3 · Needs attention / Good</button></div><div class="gv-sw" id="scnSw" title="Prototype only: which situation the DC is in"><span>Scenario</span><button data-s="1" type="button">1(a) · Low input capacity</button><button data-s="1b" type="button">1(b) · Low input, only fix</button><button data-s="2" type="button">2 · Cuts on</button><button data-s="3" type="button">3 · No cuts</button></div><div class="gv-sw" id="ideaSw" title="Prototype only: capacity-first ideas"><span>Idea</span><button data-i="A" type="button">A · Lock</button><button data-i="E" type="button">E · Lock, no grey</button><button data-i="off" type="button">Off</button></div><button class="vp-btn vp-btn-outline vp-btn-sm" type="button">Need Help?</button></div>
+      <div class="vp-pagebar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;"><div class="gd-titlewrap"><h3>Growth Dashboard</h3><div class="gd-brand" id="gdBrand" role="group" aria-label="Dashboard type"><button type="button" data-b="latent" class="on" aria-pressed="true">Latent</button><button type="button" data-b="valmo" aria-pressed="false">Valmo</button></div></div><div class="gv-sw" id="gvSw" title="Prototype only: switch metrics-section version"><span>Version</span><button data-v="g" class="on" type="button">V1 · By group</button><button data-v="g3" type="button">V2 · By group + tinted groups</button><button data-v="8" type="button">V3 · Needs attention / Good</button></div><div class="gv-sw" id="verSw" title="Prototype only: V1 current, V2 adds steps"><span>Version</span><button data-v="1" type="button">V1</button><button data-v="2" type="button">V2 · Steps</button><button data-v="3" type="button">V3 · Step track</button></div><div class="gv-sw" id="scnSw" title="Prototype only: which situation the DC is in"><span>Scenario</span><button data-s="1" type="button">1(a) · Low DC Capacity</button><button data-s="1b" type="button">1(b) · Low DC Capacity, only fix</button><button data-s="2" type="button">2 · Cuts on</button><button data-s="3" type="button">3 · No cuts</button></div><div class="gv-sw" id="ideaSw" title="Prototype only: capacity-first ideas"><span>Idea</span><button data-i="A" type="button">A · Lock</button><button data-i="E" type="button">E · Lock, no grey</button><button data-i="off" type="button">Off</button></div><button class="vp-btn vp-btn-outline vp-btn-sm" type="button">Need Help?</button></div>
       <div class="vp-tabs cc-dctabs" role="tablist" style="display:none"><div class="vp-tab" data-pane="set" role="tab">Set DC Capacity</div><div class="vp-tab active" data-pane="cuts" role="tab">Capacity Cuts <span class="cc-tabnew">NEW</span></div></div>
       <div class="cc-pane" id="pane-set" hidden>
       <div class="vp-panel">
@@ -2006,7 +2098,8 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
       <div class="vp-gdbanner cc-banner" hidden><div class="cap" id="ccBDate" style="opacity:.9;font:var(--vpButtonText1)">This week (20th – 26th Oct)</div><div class="line cc-bline"><span id="ccBMsg"><b>560 orders cut from your capacity this week.</b> Improve the metrics below to get them back.</span></div></div>
 
 
-            <div class="vp-panel" id="gmPanel" data-v="g">
+            <div class="vp-panel" id="gdPath" hidden></div>
+      <div class="vp-panel" id="gmPanel" data-v="g">
         <div class="vp-gdsechead gd-head"><div class="gd-ht"><h4>Your metrics (<span id="gmDate"></span>)</h4><button class="vp-langbtn" type="button"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0.6 L9 5 L1 9.4 Z"/></svg><span>हिंदी में जानकारी</span></button></div>
           <div class="gm-tools"><div class="gm-filt" id="gmFilt" role="group" aria-label="Filter metrics"><button type="button" class="on" data-f="all" aria-pressed="true">All Metrics (<span data-c="all"></span>)</button><button type="button" data-f="need" aria-pressed="false">Need Improvement (<span data-c="need"></span>)</button></div><span class="gm-div" aria-hidden="true"></span><div class="cc-dd gm-dd" id="gmDD"><button type="button" class="vp-select cc-weeksel cc-ddbtn" aria-haspopup="listbox" aria-expanded="false"><span class="cc-ddval"></span><span class="chev">▼</span></button><ul class="cc-ddmenu" role="listbox" hidden></ul></div><div class="gm-arr" id="gmArr"><button type="button" data-d="-1" aria-label="Scroll metrics left"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-d="1" aria-label="Scroll metrics right"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div></div>
         <div class="gm-box open" id="gmBad"><div class="gm-bh"><span class="tt">Needs attention (<span data-n></span>)</span><span class="meta">Fix these to stop capacity cuts and get more orders</span></div><div class="gm-bb"><div class="gm-grid" data-grid></div></div></div>
@@ -2445,8 +2538,8 @@ function metrics(w){var x=DATA[w],L=WK[w];return [
  {k:'d0',g:'cap',nm:'D0 Attempt %',lab:'Current ('+L.lbl+')',v:x.d0[0].toFixed(1)+'%',ok:x.d0[1],tk:'Target',t:'90%',link:'Improve Day-0 Attempt',trend:'d0'},
  {k:'fad',g:'cap',nm:'COD FAD %',lab:'Current ('+L.lbl+')',v:x.fad[0].toFixed(1)+'%',ok:x.fad[1],tk:'Target',t:'78%',link:'Improve COD FAD %',trend:'fad'},
  {k:'mis',g:'cap',nm:'Misroute within Polygon %',lab:'Last week ('+L.lag+')',lag:1,v:x.mis[0].toFixed(1)+'%',ok:x.mis[1],tk:'Target',t:'≤ 1%',link:'Improve Misroute',trend:'mis'},
- {k:'crto',g:'vol',nm:'COD RTO %',lab:'Current ('+L.lbl+')',v:x.crto[0]+'%',ok:x.crto[1],tk:'Target',t:'19%',link:'Improve Performance'},
- {k:'prto',g:'vol',nm:'Prepaid RTO %',lab:'Current ('+L.lbl+')',v:x.prto[0]+'%',ok:x.prto[1],tk:'Target',t:'4%',link:'Improve Performance'},
+ {k:'crto',g:'vol',nm:'COD RTO %',lab:'Current ('+L.lbl+')',v:x.crto[0]+'%',ok:x.crto[1],tk:'Target',t:'19%',link:'Improve COD RTO %'},
+ {k:'prto',g:'vol',nm:'Prepaid RTO %',lab:'Current ('+L.lbl+')',v:x.prto[0]+'%',ok:x.prto[1],tk:'Target',t:'4%',link:'Improve Prepaid RTO %'},
  {k:'crate',g:'vol',nm:'COD Pilot Rate',lab:'Current rate',v:'₹'+x.crate[0],ok:x.crate[1],tk:'Recommended',t:'₹15',link:'Go To Rate Card Tab'},
  {k:'prate',g:'vol',nm:'Prepaid Pilot Rate',lab:'Current rate',v:'₹'+x.prate[0],ok:x.prate[1],tk:'Recommended',t:'₹12',link:'Go To Rate Card Tab'}]}
 var DEF={doh:'Orders still at your DC after their delivery day (Days On Hand).',load:'Pilots doing more than 280 orders a week.',d0:'Orders attempted on the day they reach your DC.',fad:'COD orders delivered on the first attempt.',mis:'Orders you sent to another hub, but later delivered in your area.',crto:'COD orders that came back to origin without delivery.',prto:'Prepaid orders that came back to origin without delivery.',crate:'What you pay a pilot for each COD delivery.',prate:'What you pay a pilot for each prepaid delivery.'};
@@ -2524,7 +2617,7 @@ row.addEventListener('scroll',arrUpd,{passive:true});window.addEventListener('re
 </script>
 <script>
 /* Prototype: the order a DC must follow to get more orders.
-   Scenario 1 - input capacity too low: only "Increase input capacity" adds orders; capacity cuts and volume are locked.
+   Scenario 1 - input capacity too low: only "Increase DC Capacity" adds orders; capacity cuts and volume are locked.
    Scenario 2 - input capacity OK: "Avoid capacity cuts" adds orders; volume stays locked until all capacity-cut metrics are Good.
    Idea A shows locked things in grey, E keeps colours, Off shows today's page. Numbers marked PLACEHOLDER are made up. */
 (function(){
@@ -2554,26 +2647,27 @@ function applyData(latent){var d=window.GD_DATA[W],t=window.GD_TOP[W];Object.key
 window.GD_CAPIN=function(w){var I=INPUT[scn];return I.ok?[I.now,1]:[I.now,0,I.need,I.gain]};
 
 /* ---- switches ---- */
-var sw=document.getElementById('ideaSw'),ss=document.getElementById('scnSw');
-function mark(){sw.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.i==idea)});ss.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.s==scn)})}
+var sw=document.getElementById('ideaSw'),ss=document.getElementById('scnSw'),vs=document.getElementById('verSw'),ver='3';/* V3 is the default */
+vs.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;ver=b.dataset.v;if(ver!='1'&&scn=='1'){scn='1b';SIMW=null}mark();rerender()});
+function mark(){sw.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.i==idea)});ss.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.s==scn)});vs.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.v==ver)});ss.querySelector('[data-s="1"]').style.display=ver!='1'?'none':''}
 function rerender(){var latent=document.getElementById('gmPanel').getAttribute('data-brand')!='valmo';applyData(latent);var li=document.querySelector('#gmDD li[data-v="'+W+'"]');if(li)li.click();else window.GD_IDEA(W)}
 sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;idea=b.dataset.i;try{localStorage.setItem('gdIdea',idea)}catch(e){}mark();rerender()});
 ss.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;scn=b.dataset.s;SIMW=null;mark();rerender()});
-if(/[?&]shot=1/.test(location.search)){sw.style.display='none';ss.style.display='none'}
+if(/[?&]shot=1/.test(location.search)){sw.style.display='none';ss.style.display='none';vs.style.display='none'}
 mark();
 
 /* ---- what is active and what is locked ---- */
 function state(x,T){var I=INPUT[scn],cut=CAPK.some(function(k){return !x[k][1]});
  var st={I:I,cut:cut,why:null,unlock:'',levers:[]};
- if(!I.ok){st.why='input';st.unlock='input capacity fix'}else if(cut){st.why='cut';st.unlock='capacity fix'}
+ if(!I.ok){st.why='input';st.unlock='DC Capacity fix'}else if(cut){st.why='cut';st.unlock='capacity fix'}
  if(idea=='off')st.why=null;
  /* levers in order: [key, label, gain, locked] */
- if(!I.ok)st.levers.push(['inp','Increase input capacity',I.gain,false]);
+ if(!I.ok)st.levers.push(['inp','Increase DC Capacity',I.gain,false]);
  else if(T.cap)st.levers.push(['cap','Avoid capacity cuts',T.cap,false]);
  st.focus=scn=='1b';
  if(!st.focus){st.levers.push(['cod','Improve COD RTO',T.cod,!!st.why]);st.levers.push(['pre','Improve Prepaid Rate',T.pre,!!st.why])}
  return st}
-function lockTip(st,what){return st.why=='input'?'<div class="h">Locked by low input capacity</div>Your input capacity is too low, so '+what+' can’t add orders yet.':'<div class="h">Locked by capacity cuts</div>Your capacity is being cut, so '+what+' can’t add orders yet.'}
+function lockTip(st,what){return st.why=='input'?'<div class="h">Locked by low DC Capacity</div>Your DC Capacity is too low, so '+what+' can’t add orders yet.':'<div class="h">Locked by capacity cuts</div>Your capacity is being cut, so '+what+' can’t add orders yet.'}
 function tip(el,html){if(!el)return;el.classList.add('idea-tip');el.dataset.def=html;el.style.cursor='help'}
 function after(st){return '<span class="idea-after">'+LOCKS+'After '+st.unlock+'</span>'}
 var WHAT={cap:'avoiding capacity cuts',cod:'improving COD RTO',pre:'improving Prepaid Rate'};
@@ -2582,11 +2676,12 @@ var WHAT={cap:'avoiding capacity cuts',cod:'improving COD RTO',pre:'improving Pr
 function top(x,T,st,g){var big=document.getElementById('gdMore'),box=document.getElementById('gdLevers');
  var act=0,lock=0;st.levers.forEach(function(l){var v=g[l[0]];if(l[3])lock+=v;else act+=v});
  big.textContent='+'+f(st.why?act:act+lock);
- if(st.why&&lock)big.parentNode.insertAdjacentHTML('afterend','<div class="idea-full" id="ideaSub">'+LOCKM+'+'+f(lock)+' more after '+st.unlock+'</div>');
+ if(st.why&&lock){if(ver!='1')big.parentNode.insertAdjacentHTML('beforeend','<span class="idea-subchip" id="ideaSub">'+LOCK+'<b>+'+f(lock)+'</b> more after '+st.unlock+'</span>');/* V2: same line, highlighted */
+  else big.parentNode.insertAdjacentHTML('afterend','<div class="idea-full" id="ideaSub">'+LOCKM+'+'+f(lock)+' more after '+st.unlock+'</div>')}
  tip(document.getElementById('ideaSub'),lockTip(st,'the other metrics'));
  /* input capacity lever (Scenario 1 only) */
  var l0=document.getElementById('gdL0');if(l0)l0.parentNode.remove();
- if(!st.I.ok){box.insertAdjacentHTML('afterbegin','<div><div class="k">Increase input capacity</div><div class="lv ic-open" id="gdL0" role="button" tabindex="0">+'+f(st.I.gain)+'</div></div>');document.getElementById('gdL0').onclick=function(){document.getElementById('gdL1').click()}}
+ if(!st.I.ok){box.insertAdjacentHTML('afterbegin','<div><div class="k">Increase DC Capacity</div><div class="lv ic-open" id="gdL0" role="button" tabindex="0">+'+f(st.I.gain)+'</div></div>');document.getElementById('gdL0').onclick=function(){document.getElementById('gdL1').click()}}
 
  var L1=document.getElementById('gdL1');L1.parentNode.querySelector('.k').textContent='Avoid capacity cuts';if(!st.I.ok)L1.parentNode.style.display='none';
  if(st.focus)['gdL2','gdL3'].forEach(function(id){document.getElementById(id).parentNode.style.display='none'});
@@ -2596,10 +2691,49 @@ function top(x,T,st,g){var big=document.getElementById('gdMore'),box=document.ge
   el.classList.add('idea-dim');el.innerHTML=LOCK+'+'+f(l[2]);
   tip(el,lockTip(st,WHAT[l[0]]))})}
 
+/* ---- V2: label the levers Step 1 (do now) and Step 2 (after that) ---- */
+function steps(st){var shown=[].slice.call(document.querySelectorAll('#gdLevers>div')).filter(function(d){return d.style.display!='none'&&d.querySelector('.lv')});
+ if(ver!='2'||!st.why||shown.length<1)return;
+ if(!shown.some(function(d){return d.querySelector('.lv').classList.contains('idea-dim')}))return;/* only one step: no labels */
+ var firstLocked=true;shown.forEach(function(d){var lk=d.querySelector('.lv').classList.contains('idea-dim'),t='';if(!lk)t='Step 1';else if(firstLocked){t='Step 2';firstLocked=false}d.insertAdjacentHTML('afterbegin','<span class="idea-stepl">'+t+'</span>')})}
+
+/* ---- V3: "What to do, step by step" path (compact, one row) ---- */
+function path(x,T,st){var el=document.getElementById('gdPath');
+ /* 1(b): DC Capacity is the only thing to do, the top card already says it - no path */
+ if(true){el.hidden=true;el.innerHTML='';return}
+ var cut=st.cut,bad=CAPK.filter(function(k){return !x[k][1]}).map(function(k){return CAPN[k]});
+ var S=[{t:'Avoid capacity cuts',state:cut?'now':'done',line:cut?'Improve '+bad.join(', '):'No capacity cuts this week',gain:T.cap,cta:'Improve Capacity Cuts',go:function(){document.getElementById('gdL1').click()}},
+  {t:'Grow your volume',state:cut?'next':'now',line:'Improve COD RTO %, Prepaid RTO % and pilot rates',gain:T.cod+T.pre,cta:'See metrics',go:function(){var b=document.querySelector('#gmGroups .gm-grp[data-g=vol]');if(b&&!b.classList.contains('idea-peek'))b.querySelector('.gm-bh').click();if(b)b.scrollIntoView({behavior:'smooth',block:'center'})}}];
+ var TAG={done:'<span class="pth-tag done">✓ Done</span>',now:'<span class="pth-tag now">Do this now</span>',next:'<span class="pth-tag next">'+LOCKS+'After Step 1</span>'};
+ var ARW='<span class="pth-arw" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4l-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+ var h='<div class="pth-row"><div class="pth-head">What to do,<br>step by step</div>';
+ S.forEach(function(s,i){if(i)h+=ARW;
+  h+='<div class="pth-card '+s.state+'"><span class="pth-n">'+(s.state=='done'?'✓':(i+1))+'</span><div class="pth-mid"><div class="pth-t">Step '+(i+1)+' · '+s.t+TAG[s.state]+'</div><div class="pth-l">'+s.line+'</div></div>';
+  if(s.state=='now')h+='<div class="pth-g">+'+f(s.gain)+'<small>orders/week</small></div><button type="button" class="pth-btn" data-i="'+i+'">'+s.cta+' '+BCHEV+'</button>';
+  h+='</div>'});
+ el.innerHTML=h+'</div>';
+ el.querySelectorAll('.pth-btn').forEach(function(b){b.onclick=function(){S[+b.dataset.i].go()}})}
+
+/* ---- V3: inside "Orders more you can get" the levers become a 2-step track ---- */
+function track(x,T,st){var old=document.getElementById('ideaStep');if(old)old.remove();var lv=document.getElementById('gdLevers');lv.style.display='';
+ if(ver!='3'||!st.I.ok)return;
+ var cut=st.cut,bad=CAPK.filter(function(k){return !x[k][1]}).map(function(k){return CAPN[k]});
+ var B=[{k:'cap',t:'Avoid capacity cuts',state:cut?'now':'done',val:cut?'<span class="stp-num">+'+f(T.cap)+'</span> <small>orders/week</small>':'No capacity cuts',sub:cut?'Improve '+bad.join(', '):''},
+  {k:'vol',t:'Grow your volume',state:cut?'next':'now',val:(cut?LOCK:'')+'<span class="stp-num">+'+f(T.cod+T.pre)+'</span> <small>orders/week</small>',sub:'COD RTO +'+f(T.cod)+' · Prepaid Rate +'+f(T.pre)}];
+ var TAG={now:'<span class="stp-tag now">Do this first</span>',done:'<span class="stp-tag done">✓ Done</span>',next:'<span class="stp-tag next">'+LOCKS+'After step 1</span>'};
+ if(!cut)TAG.now='<span class="stp-tag now">Do this now</span>';
+ var h='<div id="ideaStep" class="stp">';
+ B.forEach(function(b,i){if(i)h+='<span class="stp-arw" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4l-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+  h+='<div class="stp-b '+b.state+'" data-go="'+b.k+'" role="button" tabindex="0"><div class="stp-h"><span class="stp-n">'+(b.state=='done'?'✓':(i+1))+'</span><span class="stp-t">'+b.t+'</span>'+TAG[b.state]+'</div><div class="stp-v">'+b.val+'</div></div>'});
+ lv.insertAdjacentHTML('afterend',h+'</div>');lv.style.display='none';
+ var el=document.getElementById('ideaStep');
+ el.querySelectorAll('.stp-b').forEach(function(b){var go=b.dataset.go=='cap'?function(){document.getElementById('gdL1').click()}:function(){var g=document.querySelector('#gmGroups .gm-grp[data-g=vol]');if(g&&!g.classList.contains('idea-peek'))g.querySelector('.gm-bh').click();if(g)g.scrollIntoView({behavior:'smooth',block:'center'})};
+  b.onclick=go;b.onkeydown=function(e){if(e.key=='Enter')go()};if(b.classList.contains('next'))tip(b,lockTip(st,'growing your volume'))})}
+
 /* ---- growth graph (waterfall), redrawn with slider values ---- */
 function graph(x,T,st,g){var wf=document.getElementById('gdWf');if(!wf)return;
  var items=st.levers.filter(function(l){return g[l[0]]>0||l[0]=='inp'}).map(function(l){return {k:l[0],v:g[l[0]],lk:l[3]&&!!st.why}});
- var NM={inp:'Increase Input Capacity',cap:'Avoid Capacity Cuts',cod:'Grow COD Orders',pre:'Grow Prepaid Orders'};
+ var NM={inp:'Increase DC Capacity',cap:'Avoid Capacity Cuts',cod:'Grow COD Orders',pre:'Grow Prepaid Orders'};
  var more=items.reduce(function(a,b){return a+b.v},0),act=items.filter(function(i){return !i.lk}).reduce(function(a,b){return a+b.v},0),lock=more-act,MAX=T.now+more||1;
  var p=function(v){return v/MAX*88+'%'},h='',xl='',run=T.now;
  function lab(bot,html){return '<div class="lab" style="bottom:calc('+p(bot)+' + 6px)">'+html+'</div>'}
@@ -2607,7 +2741,7 @@ function graph(x,T,st,g){var wf=document.getElementById('gdWf');if(!wf)return;
  items.forEach(function(it){var cls=it.lk?(idea=='E'?' idea-lockcol':' idea-blocked'):'';
   h+='<div class="col'+cls+'" data-k="'+it.k+'"><i style="bottom:0;height:'+p(run)+';background:var(--vpGreyLight02)"></i><i style="bottom:'+p(run)+';height:'+(it.v?p(it.v):'3px')+';background:'+COL[it.k]+'"></i>'+lab(run+it.v,(it.lk?LOCKM:'')+'+'+f(it.v))+'</div>';xl+='<div>'+NM[it.k]+'</div>';run+=it.v});
  var mx='<i style="bottom:0;height:'+p(T.now)+';background:var(--vpGreyLight02)"></i>';
- if(more){var gp=act/more*100,bg=lock&&st.why?(idea=='E'?'linear-gradient(to top,#9FD18A 0,#9FD18A '+gp+'%,#D8EDCF '+gp+'%)':'linear-gradient(to top,#9FD18A 0,#9FD18A '+gp+'%,transparent '+gp+'%),repeating-linear-gradient(45deg,#DCE1E8 0 6px,#F2F5FA 6px 12px)'):'#9FD18A';
+ if(more){var gp=act/more*100,bg=lock&&st.why?(idea=='E'?'repeating-linear-gradient(45deg,rgba(90,94,102,.28) 0 2px,transparent 2px 8px) top/100% '+(100-gp)+'% no-repeat,linear-gradient(to top,#9FD18A 0,#9FD18A '+gp+'%,#D8EDCF '+gp+'%)':'linear-gradient(to top,#9FD18A 0,#9FD18A '+gp+'%,transparent '+gp+'%),repeating-linear-gradient(45deg,#DCE1E8 0 6px,#F2F5FA 6px 12px)'):'#9FD18A';
   mx+='<i class="mxbar" style="bottom:'+p(T.now)+';height:'+p(more)+';background:'+bg+(lock&&st.why?';outline:1px dashed var(--vpGreyMid01)':'')+'">'+(lock&&st.why?'<span style="position:absolute;left:0;right:0;top:'+((100-gp)/2)+'%;transform:translateY(-50%);text-align:center;font:var(--vpHeading5);color:var(--vpGreyDark01)">'+LOCKM+'+'+f(lock)+'</span>'+(act?'<span style="position:absolute;left:0;right:0;bottom:'+(gp/2)+'%;transform:translateY(50%);text-align:center;font:var(--vpBody2);color:#272829">+'+f(act)+'</span>':''):'<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:var(--vpBody2);color:#272829">+'+f(more)+'</span>')+'</i>'}
  h+='<div class="col">'+mx+lab(MAX,f(MAX)+'<small>'+(lock&&st.why?'after '+st.unlock:'orders/week')+'</small>')+'</div>';xl+='<div>Maximum Possible Orders</div>';
  wf.innerHTML=h;var old=wf.nextElementSibling;if(old&&old.classList.contains('gd-wfx'))old.remove();wf.insertAdjacentHTML('afterend','<div class="gd-wfx">'+xl+'</div>');
@@ -2618,21 +2752,22 @@ function graph(x,T,st,g){var wf=document.getElementById('gdWf');if(!wf)return;
 /* ---- input capacity row + metric groups ---- */
 function inputRow(st){var el=document.getElementById('gdInput'),I=st.I;
  el.innerHTML=I.ok?'<div class="inp-card ok"><span class="t">Input capacity</span><span class="v"><b>'+I.now+'</b> orders/day <span class="ic-pill good">Good</span></span></div>'
-  :'<div class="inp-card bad"><div><div class="t">Increase input capacity first</div><div class="v">Now <b>'+I.now+'</b> orders/day <span class="ic-pill bad">Not Good</span> · Needed '+I.need+' orders/day</div></div><div class="gain"><b>+'+f(I.gain)+'</b>orders/week</div><button class="sim-btn" type="button" data-dc>Edit DC Capacity '+BCHEV+'</button></div>';
+  :'<div class="inp-card bad"><div><div class="t">Increase DC Capacity first</div><div class="v">Now <b>'+I.now+'</b> orders/day <span class="ic-pill bad">Not Good</span> · Needed '+I.need+' orders/day</div></div><div class="gain"><b>+'+f(I.gain)+'</b>orders/week</div><button class="sim-btn" type="button" data-dc>Edit DC Capacity '+BCHEV+'</button></div>';
  var b=el.querySelector('[data-dc]');if(b)b.onclick=function(){location.href=DC_URL}}
 function flash(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.remove('idea-flash');void el.offsetWidth;el.classList.add('idea-flash')}
-function groups(x,T,st){document.getElementById('gmGroups').style.display=st.focus?'none':'';document.getElementById('gmPanel').style.display=st.focus?'none':'';var GT={cap:'Capacity Cuts',vol:'Grow your volume'};
+function groups(x,T,st){document.getElementById('gmGroups').style.display='';document.getElementById('gmPanel').style.display='';var GT={cap:'Capacity Cuts',vol:'Grow your volume'};
  document.querySelectorAll('#gmGroups .gm-grp').forEach(function(box){var g=box.dataset.g,bh=box.querySelector('.gm-bh');
-  box.classList.remove('idea-strip','idea-locked','idea-peek');bh.querySelectorAll('.idea-x').forEach(function(n){n.remove()});box.querySelectorAll('.idea-gate').forEach(function(n){n.remove()});bh.onclick=null;box.querySelector('.tt').textContent=GT[g];
+  box.classList.remove('idea-strip','idea-locked','idea-peek');bh.querySelectorAll('.idea-x').forEach(function(n){n.remove()});box.querySelectorAll('.idea-gate').forEach(function(n){n.remove()});bh.onclick=null;box.querySelector('.tt').innerHTML=(ver!='1'&&st.I.ok?'<span class="pth-n sm">'+(g=='cap'?1:2)+'</span>':'')+GT[g];
   if(idea=='off')return;
   var locked=st.why&&(g=='vol'||st.why=='input'),gain=g=='vol'?T.cod+T.pre:T.cap;
-  if(g=='cap'&&!st.cut&&!locked){box.classList.add('idea-strip');bh.insertAdjacentHTML('beforeend','<span class="idea-x idea-chip ok">All 4 Good · no cut</span><span class="idea-x idea-peekbtn">Show'+CHEV+'</span>')}
-  if(locked){box.classList.add('idea-strip','idea-locked');var msg=g=='cap'?'Increase input capacity first. Then work on these metrics.':'Fix capacity cuts first · +'+f(gain)+' orders/week';
-   bh.insertAdjacentHTML('beforeend','<span class="idea-x idea-chip lock">'+LOCK+msg+'</span><span class="idea-x idea-peekbtn">Peek'+CHEV+'</span>');
-   if(idea=='E'){var first=st.why=='input'?'Increase input capacity first':'Fix capacity cuts first',to=st.why=='input'?null:document.querySelector('#gmGroups .gm-grp[data-g=cap]');
-    box.querySelectorAll('.gm-row .mc .ml').forEach(function(ml){ml.removeAttribute('data-trend');ml.classList.add('idea-mlock');ml.innerHTML='<span>'+LOCK+first+'</span>'+BCHEV;ml.onclick=function(ev){ev.stopPropagation();if(to)flash(to);else document.getElementById('gdL1').click()}});
-    }}
-  if(box.classList.contains('idea-strip'))bh.onclick=function(){box.classList.toggle('idea-peek');var pb=bh.querySelector('.idea-peekbtn');if(pb)pb.firstChild.textContent=box.classList.contains('idea-peek')?'Hide':(locked?'Peek':'Show');if(window.GM_SB)requestAnimationFrame(window.GM_SB)}})}
+  /* 1(b): both groups closed, no pills - only there to check data */
+  if(st.focus){box.classList.add('idea-strip');bh.insertAdjacentHTML('beforeend','<span class="idea-x idea-peekbtn">Show'+CHEV+'</span>');locked=false}
+  else if(g=='cap'&&!st.cut&&!locked){box.classList.add('idea-strip');bh.insertAdjacentHTML('beforeend','<span class="idea-x idea-chip ok">All 4 Good · no cut</span><span class="idea-x idea-peekbtn">Show'+CHEV+'</span>')}
+  if(locked){box.classList.add('idea-strip','idea-locked');var msg=g=='cap'?'Increase DC Capacity first. Then work on these metrics.':'Fix capacity cuts first';
+   bh.insertAdjacentHTML('beforeend','<span class="idea-x idea-chip lock">'+LOCK+msg+'</span><span class="idea-x idea-peekbtn">Show'+CHEV+'</span>');
+   }
+  if(!box.classList.contains('idea-strip')){box.classList.add('idea-strip','idea-peek');bh.insertAdjacentHTML('beforeend','<span class="idea-x idea-peekbtn">Hide'+CHEV+'</span>')}
+  if(box.classList.contains('idea-strip'))bh.onclick=function(){box.classList.toggle('idea-peek');var pb=bh.querySelector('.idea-peekbtn');if(pb)pb.firstChild.textContent=box.classList.contains('idea-peek')?'Hide':'Show';if(window.GM_SB)requestAnimationFrame(window.GM_SB)}})}
 
 /* ---- simulator panel next to the graph ---- */
 var SIM={},SIMW=null;
@@ -2656,7 +2791,7 @@ function simAndGraph(x,T,st){var g=simGrid();if(!g)return;g.classList.add('on');
   else h+='<div class="sim-ok">✓ On target this week</div>';
   return h+'<hr class="sim-hr"><button class="sim-btn" type="button">How to Improve Performance '+BCHEV+'</button></div>'}
  var bad=CAPK.filter(function(k){return !x[k][1]}).map(function(k){return CAPN[k]}),html='';
- if(!st.I.ok)html+='<div class="sim-card">'+hd(COL.inp,'<b style="font-weight:600">Increase Input Capacity</b>','<b>+'+f(st.I.gain)+'</b>',false)+'<div class="sim-txt">Your input capacity is '+st.I.now+' orders/day. Increase it to '+st.I.need+' orders/day to get more orders.</div><hr class="sim-hr"><button class="sim-btn" type="button" data-dc>Edit DC Capacity '+BCHEV+'</button></div>';
+ if(!st.I.ok)html+='<div class="sim-card">'+hd(COL.inp,'<b style="font-weight:600">Increase DC Capacity</b>','<b>+'+f(st.I.gain)+'</b>',false)+'<div class="sim-txt">Your DC Capacity is '+st.I.now+' orders/day. Increase it to '+st.I.need+' orders/day to get more orders.</div><hr class="sim-hr"><button class="sim-btn" type="button" data-dc>Edit DC Capacity '+BCHEV+'</button></div>';
  if(st.I.ok&&T.cap)html+='<div class="sim-card">'+hd(COL.cap,'<b style="font-weight:600">Avoid Capacity Cuts</b>','<b>+'+f(T.cap)+'</b>',T.cap&&lk('cap'))+'<div class="sim-txt">'+(st.cut?'Improve '+bad.join(', ')+' to get more orders':'No capacity cut this week.')+'</div>'+(st.cut?'<hr class="sim-hr"><button class="sim-btn" type="button" data-simcap>Improve Capacity Cuts '+BCHEV+'</button>':'')+'</div>';
  if(!st.focus)html+=card('cod',COL.cod,'Grow COD orders',LC,T.cod)+card('pre',COL.pre,'Grow Prepaid orders',LP,T.pre);
  var box=g.querySelector('.gd-sim-in');box.innerHTML=html;
@@ -2668,13 +2803,13 @@ function simAndGraph(x,T,st){var g=simGrid();if(!g)return;g.classList.add('on');
  graph(x,T,st,gains())}
 
 window.GD_IDEA=function(w){var pn=document.getElementById('gmPanel'),valmo=pn.getAttribute('data-brand')=='valmo';pn.setAttribute('data-idea',idea);
- sw.classList.toggle('off',valmo);ss.classList.toggle('off',valmo);if(valmo)pn.style.display='';
+ sw.classList.toggle('off',valmo);ss.classList.toggle('off',valmo);vs.classList.toggle('off',valmo);if(valmo){var gp=document.getElementById('gdPath');gp.hidden=true;gp.innerHTML='';var s0=document.getElementById('ideaStep');if(s0)s0.remove();document.getElementById('gdLevers').style.display=''}document.querySelectorAll('#gdLevers .idea-stepl').forEach(function(n){n.remove()});if(valmo)pn.style.display='';
  var sub0=document.getElementById('ideaSub');if(sub0)sub0.remove();
  ['gdL1','gdL2','gdL3'].forEach(function(id){var e=document.getElementById(id);e.classList.remove('idea-dim','idea-lockon','idea-tip');delete e.dataset.def;e.style.cursor=''});
  var l0=document.getElementById('gdL0');if(l0)l0.parentNode.remove();document.getElementById('gdLevers').classList.remove('four');
  if(valmo){document.getElementById('gdInput').innerHTML='';document.getElementById('gdL1').parentNode.querySelector('.k').textContent='Improve capacity';var gg=document.querySelector('.gd-simgrid');if(gg)gg.classList.remove('on');var lr=document.querySelector('.idea-learn');if(lr)lr.remove();return}
  var x=window.GD_DATA[w],T=window.GD_TOP[w],st=state(x,T);
- groups(x,T,st);top(x,T,st,{inp:st.I.gain,cap:T.cap,cod:T.cod,pre:T.pre});simAndGraph(x,T,st);
+ groups(x,T,st);top(x,T,st,{inp:st.I.gain,cap:T.cap,cod:T.cod,pre:T.pre});steps(st);path(x,T,st);track(x,T,st);simAndGraph(x,T,st);
  /* orders bar: maximum also includes the input capacity gain */
  if(!st.I.ok){var MAX=T.now+st.I.gain+(st.focus?0:T.cod+T.pre),pc=T.now/MAX*100,bar=document.getElementById('gdBar');bar.querySelector('i').style.width=pc+'%';bar.querySelector('em').style.left=pc+'%';var mid=document.getElementById('gdMid');mid.style.left=pc+'%';mid.textContent=f(T.now)+' ('+Math.round(pc)+'%)';document.getElementById('gdMax').textContent=f(MAX)}
  if(window.GM_SB)requestAnimationFrame(window.GM_SB)};
