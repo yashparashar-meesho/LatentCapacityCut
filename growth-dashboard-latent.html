@@ -635,6 +635,12 @@
 .vp-scope .stp-num{text-decoration:underline dashed;text-decoration-color:currentColor;text-underline-offset:6px;text-decoration-thickness:1.5px}
 .vp-scope .stp-b.next .stp-num{text-decoration-color:var(--vpGreyMid01)}
 .vp-scope .stp-v{gap:6px;padding-bottom:4px}
+
+/* V3 track arrow: bigger, centred between the two steps */
+.vp-scope .stp .stp-arw{align-items:center;padding:0 8px;color:#B4BBC7}
+.vp-scope .stp .stp-arw svg{width:36px;height:36px;transform:translateX(-48px)}
+.vp-scope .stp .stp-arw svg path{stroke-width:1.1}
+.vp-scope .stp .stp-v{padding-bottom:0}
 </style>
 <style>/* ============ vp- component kit (Valmo Partner clone) ============ */
 
@@ -2070,7 +2076,7 @@ document.addEventListener('DOMContentLoaded',function(){document.querySelectorAl
       </div>
     </div>
     <div class="vp-content vp-gd vp-gdd">
-      <div class="vp-pagebar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;"><div class="gd-titlewrap"><h3>Growth Dashboard</h3><div class="gd-brand" id="gdBrand" role="group" aria-label="Dashboard type"><button type="button" data-b="latent" class="on" aria-pressed="true">Latent</button><button type="button" data-b="valmo" aria-pressed="false">Valmo</button></div></div><div class="gv-sw" id="gvSw" title="Prototype only: switch metrics-section version"><span>Version</span><button data-v="g" class="on" type="button">V1 · By group</button><button data-v="g3" type="button">V2 · By group + tinted groups</button><button data-v="8" type="button">V3 · Needs attention / Good</button></div><div class="gv-sw" id="verSw" title="Prototype only: V1 current, V2 adds steps"><span>Version</span><button data-v="1" type="button">V1</button><button data-v="2" type="button">V2 · Steps</button><button data-v="3" type="button">V3 · Step track</button></div><div class="gv-sw" id="scnSw" title="Prototype only: which situation the DC is in"><span>Scenario</span><button data-s="1" type="button">1(a) · Low DC Capacity</button><button data-s="1b" type="button">1(b) · Low DC Capacity, only fix</button><button data-s="2" type="button">2 · Cuts on</button><button data-s="3" type="button">3 · No cuts</button></div><div class="gv-sw" id="ideaSw" title="Prototype only: capacity-first ideas"><span>Idea</span><button data-i="A" type="button">A · Lock</button><button data-i="E" type="button">E · Lock, no grey</button><button data-i="off" type="button">Off</button></div><button class="vp-btn vp-btn-outline vp-btn-sm" type="button">Need Help?</button></div>
+      <div class="vp-pagebar" style="display:flex;align-items:center;justify-content:space-between;gap:16px;"><div class="gd-titlewrap"><h3>Growth Dashboard</h3><div class="gd-brand" id="gdBrand" role="group" aria-label="Dashboard type"><button type="button" data-b="latent" class="on" aria-pressed="true">Latent</button><button type="button" data-b="valmo" aria-pressed="false">Valmo</button></div></div><div class="gv-sw" id="gvSw" title="Prototype only: switch metrics-section version"><span>Version</span><button data-v="g" class="on" type="button">V1 · By group</button><button data-v="g3" type="button">V2 · By group + tinted groups</button><button data-v="8" type="button">V3 · Needs attention / Good</button></div><div class="gv-sw" id="verSw" title="Prototype only: V1 current, V2 adds steps"><span>Version</span><button data-v="1" type="button">V1</button><button data-v="2" type="button">V2 · Steps</button><button data-v="3" type="button">V3 · Step track</button></div><div class="gv-sw" id="scnSw" title="Prototype only: which situation the DC is in"><span>Scenario</span><button data-s="1" type="button">1(a) · Low DC Capacity</button><button data-s="1b" type="button">1(b) · Low DC Capacity, only fix</button><button data-s="2" type="button">2 · Cuts on</button><button data-s="3" type="button">3 · No cuts</button><button data-s="3b" type="button">3(b) · No cuts, breakup</button></div><div class="gv-sw" id="ideaSw" title="Prototype only: capacity-first ideas"><span>Idea</span><button data-i="A" type="button">A · Lock</button><button data-i="E" type="button">E · Lock, no grey</button><button data-i="off" type="button">Off</button></div><button class="vp-btn vp-btn-outline vp-btn-sm" type="button">Need Help?</button></div>
       <div class="vp-tabs cc-dctabs" role="tablist" style="display:none"><div class="vp-tab" data-pane="set" role="tab">Set DC Capacity</div><div class="vp-tab active" data-pane="cuts" role="tab">Capacity Cuts <span class="cc-tabnew">NEW</span></div></div>
       <div class="cc-pane" id="pane-set" hidden>
       <div class="vp-panel">
@@ -2636,20 +2642,20 @@ var COL={inp:'#F2A65A',cap:'#E9C86F',cod:'#C98BE6',pre:'#7DA5FF'};
 
 /* ---- scenario data (PLACEHOLDER numbers) ---- */
 var W='38',D0=JSON.parse(JSON.stringify(window.GD_DATA[W])),T0=JSON.parse(JSON.stringify(window.GD_TOP[W]));
-var INPUT={1:{now:400,need:520,ok:0,gain:400},'1b':{now:400,need:520,ok:0,gain:400},2:{now:520,ok:1,gain:0},3:{now:520,ok:1,gain:0}};
+var INPUT={1:{now:400,need:520,ok:0,gain:400},'1b':{now:400,need:520,ok:0,gain:400},2:{now:520,ok:1,gain:0},3:{now:520,ok:1,gain:0},'3b':{now:520,ok:1,gain:0}};
 /* page always opens on 1(b) */
 var scn='1b';
 /* final design: idea E (locked items keep their colours); the Idea switch is hidden */
 var idea='E';
 function applyData(latent){var d=window.GD_DATA[W],t=window.GD_TOP[W];Object.keys(D0).forEach(function(k){d[k]=JSON.parse(JSON.stringify(D0[k]))});Object.keys(T0).forEach(function(k){t[k]=T0[k]});
- if(latent&&scn=='3'){/* capacity cuts fixed: all 4 metrics Good, the +200 is now in "orders right now" */
+ if(latent&&(scn=='3'||scn=='3b')){/* capacity cuts fixed: all 4 metrics Good, the +200 is now in "orders right now" */
   d.load=['0 pilots',1,'0 pilots',8];d.d0=[91.0,1];d.fad=[79.0,1];d.mis=[0.8,1];t.now=T0.now+T0.cap;t.cap=0}}
 window.GD_CAPIN=function(w){var I=INPUT[scn];return I.ok?[I.now,1]:[I.now,0,I.need,I.gain]};
 
 /* ---- switches ---- */
 var sw=document.getElementById('ideaSw'),ss=document.getElementById('scnSw'),vs=document.getElementById('verSw'),ver='3';/* V3 is the default */
-vs.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;ver=b.dataset.v;if(ver!='1'&&scn=='1'){scn='1b';SIMW=null}mark();rerender()});
-function mark(){sw.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.i==idea)});ss.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.s==scn)});vs.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.v==ver)});ss.querySelector('[data-s="1"]').style.display=ver!='1'?'none':''}
+vs.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;ver=b.dataset.v;if(ver!='1'&&scn=='1'){scn='1b';SIMW=null}if(ver!='3'&&scn=='3b'){scn='3';SIMW=null}mark();rerender()});
+function mark(){sw.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.i==idea)});ss.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.s==scn)});vs.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.v==ver)});ss.querySelector('[data-s="1"]').style.display=ver!='1'?'none':'';ss.querySelector('[data-s="3b"]').style.display=ver=='3'?'':'none'}
 function rerender(){var latent=document.getElementById('gmPanel').getAttribute('data-brand')!='valmo';applyData(latent);var li=document.querySelector('#gmDD li[data-v="'+W+'"]');if(li)li.click();else window.GD_IDEA(W)}
 sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;idea=b.dataset.i;try{localStorage.setItem('gdIdea',idea)}catch(e){}mark();rerender()});
 ss.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;scn=b.dataset.s;SIMW=null;mark();rerender()});
@@ -2716,7 +2722,7 @@ function path(x,T,st){var el=document.getElementById('gdPath');
 
 /* ---- V3: inside "Orders more you can get" the levers become a 2-step track ---- */
 function track(x,T,st){var old=document.getElementById('ideaStep');if(old)old.remove();var lv=document.getElementById('gdLevers');lv.style.display='';
- if(ver!='3'||!st.I.ok)return;
+ if(ver!='3'||!st.I.ok||scn=='3b')return;
  var cut=st.cut,bad=CAPK.filter(function(k){return !x[k][1]}).map(function(k){return CAPN[k]});
  var B=[{k:'cap',t:'Avoid capacity cuts',state:cut?'now':'done',val:cut?'<span class="stp-num">+'+f(T.cap)+'</span> <small>orders/week</small>':'No capacity cuts',sub:cut?'Improve '+bad.join(', '):''},
   {k:'vol',t:'Grow your volume',state:cut?'next':'now',val:(cut?LOCK:'')+'<span class="stp-num">+'+f(T.cod+T.pre)+'</span> <small>orders/week</small>',sub:'COD RTO +'+f(T.cod)+' · Prepaid Rate +'+f(T.pre)}];
