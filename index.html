@@ -2811,7 +2811,7 @@ function groups(x,T,st){document.getElementById('gmGroups').style.display='';doc
   var locked=st.why&&(g=='vol'||st.why=='input'),gain=g=='vol'?T.cod+T.pre:T.cap;
   /* 1(b): both groups closed, no pills - only there to check data */
   if(st.focus){box.classList.add('idea-strip');bh.insertAdjacentHTML('beforeend','<span class="idea-x idea-peekbtn">Show'+CHEV+'</span>');locked=false}
-  else if(g=='cap'&&!st.cut&&!locked){box.classList.add('idea-strip');bh.insertAdjacentHTML('beforeend','<span class="idea-x idea-chip ok">All 4 Good · no cut</span><span class="idea-x idea-peekbtn">Show'+CHEV+'</span>')}
+  else if(g=='cap'&&!st.cut&&!locked){box.classList.add('idea-strip');if(nv=='2')box.classList.add('idea-peek');bh.insertAdjacentHTML('beforeend','<span class="idea-x idea-chip ok">All 4 Good · no cut</span><span class="idea-x idea-peekbtn">'+(nv=='2'?'Hide':'Show')+CHEV+'</span>')}
   if(locked){box.classList.add('idea-strip','idea-locked');var msg=g=='cap'?'Increase DC Capacity first. Then work on these metrics.':'Fix capacity cuts first';
    bh.insertAdjacentHTML('beforeend','<span class="idea-x idea-chip lock">'+LOCK+msg+'</span><span class="idea-x idea-peekbtn">Show'+CHEV+'</span>');
    }
@@ -2861,7 +2861,7 @@ function nvSetup(){var pn=document.getElementById('gmPanel'),pane=document.getEl
 var SV_UP='<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 11.5 6 7l3 3 5.5-5.5M10.5 4.5h4v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',SV_DN='<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.5 4.5 6 9l3-3 5.5 5.5M10.5 11.5h4v-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 function nvDecorate(x,T,st){var bar=document.getElementById('gdBar');bar.querySelectorAll('.gd-bub,.gd-cut').forEach(function(n){n.remove()});var up=document.getElementById('gdUp'),add=scn=='3'?T0.cap:0;up.classList.remove('cut');
  /* V1 + V2, Cuts on: the orders lost to the cut show as a red part right after the marker, with one red line under the bar */
- if(nv<'3'&&scn!='3'&&T.cap){var mx=T.now+T.cap+T.cod+T.pre,p0=T.now/mx*100;bar.insertAdjacentHTML('beforeend','<span class="gd-cut" style="left:'+p0+'%;width:'+(T.cap/mx*100)+'%"></span>');up.classList.add('cut');up.style.visibility='visible';up.innerHTML=SV_DN+'<b>'+f(T.cap)+' orders lost</b> due to capacity cuts. Improve capacity cuts metrics'}
+ if(nv<='3'&&scn!='3'&&T.cap){var mx=T.now+T.cap+T.cod+T.pre,p0=T.now/mx*100;bar.insertAdjacentHTML('beforeend','<span class="gd-cut" style="left:'+p0+'%;width:'+(T.cap/mx*100)+'%"></span>');up.classList.add('cut');up.style.visibility='visible';up.innerHTML=SV_DN+'<b>'+f(T.cap)+' orders lost</b> due to capacity cuts. Improve capacity cuts metrics'}
  if(add){var max=T.now+T.cod+T.pre,pct=T.now/max*100,g=add/max*100;bar.querySelector('i').style.width=(pct-g)+'%';var b=bar.querySelector('b');b.style.left=(pct-g)+'%';b.style.width=g+'%';b.style.display='';
   up.style.visibility='visible';up.innerHTML=SV_UP+'<b>+'+f(add)+' orders</b> added by fixing capacity cuts';
   if(nv=='3')bar.insertAdjacentHTML('beforeend','<span class="gd-bub" style="left:'+pct+'%">'+f(T.now)+' orders/week</span>')}
@@ -2935,6 +2935,16 @@ rerender();
 .vp-scope .tx5 .mid{display:flex;flex-direction:column;justify-content:center}
 .vp-scope .tx5 .mh{font:var(--vpBody1);color:var(--vpGreyDark02);margin-bottom:10px}.vp-scope .tx5 .mh b{color:var(--vpGreenAction)}
 @media (max-width:1100px){.vp-scope .tx4,.vp-scope .tx5{grid-template-columns:1fr}}
+
+/* fixes: same banner height in both scenarios, V5 pill fits, V1 cards same size as the groups */
+.vp-scope #pane-cuts[data-nv="3"] .gd-bar{margin-top:40px}
+.vp-scope .tx-st .nt{min-height:26px;display:flex;align-items:center}.vp-scope .tx-st .t{min-height:24px}
+.vp-scope .tx-st .tx-chip{line-height:20px}
+.vp-scope .tx-st .g{min-height:24px;display:flex;align-items:center;justify-content:flex-end}
+.vp-scope .tx5{grid-template-columns:190px 40px 1fr 40px 190px}
+.vp-scope .tx5 .bx .tx-chip{white-space:normal;max-width:100%;box-sizing:border-box}
+.vp-scope #gmPanel[data-one] #gmValmo .gm-row .mc{flex:0 0 calc((100% - 36px)/4);min-width:280px}
+.vp-scope #gmPanel[data-one] #gmValmo .mc .mn{flex-wrap:nowrap;overflow:hidden}
 </style>
 <script>
 (function(){
@@ -2957,11 +2967,11 @@ function rows(D,unit){
 function v4(D){var P=function(v){return (v/D.max*100)+'%'};
  var bar='<i style="width:'+P(D.T.now)+';background:var(--vpBrand)"></i>'+(D.cut?'<i style="width:'+P(D.T.cap)+';background:var(--vpRedAction)"></i>':'')+'<i style="width:'+P(D.vg)+';background:#A8DDB5"></i>';
  return '<div class="tx-card tx4"><div class="l"><div class="tx-k">Your orders now ('+D.wk+')</div><div class="big">'+f(D.T.now)+'<small>orders/week</small></div><div class="bar">'+bar+'</div><div class="sc"><span>You now</span><span>You can reach <b>'+f(D.max)+'</b></span></div>'+
-  (D.cut?'<div class="ln"><i style="background:var(--vpRedAction)"></i>Capacity cut<b style="color:var(--vpRedAction)">−'+f(D.T.cap)+'</b></div>':'<div class="ln"><i style="background:var(--vpGreyMid01)"></i>Lost due to capacity cut<b>0</b></div>')+
+  (D.cut?'<div class="ln"><i style="background:var(--vpRedAction)"></i>Lost due to capacity cut<b style="color:var(--vpRedAction)">−'+f(D.T.cap)+'</b></div>':'<div class="ln"><i style="background:var(--vpGreyMid01)"></i>Lost due to capacity cut<b>0</b></div>')+
   '<div class="ln"><i style="background:#A8DDB5"></i>More you can gain by growing volume<b style="color:var(--vpGreenAction)">+'+f(D.vg)+'</b></div></div>'+
-  '<div class="r"><div class="hd"><span class="k">More orders you can get</span><span class="tot">+'+f(D.tot)+'<small>orders/week</small></span><span class="goal">Get <b>'+f(D.max)+'</b> orders/week</span></div>'+rows(D,'orders/week')+'</div></div>'}
+  '<div class="r"><div class="hd"><span class="k">More orders you can get</span><span class="tot">+'+f(D.tot)+'<small>orders/week</small></span><span class="goal">Reach <b>'+f(D.max)+'</b> orders/week</span></div>'+rows(D,'orders/week')+'</div></div>'}
 function v5(D){
- return '<div class="tx-card tx5"><div class="bx now"><div class="tx-k">Orders now ('+D.wk+')</div><div class="v">'+f(D.T.now)+'</div><div class="u">orders/week</div>'+(D.cut?'<span class="tx-chip badl">Capacity cuts −'+f(D.T.cap)+' orders</span>':'<span class="tx-chip okl">No capacity cuts</span>')+'</div>'+
+ return '<div class="tx-card tx5"><div class="bx now"><div class="tx-k">Orders now ('+D.wk+')</div><div class="v">'+f(D.T.now)+'</div><div class="u">orders/week</div>'+(D.cut?'<span class="tx-chip badl">Under capacity cut</span>':'<span class="tx-chip okl">No capacity cuts</span>')+'</div>'+
   '<div class="ar">'+ARW+'</div><div class="mid"><div class="mh">You can get <b>+'+f(D.tot)+'</b> more orders/week</div>'+rows(D,'orders')+'</div><div class="ar">'+ARW+'</div>'+
   '<div class="bx max"><div class="tx-k">Max possible</div><div class="v">'+f(D.max)+'</div><div class="u">orders/week</div><span class="tx-chip ok">+'+f(D.tot)+' more than now</span></div></div>'}
 function act(k){var S=window.GD_ST;if(k=='cap'){document.getElementById('gdL1').click();return}window.GD_VOL(!!(S&&S.st.why))}
