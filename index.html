@@ -2060,10 +2060,9 @@
 /* V1: metrics header shows "Your metrics", filter and arrows; no week picker */
 .vp-scope #gmPanel[data-one]{background:var(--vpWhite)}
 /* V3 No cuts: value bubble over the marker */
-.vp-scope .gd-bar.bub{margin-top:40px}
 .vp-scope .gd-cut{position:absolute;top:0;bottom:0;background:var(--vpRedAction);border-radius:0 3px 3px 0}
 .vp-scope .gd-up.cut{color:var(--vpRedAction)}
-.vp-scope .gd-bub{position:absolute;bottom:calc(100% + 10px);transform:translateX(-50%);background:#1F2226;color:#fff;font:600 13px/18px var(--vpFont);padding:6px 10px;border-radius:6px;white-space:nowrap}
+.vp-scope .gd-bub{position:absolute;bottom:calc(100% + 8px);z-index:2;transform:translateX(-50%);background:#1F2226;color:#fff;font:600 13px/18px var(--vpFont);padding:6px 10px;border-radius:6px;white-space:nowrap}
 .vp-scope .gd-bub::after{content:'';position:absolute;left:50%;top:100%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#1F2226}
 </style>
 </head>
@@ -2936,8 +2935,9 @@ rerender();
 .vp-scope .tx5 .mh{font:var(--vpBody1);color:var(--vpGreyDark02);margin-bottom:10px}.vp-scope .tx5 .mh b{color:var(--vpGreenAction)}
 @media (max-width:1100px){.vp-scope .tx4,.vp-scope .tx5{grid-template-columns:1fr}}
 
+/* V3: same height as V1/V2 - the bubble floats over the empty space next to the number; the step track is as tall as the lever row */
+.vp-scope #pane-cuts[data-nv="3"] #ideaStep{margin-top:0}.vp-scope #pane-cuts[data-nv="3"] #ideaStep .stp-b{gap:0}
 /* fixes: same banner height in both scenarios, V5 pill fits, V1 cards same size as the groups */
-.vp-scope #pane-cuts[data-nv="3"] .gd-bar{margin-top:40px}
 .vp-scope .tx-st .nt{min-height:26px;display:flex;align-items:center}.vp-scope .tx-st .t{min-height:24px}
 .vp-scope .tx-st .tx-chip{line-height:20px}
 .vp-scope .tx-st .g{min-height:24px;display:flex;align-items:center;justify-content:flex-end}
